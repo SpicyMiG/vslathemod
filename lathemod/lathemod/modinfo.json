@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "lathemod",
+    "name": "Lathe Mod",
+    "authors": [
+        "SpicyMiG"
+    ],
+    "description": "Adds a lathe and various recipes for it. ",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+}

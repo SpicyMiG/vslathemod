@@ -1,0 +1,24 @@
+﻿{
+    "ingredient": {
+        "type": "item",
+        "code": "latheblank-*",
+        "name": "wood",
+        "allowedVariants": ["oak", "maple", "larch"]
+    },
+    "pattern": [
+        [
+            "##########",
+            "##########"
+        ],
+        [
+            "##########",
+            "##########"
+        ]
+    ],
+    "name": "stick",
+    "output": {
+        "type": "item",
+        "code": "game:stick",
+        "quantity": 1
+    }
+}

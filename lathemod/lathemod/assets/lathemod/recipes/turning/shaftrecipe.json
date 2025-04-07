@@ -1,0 +1,43 @@
+﻿{
+    "ingredient": {
+        "type": "item",
+        "code": "latheblank-*",
+        "name": "wood",
+        "allowedVariants": ["oak", "maple", "larch"]
+    },
+    "pattern": [
+        [
+            "__",
+            "__",
+            "__",
+            "__",
+            "__",
+            "__",
+            "__"
+        ],
+        [
+            "##",
+            "##",
+            "##",
+            "##",
+            "##",
+            "##",
+            "##"
+        ],
+        [
+            "##",
+            "##",
+            "##",
+            "##",
+            "##",
+            "##",
+            "##"
+        ]
+    ],
+    "name": "shaft",
+    "output": {
+        "type": "item",
+        "code": "shaft-oak",
+        "quantity": 1
+    }
+}

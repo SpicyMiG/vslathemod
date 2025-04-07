@@ -1,0 +1,40 @@
+﻿{
+    "code": "fakeblock",
+    "EntityClass": "lathemod.belatheentityredirect",
+    "shape": { "base": "lathemod:block/invisiblock" },
+    "behaviors": [
+        {
+            "name": "HorizontalOrientable",
+            "properties": { "dropBlockFace": "north" }
+        }
+    ],
+    "collisionSelectionBounds": {
+        "x1": 0,
+        "y1": 0,
+        "z1": 0,
+        "x2": 1,
+        "y2": 0.625,
+        "z2": 1
+    },
+    "sideopaque": {
+        "all": "false"
+    },
+    "shapebytype": {
+        "*-north": {
+            "base": "lathemod:block/metal/lathe/base-halftwo",
+            "rotateY": 180
+        },
+        "*-east": {
+            "base": "lathemod:block/metal/lathe/base-halftwo",
+            "rotateY": 90
+        },
+        "*-south": {
+            "base": "lathemod:block/metal/lathe/base-halftwo",
+            "rotateY": 0
+        },
+        "*-west": {
+            "base": "lathemod:block/metal/lathe/base-halftwo",
+            "rotateY": 270
+        }
+    }
+}

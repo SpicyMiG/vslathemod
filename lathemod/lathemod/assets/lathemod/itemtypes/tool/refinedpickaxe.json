@@ -1,0 +1,252 @@
+﻿{
+    "mainpurpose": "Diggy diggy hole!",
+    "code": "refinedpickaxe",
+    "storageFlags": 5,
+    "attributes": {
+        "heldItemPitchFollow": 0.9,
+        "handbook": {
+            "groupBy": [ "refinedpickaxe-*" ]
+        },
+        "toolrackTransform": {
+            "rotation": {
+                "y": 2.5,
+                "z": -1
+            },
+            "translation": {
+                "x": -0.1,
+                "y": 0.59
+            },
+            "scale": 1.25
+        },
+        "groundStorageTransform": {
+            "translation": {
+                "x": 0,
+                "y": 0.1,
+                "z": -0.065
+            },
+            "rotation": {
+                "x": 20,
+                "y": 88,
+                "z": -87
+            },
+            "scale": 0.88
+        },
+        "slotRefillIdentifier": "pickaxe"
+    },
+    "behaviors": [
+        {
+            "name": "GroundStorable",
+            "properties": {
+                "layout": "WallHalves",
+                "wallOffY": 1,
+                "ctrlKey": true,
+                "selectionBox": {
+                    "x1": 0,
+                    "y1": 0,
+                    "z1": 0,
+                    "x2": 1,
+                    "y2": 0.1,
+                    "z2": 1
+                },
+                "collisionBox": {
+                    "x1": 0,
+                    "y1": 0,
+                    "z1": 0,
+                    "x2": 0,
+                    "y2": 0,
+                    "z2": 0
+                }
+            }
+        }
+    ],
+    "variantgroups": [
+        {
+            "code": "metal",
+            "states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+        }
+    ],
+    "tool": "pickaxe",
+    "damagedby": [ "blockbreaking", "attacking" ],
+    "shape": { "base": "game:item/tool/pickaxe" },
+    "heldTpHitAnimation": "pickaxe",
+    "texturesByType": {
+        "*": {
+            "metal": { "base": "game:block/metal/ingot/{metal}" }
+        }
+    },
+    "tooltierbytype": {
+        "*-copper": 2,
+        "*-gold": 2,
+        "*-silver": 2,
+        "*-bismuthbronze": 3,
+        "*-tinbronze": 3,
+        "*-blackbronze": 3,
+        "*-iron": 4,
+        "*-meteoriciron": 4,
+        "*-steel": 5
+    },
+    "miningspeedbytype": {
+        "refinedpickaxe-copper": {
+            "ceramic": 1.5,
+            "stone": 4.5,
+            "ore": 4.5,
+            "metal": 4.5,
+            "ice": 2.25
+        },
+        "refinedpickaxe-bismuthbronze": {
+            "ceramic": 2.5,
+            "stone": 6,
+            "ore": 6,
+            "metal": 6,
+            "ice": 2.7
+        },
+        "refinedpickaxe-tinbronze": {
+            "ceramic": 2.75,
+            "stone": 6.5,
+            "ore": 6.5,
+            "metal": 6.5,
+            "ice": 2.7
+        },
+        "refinedpickaxe-gold": {
+            "ceramic": 2.25,
+            "stone": 5.5,
+            "ore": 5.5,
+            "metal": 5.5,
+            "ice": 2.5
+        },
+        "refinedpickaxe-silver": {
+            "ceramic": 1.25,
+            "stone": 5.5,
+            "ore": 5.5,
+            "metal": 5.5,
+            "ice": 2.5
+        },
+        "refinedpickaxe-blackbronze": {
+            "ceramic": 3,
+            "stone": 7,
+            "ore": 7,
+            "metal": 7,
+            "ice": 3.3
+        },
+        "refinedpickaxe-iron": {
+            "ceramic": 3.25,
+            "stone": 8,
+            "ore": 8,
+            "metal": 8,
+            "ice": 4
+        },
+        "refinedpickaxe-meteoriciron": {
+            "ceramic": 3.5,
+            "stone": 8.5,
+            "ore": 8.5,
+            "metal": 8.5,
+            "ice": 4.25
+        },
+        "refinedpickaxe-steel": {
+            "ceramic": 3.75,
+            "stone": 9.5,
+            "ore": 9.5,
+            "metal": 9.5,
+            "ice": 4.75
+        }
+    },
+    "attackpowerbytype": {
+        "refinedpickaxe-copper": 1.25,
+        "refinedpickaxe-bismuthbronze": 1.5,
+        "refinedpickaxe-tinbronze": 1.75,
+        "refinedpickaxe-gold": 1.75,
+        "refinedpickaxe-silver": 1.75,
+        "refinedpickaxe-blackbronze": 2,
+        "refinedpickaxe-iron": 2.25,
+        "refinedpickaxe-meteoriciron": 2.5,
+        "refinedpickaxe-steel": 2.5
+    },
+    "durabilitybytype": {
+        "refinedpickaxe-gold": 250,
+        "refinedpickaxe-silver": 275,
+        "refinedpickaxe-copper": 400,
+        "refinedpickaxe-tinbronze": 550,
+        "refinedpickaxe-bismuthbronze": 600,
+        "refinedpickaxe-blackbronze": 650,
+        "refinedpickaxe-iron": 1200,
+        "refinedpickaxe-meteoriciron": 1500,
+        "refinedpickaxe-steel": 3000
+    },
+    "creativeinventory": {
+        "general": [ "*" ],
+        "items": [ "*" ],
+        "tools": [ "*" ]
+    },
+    "guiTransform": {
+        "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotation": {
+            "x": -89,
+            "y": 47,
+            "z": 33
+        },
+        "origin": {
+            "x": 0.61,
+            "y": 0,
+            "z": 0.47
+        },
+        "scale": 1.7
+    },
+    "fpHandTransform": {
+        "translation": {
+            "x": -0.4,
+            "y": -0.5,
+            "z": 0.6
+        },
+        "rotation": {
+            "x": -35,
+            "y": 0,
+            "z": 85
+        },
+        "origin": {
+            "x": 0.1,
+            "y": 0.5,
+            "z": 0.5
+        },
+        "scale": 2.5
+    },
+    "groundTransform": {
+        "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "origin": {
+            "x": 0.5,
+            "y": 0,
+            "z": 0.5
+        },
+        "scale": 3.4
+    },
+    "tpHandTransform": {
+        "translation": {
+            "x": -0.87,
+            "y": -0.01,
+            "z": -0.56
+        },
+        "rotation": {
+            "x": -90,
+            "y": 0,
+            "z": 0
+        },
+        "origin": {
+            "x": 0.5,
+            "y": 0,
+            "z": 0.5
+        },
+        "scale": 0.8
+    }
+}

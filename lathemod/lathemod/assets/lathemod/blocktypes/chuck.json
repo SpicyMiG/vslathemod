@@ -1,0 +1,36 @@
+{
+    "code": "chuck",
+    "behaviors": [
+        {
+            "name": "HorizontalOrientable",
+            "properties": { "dropBlockFace": "north" }
+        }
+    ],
+    "texture": {
+        "base": "game:block/metal/sheet/iron1"
+    },
+    "variantgroups": [
+        {
+            "code": "side",
+            "loadFromProperties": "abstract/horizontalorientation"
+        }
+    ],
+    "shape": {
+        "base": "block/metal/lathe/chuck-north",
+        "rotateYByType": {
+            "*-north": 0,
+            "*-east": 270,
+            "*-south": 180,
+            "*-west": 90
+        }
+    },
+    "sideopaque": {
+        "all": "false"
+    },
+    "blockmaterial": "Stone",
+    "resistance": "3",
+    "sounds": {
+        "place": "game:block/anvil",
+        "walk": "game:walk/anvil"
+    }
+}

@@ -1,0 +1,22 @@
+﻿{
+    "code": "woodtex",
+    "shape": {
+        "base": "game:block/basic/invisible"
+    },
+    "__comment": "Defining these so that they are inserted into the texture atlas and can be referenced later by the ItemLatheWorkItem class",
+    "textures": {
+        "oak": { "base": "game:block/wood/debarked/oak" },
+        "maple": { "base": "game:block/wood/debarked/maple" },
+        "larch": { "base": "game:block/wood/debarked/larch" }
+    },
+    "sidesolid": { "all": false },
+    "sideopaque": { "all": false },
+    "blockmaterial": "Wood",
+    "creativeinventory": { "general": [ "" ] },
+    "replaceable": 400,
+    "resistance": 3,
+    "lightAbsorption": 0,
+    "vertexFlags": {
+        "reflective": true
+    }
+}

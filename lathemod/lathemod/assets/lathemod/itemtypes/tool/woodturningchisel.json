@@ -1,0 +1,210 @@
+﻿{
+    "code": "woodturningchisel",
+    "class": "lathemod.woodturningchisel",
+    "attributes": {
+        "heldItemPitchFollow": 1,
+        "handbook": {
+            "groupBy": [ "woodturningchisel-*" ]
+        },
+        "toolrackTransform": {
+            "translation": {
+                "x": 0,
+                "y": 0.61,
+                "z": 0
+            },
+            "rotation": {
+                "x": 5,
+                "y": 180,
+                "z": -1
+            },
+            "scale": 1.25
+        },
+        "groundStorageTransform": {
+            "translation": {
+                "x": 0,
+                "y": -0.06,
+                "z": 0.015
+            },
+            "rotation": {
+                "x": 26,
+                "y": 88,
+                "z": -87
+            },
+            "scale": 0.88
+        },
+        "onTongTransform": {
+            "translation": {
+                "x": -0.9,
+                "y": -0.8,
+                "z": -0.88
+            },
+            "rotation": {
+                "x": 0,
+                "y": 36,
+                "z": 0
+            },
+            "scale": 0.9
+        }
+    },
+    "behaviors": [
+        {
+            "name": "GroundStorable",
+            "properties": {
+                "layout": "WallHalves",
+                "wallOffY": 1,
+                "ctrlKey": true,
+                "selectionBox": {
+                    "x1": 0,
+                    "y1": 0,
+                    "z1": 0,
+                    "x2": 1,
+                    "y2": 0.1,
+                    "z2": 1
+                },
+                "collisionBox": {
+                    "x1": 0,
+                    "y1": 0,
+                    "z1": 0,
+                    "x2": 0,
+                    "y2": 0,
+                    "z2": 0
+                }
+            }
+        }
+    ],
+    "variantgroups": [
+        {
+            "code": "material",
+            "states": [
+                "copper",
+                "tinbronze",
+                "bismuthbronze",
+                "blackbronze",
+                "gold",
+                "silver",
+                "iron",
+                "meteoriciron",
+                "steel"
+            ]
+        }
+    ],
+    "shape": { "base": "game:item/tool/chisel" },
+    "textures": {
+        "metal": { "base": "game:block/metal/ingot/{material}" }
+    },
+    "damagedBy": [ "blockbreaking", "attacking" ],
+    "heldTpHitAnimation": "chiselhit",
+    "helpTpUseAnimation": "chiselhit",
+    "tooltierbytype": {
+        "*-copper": 2,
+        "*-gold": 2,
+        "*-silver": 2,
+        "*-bismuthbronze": 3,
+        "*-tinbronze": 3,
+        "*-blackbronze": 3,
+        "*-iron": 4,
+        "*-meteoriciron": 4,
+        "*-steel": 5
+    },
+    "durabilitybytype": {
+        "woodturningchisel-stone": 60,
+        "woodturningchisel-gold": 200,
+        "woodturningchisel-silver": 200,
+        "woodturningchisel-copper": 400,
+        "woodturningchisel-tinbronze": 600,
+        "woodturningchisel-bismuthbronze": 720,
+        "woodturningchisel-blackbronze": 880,
+        "woodturningchisel-iron": 1440,
+        "woodturningchisel-meteoriciron": 1680,
+        "woodturningchisel-steel": 3600
+    },
+    "attackpowerbytype": {
+        "woodturningchisel-stone": 0.5,
+        "woodturningchisel-copper": 0.75,
+        "woodturningchisel-gold": 1.0,
+        "woodturningchisel-silver": 1.0,
+        "woodturningchisel-bismuthbronze": 1.0,
+        "woodturningchisel-tinbronze": 1.25,
+        "woodturningchisel-blackbronze": 1.5,
+        "woodturningchisel-iron": 1.75,
+        "woodturningchisel-meteoriciron": 1.85,
+        "woodturningchisel-steel": 2
+    },
+    "creativeinventory": {
+        "general": [ "*" ],
+        "items": [ "*" ],
+        "tools": [ "*" ]
+    },
+    "guiTransform": {
+        "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotation": {
+            "x": 9,
+            "y": 137,
+            "z": -53
+        },
+        "origin": {
+            "x": 0.44,
+            "y": 0,
+            "z": 0.38
+        },
+        "scale": 2.92
+    },
+    "fpHandTransform": {
+        "translation": {
+            "x": -0.1,
+            "y": 0.2,
+            "z": 0
+        },
+        "rotation": {
+            "x": 90,
+            "y": 99,
+            "z": -42
+        },
+        "origin": {
+            "x": 0.5,
+            "y": 0,
+            "z": 0.5
+        },
+        "scale": 2.15
+    },
+    "groundTransform": {
+        "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "origin": {
+            "x": 0.5,
+            "y": 0,
+            "z": 0.5
+        },
+        "scale": 4.31
+    },
+    "tpHandTransform": {
+        "translation": {
+            "x": -0.5599,
+            "y": 0.04,
+            "z": -0.65
+        },
+        "rotation": {
+            "x": -3,
+            "y": 0,
+            "z": -170
+        },
+        "origin": {
+            "x": 0.5,
+            "y": 0,
+            "z": 0.5
+        },
+        "scale": 0.76
+    }
+}

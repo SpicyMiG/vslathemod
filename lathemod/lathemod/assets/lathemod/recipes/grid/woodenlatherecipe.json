@@ -1,0 +1,52 @@
+{
+    "ingredientPattern": "HCS,PAG,RF_",
+    "width": 3,
+    "height": 3,
+    "ingredients": {
+        "H": {
+            "type": "item",
+            "code": "game:hammer-*",
+            "isTool": true,
+            "toolDurabilityCost": 20
+        },
+        "C": {
+            "type": "item",
+            "code": "game:chisel-*",
+            "isTool": true,
+            "toolDurabilityCost": 20
+        },
+        "S": {
+            "type": "item",
+            "code": "game:saw-*",
+            "isTool": true,
+            "toolDurabilityCost": 30
+        },
+        "P": {
+            "type": "item",
+            "code": "game:plank-*",
+            "name": "wood",
+            "quantity": "4"
+        },
+        "A": {
+            "type": "block",
+            "code": "game:woodenaxle-ud"
+        },
+        "G": {
+            "type": "block",
+            "code": "game:angledgears-s"
+        },
+        "R": {
+            "type": "item",
+            "code": "game:resin"
+        },
+        "F": {
+            "type": "item",
+            "code": "game:fat"
+        }
+    },
+    "output": {
+        "type": "block",
+        "code": "lathe-north",
+        "quantity": 1
+    }
+}

@@ -1,0 +1,6 @@
+{
+	"block-lathe-*": "Wood Lathe",
+	"item-latheblank-*": "Lathe Blank",
+	"item-shaft-*": "Wooden Shaft",
+	"blockhelp-selecttoolmode": "Select tool mode"
+}

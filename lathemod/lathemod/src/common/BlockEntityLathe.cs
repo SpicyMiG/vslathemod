@@ -1,0 +1,892 @@
+﻿using lathemod.src.client;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using Vintagestory.API.Client;
+using Vintagestory.API.Common;
+using Vintagestory.API.Config;
+using Vintagestory.API.Datastructures;
+using Vintagestory.API.MathTools;
+using Vintagestory.API.Server;
+using Vintagestory.API.Util;
+using Vintagestory.Client.NoObf;
+using Vintagestory.GameContent;
+using Vintagestory.GameContent.Mechanics;
+
+namespace lathemod.src.common {
+    public class BlockEntityLathe : BlockEntity {
+
+        /* Quern Type Stuff */
+        internal InventoryLathe inventory;
+
+        float timer = 0;
+
+        public float inputTurnTime;
+        public float prevInputTurnTime;
+
+        public int degRot = 0;
+
+        //GuiDialogBlockEntityLathe clientDialog;
+        GuiDialog dlg;
+        bool automated;
+        BEBehaviorMPConsumerLathe mpc;
+        LatheChuckRenderer renderer;
+        LatheRenderer baseRenderer;
+
+        /* Anvil Type Stuff */
+
+        ItemStack workItemStack;
+        ItemStack returnOnCancelStack;
+        public int selectedRecipeId = -1;
+
+        public BlockFacing facing;
+        public byte[,,] Voxels = new byte[16, 6, 16];
+        float voxYOff = 10 / 16f;
+        Cuboidf[] selectionBoxes = new Cuboidf[1];
+        public float MeshAngle;
+        MeshData currentMesh;
+        public int rotation = 0;
+
+        LatheWorkItemRenderer workItemRenderer;
+
+        #region Getters
+
+        public string Material {
+            get { return Block.LastCodePart(); }
+        }
+
+        public float TurnSpeed {
+            get {
+
+                if (automated && mpc.Network != null) {
+                    float speed = Math.Clamp(mpc.TrueSpeed, 0, 3.5f); //otherwise it's just silly and easy to destroy blanks
+                    return speed;
+                }
+
+                return 0f;
+            }
+        }
+        #endregion
+
+        public BlockEntityLathe() {
+            this.inventory = new InventoryLathe(null, null);
+            this.inventory.SlotModified += OnSlotModified;
+        }
+
+        public override void Initialize(ICoreAPI api) {
+            base.Initialize(api);
+
+            facing = BlockFacing.FromCode(Block.Variant["side"]);
+            if (facing == null) { Api.World.BlockAccessor.SetBlock(0, Pos); return; }
+            Vec3i dir = facing.Normali;
+
+            if (api.Side == EnumAppSide.Client) {
+                renderer = new LatheChuckRenderer(api as ICoreClientAPI, Pos, GenMesh("chuck"), this);
+                baseRenderer = new LatheRenderer(api as ICoreClientAPI, this, Pos, GenMesh("base"));
+
+                renderer.mechPowerPart = this.mpc;
+
+                if (automated) {
+                    renderer.ShouldRender = true;
+                    renderer.ShouldRotateAutomated = true;
+                }
+
+                (api as ICoreClientAPI).Event.RegisterRenderer(renderer, EnumRenderStage.Opaque, "lathe");
+                (api as ICoreClientAPI).Event.RegisterRenderer(baseRenderer, EnumRenderStage.Opaque, "lathebase");
+
+                if (latheBaseMesh == null) {
+                    latheBaseMesh = GenMesh("base");
+                }
+                if (latheChuckMesh == null) {
+                    latheChuckMesh = GenMesh("chuck");
+                }
+
+                /*baseRenderer = new LatheRenderer(Api as ICoreClientAPI, this, Pos, GenMesh("base"));
+                (Api as ICoreClientAPI).Event.RegisterRenderer(baseRenderer, EnumRenderStage.Opaque, "lathebase");*/
+            }
+
+            workItemStack?.ResolveBlockOrItem(api.World);
+
+            if (api is ICoreClientAPI capi) {
+                capi.Event.RegisterRenderer(workItemRenderer = new LatheWorkItemRenderer(this, Pos, capi), EnumRenderStage.Opaque);
+                capi.Event.RegisterRenderer(workItemRenderer, EnumRenderStage.AfterFinalComposition);
+
+                workItemRenderer.mechPowerPart = this.mpc;
+
+                RegenMeshAndSelectionBoxes();
+                //capi.Tesselator.TesselateBlock(Block, out currentMesh);
+                capi.Event.ColorsPresetChanged += RegenMeshAndSelectionBoxes;
+            }
+        }
+
+        internal MeshData GenMesh(string type = "base") {
+            Block block = Api.World.BlockAccessor.GetBlock(Pos);
+            if (block.BlockId == 0) return null;
+            string v = Api.World.BlockAccessor.GetBlock(Pos)
+                .ToString()
+                .Split(" ")[1]
+                .Split("/")[0]
+                .Split("-")[1];
+            int deg;
+            //Api.Logger.Event("BELathe GenMesh Variant Code: " + v);
+            switch (v) {
+                case "north":
+                    deg = 0;
+                    break;
+                case "east":
+                    deg = 270;
+                    break;
+                case "south":
+                    deg = 180;
+                    break;
+                case "west":
+                    deg = 90;
+                    break;
+
+                default:
+                    deg = 0;
+                    break;
+            }
+            //Api.Logger.Event("deg: " + deg);
+            degRot = deg;
+
+            MeshData mesh;
+            ITesselatorAPI mesher = ((ICoreClientAPI)Api).Tesselator;
+
+
+            if (type == "base") {
+                Shape shape = Vintagestory.API.Common.Shape.TryGet(Api, "lathemod:shapes/block/metal/lathe/" + type + ".json");
+                mesher.TesselateShape(Block, shape, out mesh, new Vec3f(0, deg, 0));
+
+            } else {
+                mesher.TesselateShape(block, Shape.TryGet(Api, "lathemod:shapes/block/metal/lathe/" + type + "-" + v + ".json"), out mesh);
+            }
+
+            return mesh;
+        }
+
+        MeshData latheBaseMesh {
+            get {
+                object value;
+                Api.ObjectCache.TryGetValue("lathebasemesh", out value);
+                return (MeshData)value;
+            }
+            set { Api.ObjectCache["lathebasemesh"] = value; }
+        }
+
+        MeshData latheChuckMesh {
+            get {
+                object value = null;
+                Api.ObjectCache.TryGetValue("lathechuckmesh", out value);
+                return (MeshData)value;
+            }
+            set { Api.ObjectCache["lathechuckmesh"] = value; }
+        }
+
+        public override void CreateBehaviors(Block block, IWorldAccessor worldForResolve) {
+            base.CreateBehaviors(block, worldForResolve);
+
+            mpc = GetBehavior<BEBehaviorMPConsumerLathe>();
+            if (mpc != null) {
+                mpc.OnConnected = () => {
+                    //Api.Logger.Event("Automated!");
+                    automated = true;
+
+                    if (renderer != null) {
+                        renderer.ShouldRender = true;
+                        renderer.ShouldRotateAutomated = true;
+                    }
+                };
+
+                mpc.OnDisconnected = () => {
+                    automated = false;
+                    if (renderer != null) {
+                        renderer.ShouldRender = false;
+                        renderer.ShouldRotateAutomated = false;
+                    }
+                };
+            }
+        }
+
+        public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator) {
+            base.OnTesselation(mesher, tessThreadTesselator);
+            if (Block == null) return false;
+
+            return true;
+        }
+
+        private void OnRetesselated() {
+            if (renderer == null) return; // Maybe already disposed
+            renderer.ShouldRender = automated;
+
+        }
+
+        public override void OnBlockRemoved() {
+            base.OnBlockRemoved();
+
+            //clientDialog?.TryClose();
+
+            renderer?.Dispose();
+            baseRenderer?.Dispose();
+            workItemRenderer?.Dispose();
+            renderer = null;
+            baseRenderer = null;
+            workItemRenderer = null;
+        }
+
+        public override void OnBlockUnloaded() {
+            base.OnBlockUnloaded();
+
+            renderer?.Dispose();
+            baseRenderer?.Dispose();
+            workItemRenderer?.Dispose();
+            dlg?.TryClose();
+            dlg?.Dispose();
+
+            if (Api is ICoreClientAPI capi) capi.Event.ColorsPresetChanged -= RegenMeshAndSelectionBoxes;
+        }
+
+        public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc) {
+            dsc.AppendLine(Lang.Get("Wood Lathe"));
+
+            if (workItemStack == null || SelectedRecipe == null) {
+                return;
+            }
+
+            dsc.AppendLine(Lang.Get("Output: {0}", SelectedRecipe.Output?.ResolvedItemstack?.GetName()));
+            if (!automated) {
+                dsc.AppendLine(Lang.Get("No mechanical power!"));
+            }
+        }
+
+        public override void FromTreeAttributes(ITreeAttribute tree, IWorldAccessor worldForResolving) {
+            base.FromTreeAttributes(tree, worldForResolving);
+
+            Voxels = deserializeVoxels(tree.GetBytes("voxels"));
+            workItemStack = tree.GetItemstack("workItemStack");
+            selectedRecipeId = tree.GetInt("selectedRecipeId", -1);
+            rotation = tree.GetInt("rotation");
+
+            if (Api != null && workItemStack != null) {
+                workItemStack.ResolveBlockOrItem(Api.World);
+            }
+
+            RegenMeshAndSelectionBoxes();
+
+            MeshAngle = tree.GetFloat("meshAngle", MeshAngle);
+
+            //container.FromTreeAttributes(tree, worldForResolving);
+        }
+
+        public override void ToTreeAttributes(ITreeAttribute tree) {
+            base.ToTreeAttributes(tree);
+            tree.SetBytes("voxels", serializeVoxels(Voxels));
+            tree.SetItemstack("workItemStack", workItemStack);
+            tree.SetInt("selectedRecipeId", selectedRecipeId);
+            tree.SetInt("rotation", rotation);
+            tree.SetFloat("meshAngle", MeshAngle);
+            //container.ToTreeAttributes(tree);
+        }
+
+        internal bool OnPlayerInteract(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel) {
+            if (byPlayer.Entity.Controls.ShiftKey) {
+                return TryPut(world, byPlayer, blockSel);
+            } else return TryTake(world, byPlayer, blockSel);
+        }
+
+
+        private bool TryPut(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel) {
+            ItemSlot slot = byPlayer.InventoryManager.ActiveHotbarSlot;
+            //Api.Logger.Event("Hotbar Item: " + slot.ToString());
+            if (slot.Itemstack == null) return false;
+            ItemStack stack = slot.Itemstack;
+
+            ILatheWorkable workableobj = stack.Collectible as ILatheWorkable;
+
+            if (workableobj == null) {
+                Api.Logger.Event("Not workable item");
+                return false;
+            }
+
+            if (mpc.Network != null) {
+
+            }
+
+            ItemStack newWorkItemStack = workableobj.TryPlaceOn(stack, this);
+            if (newWorkItemStack != null) {
+                if (workItemStack == null) {
+                    workItemStack = newWorkItemStack;
+                    rotation = workItemStack.Attributes.GetInt("rotation");
+                } else return false;
+
+                string facing = Block.Variant["side"];
+                Api.Logger.Event("TryPut: " + facing);
+                switch (facing) {
+                    case "north":
+                        RotateWorkItem(false);
+                        break;
+                    case "east":
+                        break;
+                    case "south":
+                        RotateWorkItem(false);
+                        RotateWorkItem(false);
+                        RotateWorkItem(false);
+                        break;
+                    case "west":
+                        RotateWorkItem(false);
+                        RotateWorkItem(false);
+                        break;
+                }
+                if (selectedRecipeId < 0) {
+                    var list = workableobj.GetMatchingRecipes(stack);
+                    if (list.Count == 1) {
+                        selectedRecipeId = list[0].RecipeId;
+                    } else {
+                        if (world.Side == EnumAppSide.Client) {
+                            Api.Logger.Event("selectedRecipeId: " + selectedRecipeId + ", workitem: " + stack.ToString());
+                            OpenDialog(stack);
+                        }
+                    }
+                }
+
+                returnOnCancelStack = slot.TakeOut(1);
+                slot.MarkDirty();
+
+                Api.World.Logger.Audit("{0} Put 1x{1} in to Lathe at {2}.",
+                    byPlayer?.PlayerName,
+                    newWorkItemStack.Collectible.Code,
+                    Pos);
+
+                if (Api.Side == EnumAppSide.Server) {
+                    // Let the server decide the shape, then send the stuff to client, and then show the correct voxels
+                    // instead of the voxels flicker thing when both sides do it
+                    RegenMeshAndSelectionBoxes();
+                }
+
+                CheckIfFinished(byPlayer);
+                MarkDirty();
+                return true;
+            }
+
+            return false;
+        }
+
+        public virtual void CheckIfFinished(IPlayer byPlayer) {
+            if (SelectedRecipe == null) return;
+
+            if (MatchesRecipe() && Api.World is IServerWorldAccessor) {
+                Voxels = new Byte[16, 6, 16];
+                ItemStack outstack = SelectedRecipe.Output.ResolvedItemstack.Clone();
+                workItemStack = null;
+
+                selectedRecipeId = -1;
+
+                if (byPlayer?.InventoryManager.TryGiveItemstack(outstack) == true) {
+                    Api.World.PlaySoundFor(new AssetLocation("game:sounds/player/collect"), byPlayer, 24);
+                } else {
+                    Api.World.SpawnItemEntity(outstack, Pos.ToVec3d().Add(0.5, 0.626, 0.5));
+                }
+                Api.World.Logger.Audit("{0} Took 1x{1} from Lathe at {2}.",
+                    byPlayer?.PlayerName,
+                    outstack.Collectible.Code,
+                    Pos
+                );
+
+                RegenMeshAndSelectionBoxes();
+                MarkDirty();
+                Api.World.BlockAccessor.MarkBlockDirty(Pos);
+            }
+        }
+
+        public void ditchWorkItemStack(IPlayer byPlayer = null) {
+            if (workItemStack == null) return;
+
+            ItemStack ditchedStack;
+            if (SelectedRecipe == null) {
+                ditchedStack = returnOnCancelStack ?? (workItemStack.Collectible as ILatheWorkable).GetBaseMaterial(workItemStack);
+            } else {
+
+                workItemStack.Attributes.SetBytes("voxels", serializeVoxels(Voxels));
+                workItemStack.Attributes.SetInt("selectedRecipeId", selectedRecipeId);
+
+                ditchedStack = workItemStack;
+            }
+
+            if (byPlayer == null || !byPlayer.InventoryManager.TryGiveItemstack(ditchedStack)) {
+                Api.World.SpawnItemEntity(ditchedStack, Pos);
+            }
+            Api.World.Logger.Audit("{0} Took 1x{1} from Lathe at {2}.",
+                byPlayer?.PlayerName,
+                ditchedStack.Collectible.Code,
+                Pos
+            );
+
+            clearWorkSpace();
+        }
+
+        protected void clearWorkSpace() {
+            workItemStack = null;
+            Voxels = new byte[16, 6, 16];
+            RegenMeshAndSelectionBoxes();
+            MarkDirty();
+            rotation = 0;
+            selectedRecipeId = -1;
+        }
+
+        public bool[,,] recipeVoxels {
+            get {
+                if (SelectedRecipe == null) return null;
+
+                bool[,,] origVoxels = SelectedRecipe.Voxels;
+                bool[,,] rotVoxels = new bool[origVoxels.GetLength(0), origVoxels.GetLength(1), origVoxels.GetLength(2)];
+
+                if (rotation == 0) return origVoxels;
+
+                for (int i = 0; i < rotation / 90; i++) {
+                    for (int x = 0; x < origVoxels.GetLength(0); x++) {
+                        for (int y = 0; y < origVoxels.GetLength(1); y++) {
+                            for (int z = 0; z < origVoxels.GetLength(2); z++) {
+                                rotVoxels[z, y, x] = origVoxels[16 - x - 1, y, z];
+                            }
+                        }
+                    }
+
+                    origVoxels = (bool[,,])rotVoxels.Clone();
+                }
+
+                return rotVoxels;
+            }
+        }
+
+        public static byte[,,] deserializeVoxels(byte[] data) {
+            byte[,,] voxels = new byte[16, 6, 16];
+
+            if (data == null || data.Length < 16 * 6 * 16 / partsPerByte) return voxels;
+
+            int pos = 0;
+
+            for (int x = 0; x < 16; x++) {
+                for (int y = 0; y < 6; y++) {
+                    for (int z = 0; z < 16; z++) {
+                        int bitpos = bitsPerByte * (pos % partsPerByte);
+                        voxels[x, y, z] = (byte)((data[pos / partsPerByte] >> bitpos) & 0x3);
+
+                        pos++;
+                    }
+                }
+            }
+
+            return voxels;
+        }
+
+        public ItemStack WorkItemStack {
+            get { return workItemStack; }
+        }
+
+        private bool MatchesRecipe() {
+            if (SelectedRecipe == null) return false;
+
+            int ymax = Math.Min(6, SelectedRecipe.QuantityLayers);
+
+            bool[,,] recipeVoxels = this.recipeVoxels; // Otherwise we cause lag spikes
+
+            for (int x = 0; x < 16; x++) {
+                for (int y = 0; y < ymax; y++) {
+                    for (int z = 0; z < 16; z++) {
+                        byte desiredMat = (byte)(recipeVoxels[x, y, z] ? EnumVoxelMaterial.Metal : EnumVoxelMaterial.Empty);
+
+                        if (Voxels[x, y, z] != desiredMat) {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        static int bitsPerByte = 2;
+        static int partsPerByte = 8 / bitsPerByte;
+
+        public static byte[] serializeVoxels(byte[,,] voxels) {
+            byte[] data = new byte[16 * 6 * 16 / partsPerByte];
+            int pos = 0;
+
+            for (int x = 0; x < 16; x++) {
+                for (int y = 0; y < 6; y++) {
+                    for (int z = 0; z < 16; z++) {
+                        int bitpos = bitsPerByte * (pos % partsPerByte);
+                        data[pos / partsPerByte] |= (byte)((voxels[x, y, z] & 0x3) << bitpos);
+                        pos++;
+                    }
+                }
+            }
+
+            return data;
+        }
+
+        internal Cuboidf[] GetSelectionBoxes(IBlockAccessor world, BlockPos pos) {
+            return selectionBoxes;
+        }
+
+        private bool TryTake(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel) {
+            if (workItemStack == null) return false;
+
+            ditchWorkItemStack(byPlayer);
+            return true;
+        }
+
+        internal void OpenDialog(ItemStack ingredient) {
+            List<LatheRecipe> recipes = (ingredient.Collectible as ILatheWorkable).GetMatchingRecipes(ingredient);
+
+            List<ItemStack> stacks = recipes
+                .Select(r => r.Output.ResolvedItemstack)
+                .ToList();
+
+            foreach (ItemStack stack in stacks) {
+                Api.Logger.Event("recipe: " + stack.ToString());
+            }
+
+            IClientWorldAccessor clientWorld = (IClientWorldAccessor)Api.World;
+            ICoreClientAPI capi = Api as ICoreClientAPI;
+
+            dlg?.Dispose();
+            dlg = new GuiDialogBlockEntityRecipeSelector(
+                Lang.Get("Select lathe recipe"),
+                stacks.ToArray(),
+                (selectedIndex) => {
+                    selectedRecipeId = recipes[selectedIndex].RecipeId;
+                    capi.Network.SendBlockEntityPacket(Pos, (int)EnumLathePacket.SelectRecipe, SerializerUtil.Serialize(recipes[selectedIndex].RecipeId));
+                },
+                () => {
+                    capi.Network.SendBlockEntityPacket(Pos, (int)EnumLathePacket.CancelSelect);
+                },
+                Pos,
+                Api as ICoreClientAPI
+            );
+            dlg.TryOpen();
+        }
+
+        public LatheRecipe SelectedRecipe {
+            get {
+                return Api.GetLatheRecipes().FirstOrDefault(r => r.RecipeId == selectedRecipeId);
+            }
+        }
+
+        private void OnSlotModified(int slodid) {
+            if (Api is ICoreClientAPI) {
+                //clientDialog.Update(inputTurnTime, maxTurningTime());
+            }
+
+            if (slodid == 0) {
+                if (InputSlot.Empty) {
+                    inputTurnTime = 0.0f; //reset progress to 0 if item removed
+                }
+            }
+        }
+        public override void OnReceivedClientPacket(IPlayer player, int packetid, byte[] data) {
+            base.OnReceivedClientPacket(player, packetid, data);
+            if (packetid == (int)EnumLathePacket.SelectRecipe) {
+                int recipeid = SerializerUtil.Deserialize<int>(data);
+                LatheRecipe recipe = Api.GetLatheRecipes().FirstOrDefault(r => r.RecipeId == recipeid);
+
+                if (recipe == null) {
+                    Api.World.Logger.Error("Client tried to selected lathe recipe with id {0}, but no such recipe exists!");
+                    ditchWorkItemStack(player);
+                    return;
+                }
+
+                var list = (workItemStack?.Collectible as ItemLatheWorkItem)?.GetMatchingRecipes(workItemStack);
+                if (list == null || list.FirstOrDefault(r => r.RecipeId == recipeid) == null) {
+                    Api.World.Logger.Error("Client tried to selected lathe recipe with id {0}, but it is not a valid one for the given work item stack! (" + workItemStack.ToString() + ")", recipe.RecipeId);
+                    ditchWorkItemStack(player);
+                    return;
+                }
+
+
+                selectedRecipeId = recipe.RecipeId;
+
+                // Tell server to save this chunk to disk again
+                MarkDirty();
+                Api.World.BlockAccessor.GetChunkAtBlockPos(Pos).MarkModified();
+            }
+
+            if (packetid == (int)EnumAnvilPacket.CancelSelect) {
+                ditchWorkItemStack(player);
+                return;
+            }
+
+            if (packetid == (int)EnumAnvilPacket.OnUserOver) {
+                Vec3i voxelPos;
+                using (MemoryStream ms = new MemoryStream(data)) {
+                    BinaryReader reader = new BinaryReader(ms);
+                    voxelPos = new Vec3i(reader.ReadInt32(), reader.ReadInt32(), reader.ReadInt32());
+                }
+
+                OnUseOver(player, voxelPos, new BlockSelection() { Position = Pos });
+            }
+        }
+
+        internal void OnUseOver(IPlayer byPlayer, int selectionBoxIndex) {
+            // box index 0 is the lathe itself
+            if (selectionBoxIndex <= 0 || selectionBoxIndex >= selectionBoxes.Length) {
+                //Api.Logger.Event("selectionBoxIndex <= 0 || selectionBoxIndex >= selectionBoxes.Length");
+                return;
+            }
+
+            Cuboidf box = selectionBoxes[selectionBoxIndex];
+
+            Vec3i voxelPos = new Vec3i((int)(16 * box.X1), (int)(16 * box.Y1) - 10, (int)(16 * box.Z1));
+
+            OnUseOver(byPlayer, voxelPos, new BlockSelection() { Position = Pos, SelectionBoxIndex = selectionBoxIndex });
+        }
+
+        internal void OnUseOver(IPlayer byPlayer, Vec3i voxelPos, BlockSelection blockSel) {
+            timer += TurnSpeed;
+            //Api.Logger.Event("timer: " + timer + ", TurnSpeed: " + TurnSpeed);
+            if (voxelPos == null) {
+                Api.Logger.Event("voxelPos == null");
+                return;
+            }
+
+            if (SelectedRecipe == null) {
+                Api.Logger.Event("SelectedRecipe == null");
+                ditchWorkItemStack();
+                return;
+            }
+
+            // Send a custom network packet for server side, because
+            // serverside blockselection index is inaccurate
+            if (Api.Side == EnumAppSide.Client) {
+                SendUseOverPacket(byPlayer, voxelPos);
+            }
+
+
+            ItemSlot slot = byPlayer.InventoryManager.ActiveHotbarSlot;
+            if (slot.Itemstack == null) { //add or no power
+                Api.Logger.Event("slot.Itemstack == null");
+                return;
+            }
+            int toolMode = slot.Itemstack.Collectible.GetToolMode(slot, byPlayer, blockSel);
+
+            float yaw = GameMath.Mod(byPlayer.Entity.Pos.Yaw, 2 * GameMath.PI);
+
+            //Api.Logger.Event("toolMode: " + toolMode.ToString());
+
+            EnumVoxelMaterial voxelMat = (EnumVoxelMaterial)Voxels[voxelPos.X, voxelPos.Y, voxelPos.Z];
+
+            if (voxelMat != EnumVoxelMaterial.Empty && timer > 5) {
+                //spawnParticles(voxelPos, voxelMat, byPlayer);
+                //Api.Logger.Event("voxelMat != EnumVoxelMaterial.Empty");
+                switch (toolMode) {
+                    case 0: OnSplit(voxelPos); break;
+                    case 1: DebugPos(voxelPos); break; //replace with wider chisel tools?
+                    //case 2: OnSplit3(voxelPos); break;
+                }
+                timer = 0;
+
+                RegenMeshAndSelectionBoxes();
+                Api.World.BlockAccessor.MarkBlockDirty(Pos);
+                Api.World.BlockAccessor.MarkBlockEntityDirty(Pos);
+                slot.Itemstack.Collectible.DamageItem(Api.World, byPlayer.Entity, slot);
+
+                if (!HasAnyMetalVoxel()) {
+                    clearWorkSpace();
+                    return;
+                }
+            }
+
+            CheckIfFinished(byPlayer);
+            MarkDirty();
+        }
+
+        internal void OnBeginUse(IPlayer byPlayer, BlockSelection blockSel) {
+        }
+
+        public virtual void OnSplit(Vec3i voxelPos) {
+            //Api.Logger.Event("OnSplit");
+            if (rotation == 0 || rotation == 180) {
+                //centers: X = 6.5, Y = 1.5, Z = 7.5
+                int zo = 6;
+                int x = voxelPos.X;
+                int y = voxelPos.Y;
+                int z = voxelPos.Z;
+                
+                if (Voxels[x, y, z + 1] == (int)EnumVoxelMaterial.Metal && Voxels[x, y, z - 1] == (int)EnumVoxelMaterial.Metal) return;
+                if (Voxels[x, y + 1, z] == (int)EnumVoxelMaterial.Metal && Voxels[x, y - 1, z] == (int)EnumVoxelMaterial.Metal) return;
+
+                try {
+                    /*Api.Logger.Event("\nONE\n" + x + ", " + y + ", " + z +
+                                     "\n" + x + ", " + y + ", " + (15 - z) +
+                                     "\n" + x + ", " + (3 - y) + ", " + z +
+                                     "\n" + x + ", " + (3 - y) + ", " + (15 - z));*/
+
+                    Voxels[x, y, z] = 0;
+                    Voxels[x, y, 15 - z] = 0;
+                    Voxels[x, 3 - y, z] = 0;
+                    Voxels[x, 3 - y, 15 - z] = 0;
+
+                    /*Api.Logger.Event("\nTWO\n" + x + ", " + (z - zo) + ", " + (y + zo) +
+                                     "\n" + x + ", " + (z - zo) + ", " + (15 - y - zo) +
+                                     "\n" + x + ", " + (3 - z + zo) + ", " + (y + zo) +
+                                     "\n" + x + ", " + (3 - z + zo) + ", " + (15 - y - zo));*/
+
+                    Voxels[x, z - zo, y + zo] = 0;
+                    Voxels[x, z - zo, 15 - y - zo] = 0;
+                    Voxels[x, 3 - z + zo, y + zo] = 0;
+                    Voxels[x, 3 - z + zo, 15 - y - zo] = 0;
+                } catch (IndexOutOfRangeException ie) {
+                    Api.Logger.Error("Voxel out of range!");
+                }
+
+            } else {
+                int xo = 6;
+                int x = voxelPos.X + 16;
+                int y = voxelPos.Y;
+                int z = voxelPos.Z;
+
+                try {
+                    /*Api.Logger.Event("\nONE\n" + (x) + ", " + (y) + ", " + z +
+                                     "\n" + (15 - x) + ", " + y + ", " + z +
+                                     "\n" + (x) + ", " + (3 - y) + ", " + z +
+                                     "\n" + (15 - x) + ", " + (3 - y) + ", " + z);*/
+
+                    Voxels[x, y, z] = 0;
+                    Voxels[15 - x, y, z] = 0;
+                    Voxels[x, 3 - y, z] = 0;
+                    Voxels[15 - x, 3 - y, z] = 0;
+
+                    /*Api.Logger.Event("\nTWO\n" + (y + xo) + ", " + (x - xo) + ", " + z +
+                                     "\n" + (15 - y - xo) + ", " + (x - xo) + ", " + z +
+                                     "\n" + (y + xo) + ", " + (3 - x + xo) + ", " + z +
+                                     "\n" + (15 - y - xo) + ", " + (3 - x + xo) + ", " + z);*/
+
+                    Voxels[y + xo, x - xo, z] = 0;
+                    Voxels[15 - y - xo, x - xo, z] = 0;
+                    Voxels[y + xo, 3 - x + xo, z] = 0;
+                    Voxels[15 - y - xo, 3 - x + xo, z] = 0;
+                } catch (IndexOutOfRangeException ie) {
+                    Api.Logger.Error("Voxel out of range!");
+                }
+            }
+        }
+        public virtual void DebugPos(Vec3i voxelPos) {
+            Api.Logger.Event(voxelPos.ToString());
+            //for debug : )
+
+        }
+
+        private bool RotateWorkItem(bool ccw) {
+            byte[,,] rotVoxels = new byte[16, 6, 16];
+
+            for (int x = 0; x < 16; x++) {
+                for (int y = 0; y < 6; y++) {
+                    for (int z = 0; z < 16; z++) {
+                        if (ccw) {
+                            rotVoxels[z, y, x] = Voxels[x, y, 16 - z - 1];
+                        } else {
+                            rotVoxels[z, y, x] = Voxels[16 - x - 1, y, z];
+                        }
+
+                    }
+                }
+            }
+
+            rotation = (rotation + 90) % 360;
+
+            this.Voxels = rotVoxels;
+            RegenMeshAndSelectionBoxes();
+            MarkDirty();
+
+            return true;
+        }
+        bool HasAnyMetalVoxel() {
+            for (int x = 0; x < 16; x++) {
+                for (int y = 0; y < 6; y++) {
+                    for (int z = 0; z < 16; z++) {
+                        if (Voxels[x, y, z] == (byte)EnumVoxelMaterial.Metal) return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+        protected void SendUseOverPacket(IPlayer byPlayer, Vec3i voxelPos) {
+            byte[] data;
+
+            using (MemoryStream ms = new MemoryStream()) {
+                BinaryWriter writer = new BinaryWriter(ms);
+                writer.Write(voxelPos.X);
+                writer.Write(voxelPos.Y);
+                writer.Write(voxelPos.Z);
+                data = ms.ToArray();
+            }
+
+            ((ICoreClientAPI)Api).Network.SendBlockEntityPacket(
+                Pos,
+                (int)EnumAnvilPacket.OnUserOver,
+                data
+            );
+        }
+
+        protected void RegenMeshAndSelectionBoxes() {
+            if (workItemRenderer != null) {
+                workItemRenderer.RegenMesh(workItemStack, Voxels, recipeVoxels);
+            }
+
+            List<Cuboidf> boxes = new List<Cuboidf>();
+            boxes.Add(null);
+
+            for (int x = 0; x < 16; x++) {
+                for (int y = 0; y < 6; y++) {
+                    for (int z = 0; z < 16; z++) {
+                        if (Voxels[x, y, z] != (byte)EnumVoxelMaterial.Empty) {
+                            float py = y + 10;
+                            boxes.Add(new Cuboidf(x / 16f, py / 16f, z / 16f, x / 16f + 1 / 16f, py / 16f + 1 / 16f, z / 16f + 1 / 16f));
+                        }
+                    }
+                }
+            }
+
+            selectionBoxes = boxes.ToArray();
+            //throw new NotImplementedException();
+        }
+
+        #region Helper getters
+
+
+        public ItemSlot InputSlot {
+            get { return inventory[0]; }
+        }
+
+        public ItemSlot OutputSlot {
+            get { return inventory[1]; }
+        }
+
+        public ItemStack InputStack {
+            get { return inventory[0].Itemstack; }
+            set { inventory[0].Itemstack = value; inventory[0].MarkDirty(); }
+        }
+
+        public ItemStack OutputStack {
+            get { return inventory[1].Itemstack; }
+            set { inventory[1].Itemstack = value; inventory[1].MarkDirty(); }
+        }
+
+        public bool IsAutomated {
+            get { return automated; }
+        }
+
+        #endregion
+
+    }
+}
+
+public enum EnumLathePacket {
+    OpenDialog = 1004,
+    SelectRecipe = 1005,
+    OnUserOver = 1006,
+    CancelSelect = 1007
+}

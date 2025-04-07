@@ -1,0 +1,19 @@
+﻿{
+    "code": "latheworkitem",
+    "class": "lathemod.itemlatheworkitem",
+    "variantgroups": [
+        {
+            "code": "wood",
+            "states": [ "oak", "maple", "larch" ]
+        }
+    ],
+    "creativeinventory": {
+        "general": [ "" ],
+        "items": [ "" ]
+    },
+    "textureByType": {
+        "*-oak": { "base": "game:block/wood/debarked/oak" },
+        "*-maple": { "base": "game:block/wood/debarked/maple" },
+        "*-larch": { "base": "game:block/wood/debarked/larch" }
+    }
+}

@@ -1,0 +1,25 @@
+﻿{
+    "code": "latheblank",
+    "class": "lathemod.latheblank",
+    "maxStackSize": 16,
+    "creativeinventory": {
+        "general": [ "*" ]
+    },
+    "variantgroups": [
+        {
+            "code": "wood",
+            "states": [ "oak", "maple", "larch" ]
+        }
+    ],
+    "texturesByType": {
+        "*-oak": {
+            "all": { "base": "game:block/wood/debarked/{wood}" }
+        },
+        "*-maple": {
+            "all": { "base": "game:block/wood/debarked/{wood}" }
+        },
+        "*-larch": {
+            "all": { "base": "game:block/wood/debarked/{wood}" }
+        }
+    }
+}

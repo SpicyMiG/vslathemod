@@ -1,49 +1,98 @@
-﻿{
-    "ingredient": {
-        "type": "item",
-        "code": "latheblank-*",
-        "name": "wood",
-        "allowedVariants": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
-    },
-    "pattern": [
-        [
-            "____",
-            "____",
-            "____",
-            "####",
-            "####",
-            "____"
+﻿[
+    {
+        "ingredient": {
+            "type": "item",
+            "code": "latheblank-*",
+            "name": "wood",
+            "allowedVariants": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
+        },
+        "pattern": [
+            [
+                "____",
+                "____",
+                "____",
+                "####",
+                "####",
+                "____"
+            ],
+            [
+                "____",
+                "____",
+                "____",
+                "#__#",
+                "####",
+                "_##_"
+            ],
+            [
+                "____",
+                "____",
+                "____",
+                "#__#",
+                "####",
+                "_##_"
+            ],
+            [
+                "____",
+                "____",
+                "____",
+                "####",
+                "####",
+                "____"
+            ]
         ],
-        [
-            "____",
-            "____",
-            "____",
-            "#__#",
-            "####",
-            "_##_"
-        ],
-        [
-            "____",
-            "____",
-            "____",
-            "#__#",
-            "####",
-            "_##_"
-        ],
-        [
-            "____",
-            "____",
-            "____",
-            "####",
-            "####",
-            "____"
-        ]
-    ],
         "name": "bowl",
-        "output":
-        {
+        "output": {
             "type": "block",
             "code": "bowl-wood-raw-{wood}",
             "quantity": 1
         }
-}
+    },
+    {
+        "ingredient": {
+            "type": "item",
+            "code": "latheblankhalf-*",
+            "name": "wood",
+            "allowedVariants": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
+        },
+        "pattern": [
+            [
+                "____",
+                "____",
+                "____",
+                "####",
+                "####",
+                "____"
+            ],
+            [
+                "____",
+                "____",
+                "____",
+                "#__#",
+                "####",
+                "_##_"
+            ],
+            [
+                "____",
+                "____",
+                "____",
+                "#__#",
+                "####",
+                "_##_"
+            ],
+            [
+                "____",
+                "____",
+                "____",
+                "####",
+                "####",
+                "____"
+            ]
+        ],
+        "name": "bowl",
+        "output": {
+            "type": "block",
+            "code": "bowl-wood-raw-{wood}",
+            "quantity": 1
+        }
+    }
+]

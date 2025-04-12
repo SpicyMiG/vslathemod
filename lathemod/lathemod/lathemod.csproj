@@ -64,6 +64,7 @@
   <None Remove="assets\lathemod\blocktypes\wood\woodflowerpot.json" />
   <None Remove="assets\lathemod\entities\arrow-refined-.json" />
   <None Remove="assets\lathemod\itemtypes\arrowshaft.json" />
+  <None Remove="assets\lathemod\itemtypes\latheblankhalf.json" />
   <None Remove="assets\lathemod\itemtypes\resource\latheworkitem.json" />
   <None Remove="assets\lathemod\itemtypes\shaft.json" />
   <None Remove="assets\lathemod\itemtypes\toolhead\woodturningchiselhead.json" />
@@ -72,6 +73,7 @@
   <None Remove="assets\lathemod\itemtypes\tool\refinedwoodturningchisel.json" />
   <None Remove="assets\lathemod\itemtypes\tool\woodturningchisel.json" />
   <None Remove="assets\lathemod\patches\arrowpatch.json" />
+  <None Remove="assets\lathemod\recipes\grid\latheblankhalfrecipe.json" />
   <None Remove="assets\lathemod\recipes\grid\latheblankrecipe.json" />
   <None Remove="assets\lathemod\recipes\grid\arrow-refined-recipe.json" />
   <None Remove="assets\lathemod\recipes\grid\refinedpickaxerecipe.json" />

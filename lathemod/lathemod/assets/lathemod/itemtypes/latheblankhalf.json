@@ -1,5 +1,5 @@
 ﻿{
-    "code": "latheblank",
+    "code": "latheblankhalf",
     "class": "lathemod.latheblank",
     "maxStackSize": 16,
     "creativeinventory": {
@@ -13,7 +13,7 @@
         }
     ],
     "attributes": {
-        "blanklength": 10
+        "blanklength": 5
     },
     "texture": {
         "base": "game:block/wood/debarked/{wood}",

@@ -65,7 +65,8 @@
         "mapColorCode": "settlement"
     },
     "creativeinventory": {
-        "general": [ "*-north" ]
+        "general": [ "*-north" ],
+        "lathe": [ "*-north" ]
     },
     "variantgroups": [
         {

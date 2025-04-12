@@ -50,7 +50,8 @@
     },
     "creativeinventory": {
         "general": [ "*" ],
-        "items": [ "*" ]
+        "items": [ "*" ],
+        "lathe": [ "*" ]
     },
     "materialDensity": 650,
     "attackRange": 2.75,

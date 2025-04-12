@@ -20,7 +20,11 @@ namespace lathemod.src.common {
                 CachedMeshRef ccmr = ObjectCacheUtil.GetOrCreate(capi, "clearLatheWorkItem" + Variant["wood"], () => {
                     int textureid;
                     byte[,,] voxels = new byte[16, 6, 16];
-                    ItemLatheBlank.CreateVoxelsFromBlank(capi, ref voxels);
+                    int length = 10;
+
+                    if (itemstack.Attributes.HasAttribute("blanklength")) length = itemstack.Attributes.GetAsInt("blankLength");
+                    api.Logger.Event("LatheWorkItem: " + length);
+                    ItemLatheBlank.CreateVoxelsFromBlank(capi, ref voxels, length);
                     MeshData mesh = GenMesh(capi, itemstack, voxels, out textureid);
 
                     return new CachedMeshRef() {

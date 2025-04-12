@@ -63,7 +63,8 @@
     "doNotRenderAtLod2": true,
     "blockmaterial": "Wood",
     "creativeinventory": {
-        "general": [ "*" ]
+        "general": [ "*" ],
+        "lathe": [ "*" ]
     },
     "replaceable": 300,
     "liquidSelectable": 1,

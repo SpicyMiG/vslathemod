@@ -13,6 +13,7 @@ namespace lathemod.src.common {
         public ItemStack GetBaseMaterial(ItemStack workItemStack) {
             return workItemStack;
         }
+        public int length;
 
         public List<LatheRecipe> GetMatchingRecipes(ItemStack stack) {
             api.Logger.Event(api.GetType().Name + " found " + api.GetLatheRecipes()
@@ -36,15 +37,23 @@ namespace lathemod.src.common {
 
             ItemStack workItemStack = new ItemStack(item);
 
+            if (stack?.ItemAttributes?["blanklength"].Exists == true) {
+                length = (int)stack.ItemAttributes?["blanklength"].AsInt();
+                api.Logger.Event("blanklength: " + length);
+            } else {
+                api.Logger.Event("no blankLength attribute found!");
+                length = 10;
+            }
+
             if (be.WorkItemStack == null) {
-                CreateVoxelsFromBlank(api, ref be.Voxels);
+                CreateVoxelsFromBlank(api, ref be.Voxels, length);
             } else {
                 if (!string.Equals(be.WorkItemStack.Collectible.Variant["wood"], stack.Collectible.Variant["wood"])) {
                     if (api.Side == EnumAppSide.Client) (api as ICoreClientAPI).TriggerIngameError(this, "notequal", Lang.Get("Must be the same wood to add voxels"));
                     return null;
                 }
 
-                if (AddVoxelsFromBlank(ref be.Voxels) == 0) {
+                if (AddVoxelsFromBlank(ref be.Voxels, length) == 0) {
                     if (api.Side == EnumAppSide.Client) (api as ICoreClientAPI).TriggerIngameError(this, "requiresturning", Lang.Get("Try turning down before adding additional voxels"));
                     return null;
                 }
@@ -53,13 +62,14 @@ namespace lathemod.src.common {
             return workItemStack;
         }
 
-        public static void CreateVoxelsFromBlank(ICoreAPI api, ref byte[,,] voxels) {
+        public static void CreateVoxelsFromBlank(ICoreAPI api, ref byte[,,] voxels, int length = 10) {
             voxels = new byte[16, 6, 16];
+            int startX = 9 - (length - 1);
 
-            for (int x = 0; x < 10; x++) {
+            for (int x = 0; x < length; x++) {
                 for (int y = 0; y < 4; y++) {
                     for (int z = 0; z < 4; z++) {
-                        voxels[x, y, 6 + z] = (byte)EnumVoxelMaterial.Metal;
+                        voxels[startX + x, y, 6 + z] = (byte)EnumVoxelMaterial.Metal;
                     }
                 }
             }
@@ -70,9 +80,9 @@ namespace lathemod.src.common {
             voxels[10, 2, 8] = (byte)EnumVoxelMaterial.Metal;
         }
 
-        public static int AddVoxelsFromBlank(ref byte[,,] voxels) {
+        public static int AddVoxelsFromBlank(ref byte[,,] voxels, int length) {
             int totalAdded = 0;
-            for (int x = 0; x < 7; x++) {
+            for (int x = 0; x < length; x++) {
                 for (int z = 0; z < 3; z++) {
                     int y = 0;
                     int added = 0;

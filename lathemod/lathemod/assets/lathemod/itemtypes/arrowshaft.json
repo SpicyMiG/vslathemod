@@ -8,7 +8,8 @@
     ],
     "creativeinventory": {
         "general": [ "*" ],
-        "items": [ "*" ]
+        "items": [ "*" ],
+        "lathe": [ "*" ]
     },
     "texture": {
         "base": "game:block/wood/debarked/{wood}",

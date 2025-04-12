@@ -74,7 +74,8 @@
     "doNotRenderAtLod2": true,
     "creativeinventory": {
         "general": [ "*" ],
-        "decorative": [ "*" ]
+        "decorative": [ "*" ],
+        "lathe": [ "*" ]
     },
     "blockmaterial": "Wood",
     "replaceable": 900,

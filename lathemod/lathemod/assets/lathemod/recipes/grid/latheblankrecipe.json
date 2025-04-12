@@ -10,7 +10,7 @@
         "P": {
             "type": "item",
             "code": "game:plank-*",
-            "allowedVariants": [ "plank-oak", "plank-maple", "plank-acacia", "plank-baldcypress", "plank-ebony", "plank-walnut", "plank-purpleheart" ],
+            "allowedVariants": [ "plank-oak", "plank-maple", "plank-acacia", "plank-baldcypress", "plank-ebony", "plank-walnut", "plank-purpleheart", "plank-pine", "plank-birch", "plank-larch", "plank-redwood" ],
             "name": "wood",
             "quantity": "1"
         }

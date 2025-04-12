@@ -17,7 +17,8 @@
     },
     "creativeinventory": {
         "general": [ "*" ],
-        "items": [ "*" ]
+        "items": [ "*" ],
+        "lathe": [ "*" ]
     },
     "fpHandTransform": {
         "translation": {

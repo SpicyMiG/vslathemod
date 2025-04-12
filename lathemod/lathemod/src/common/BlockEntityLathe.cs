@@ -412,7 +412,7 @@ namespace lathemod.src.common {
             if (SelectedRecipe == null) {
                 ditchedStack = returnOnCancelStack ?? (workItemStack.Collectible as ILatheWorkable).GetBaseMaterial(workItemStack);
             } else {
-                for(int i = 0; i < rotationSteps; i++) {
+                for (int i = 0; i < rotationSteps; i++) {
                     RotateWorkItem(true);
                     //it's a little silly but it works B)
                 }
@@ -691,7 +691,7 @@ namespace lathemod.src.common {
                 switch (toolMode) {
                     case 0: OnSplit(voxelPos); break;
                     case 1: DebugPos(voxelPos); break; //replace with wider chisel tools?
-                    //case 2: OnSplit3(voxelPos); break;
+                                                       //case 2: OnSplit3(voxelPos); break;
                 }
                 timer = 0;
 
@@ -723,17 +723,15 @@ namespace lathemod.src.common {
                 int z = voxelPos.Z;
 
                 //Api.Logger.Event("X: " + x + ", Y:" + y + "Z: " + z);
-
-                if (Voxels[x, y, z + 1] == (int)EnumVoxelMaterial.Metal && Voxels[x, y, z - 1] == (int)EnumVoxelMaterial.Metal ||
-                    Voxels[x, y + 1, z] == (int)EnumVoxelMaterial.Metal && Voxels[x, y - 1, z] == (int)EnumVoxelMaterial.Metal) {
-                    if (x != 15 && x != 0 && z != 15 && z != 0) {
-                        if (Voxels[x + 1, y, z] != (int)EnumVoxelMaterial.Empty && Voxels[x - 1, y, z] != (int)EnumVoxelMaterial.Empty) {
-                            return;
-                        }
-                    }
-                }//TODO: copy above to other rotation
-
                 try {
+                    if (Voxels[x, y, z + 1] == (int)EnumVoxelMaterial.Metal && Voxels[x, y, z - 1] == (int)EnumVoxelMaterial.Metal ||
+                    Voxels[x, y + 1, z] == (int)EnumVoxelMaterial.Metal && Voxels[x, y - 1, z] == (int)EnumVoxelMaterial.Metal) {
+                        if (x != 15 && x != 0 && z != 15 && z != 0) {
+                            if (Voxels[x + 1, y, z] != (int)EnumVoxelMaterial.Empty && Voxels[x - 1, y, z] != (int)EnumVoxelMaterial.Empty) {
+                                return;
+                            }
+                        }
+                    }//TODO: copy above to other rotation
                     /*Api.Logger.Event("\nONE\n" + x + ", " + y + ", " + z +
                                      "\n" + x + ", " + y + ", " + (15 - z) +
                                      "\n" + x + ", " + (3 - y) + ", " + z +
@@ -764,6 +762,15 @@ namespace lathemod.src.common {
                 int z = voxelPos.Z;
 
                 try {
+                    if (Voxels[x + 1, y, z] == (int)EnumVoxelMaterial.Metal && Voxels[x - 1, y, z] == (int)EnumVoxelMaterial.Metal ||
+                    Voxels[x, y + 1, z] == (int)EnumVoxelMaterial.Metal && Voxels[x, y - 1, z] == (int)EnumVoxelMaterial.Metal) {
+                        if (x != 15 && x != 0 && z != 15 && z != 0) {
+                            if (Voxels[x, y, z + 1] != (int)EnumVoxelMaterial.Empty && Voxels[x, y, z - 1] != (int)EnumVoxelMaterial.Empty) {
+                                return;
+                            }
+                        }
+                    }
+
                     /*Api.Logger.Event("\nONE\n" + (x) + ", " + (y) + ", " + z +
                                      "\n" + (15 - x) + ", " + y + ", " + z +
                                      "\n" + (x) + ", " + (3 - y) + ", " + z +

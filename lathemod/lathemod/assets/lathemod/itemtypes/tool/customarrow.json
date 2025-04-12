@@ -1,0 +1,86 @@
+{
+	code: "arrow-refined",
+	class: "ItemArrow",
+	variantgroups: [
+		{ code: "material", states: ["crude", "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel", "erel" ] },
+	],
+	maxstacksize: 64,
+	storageFlags: 513,
+	shapeByType: {
+		"arrow-crude": { "base": "game:item/tool/arrow-crude" },
+		"arrow-flint": { "base": "game:item/tool/arrow-stone" },
+		"arrow-gold": { "base": "game:item/tool/arrow-gold" },
+		"arrow-silver": { "base": "game:item/tool/arrow-silver" },
+		"arrow-erel": { "base": "game:entity/air/erel/projectile-small-usable" },
+		"*": { "base": "game:item/tool/arrow-copper" }
+	},
+	texturesByType: {
+		"*-crude": { },
+		"*-erel": { },
+		"*-flint": {
+			"material": { "base": "game:block/stone/flint" }
+		},
+		"*": {
+			"material": { "base": "game:block/metal/ingot/{material}" }
+		}
+	},
+	creativeinventory: { "general": ["*"], "items": ["*"], "tools": ["*"] },
+	guiTransform: {
+		rotation: { x: -23, y: -45, z: -145 },
+		origin: { x: 0.7, y: -0.45, z: 0 },
+		scale: 1.44
+	},
+	fpHandTransform: {
+		translation: { x: 0.35, y: 0, z: 0 },
+		rotation: { x: 87, y: 90, z: -30 },
+		scale: 1.14
+	},
+	tpHandTransform: {
+		translation: { x: -1.05, y: -0.4599, z: -0.87 },
+		rotation: { x: 0, y: 2, z: 3 },
+		scale: 0.55
+	},
+	groundTransform: {
+		translation: { x: 0, y: 0, z: 0 },
+		rotation: { x: 0, y: 0, z: 0 },
+		origin: { x: 0.5, y: -0.03, z: 0.5 },
+		scale: 2.64
+	},
+	attributes: {
+		arrowEntityCodeByType: {
+			"*-erel": "game:erelprojectile-small-usable",
+			"*": "lathemod:arrow-refined-{material}"
+		},
+		damageByType: {
+			"*-crude": -0.75,
+			"*-flint": -0.5,
+			"*-copper": 0,
+			"*-erel": 0,
+			"*-tinbronze": 1,
+			"*-gold": 1,
+			"*-silver": 1,
+			"*-bismuthbronze": 1,
+			"*-blackbronze": 1.5,
+			"*-iron": 2,
+			"*-meteoriciron": 2.25,
+			"*-steel": 2.5
+		},
+		breakChanceOnImpactByType: {
+			"*-crude": 0.3,
+			"*-erel": 1,
+			"*-flint": 0.25,
+			"*-copper": 0.15,
+			"*-tinbronze": 0.125,
+			"*-gold": 0.15,
+			"*-silver": 0.15,
+			"*-bismuthbronze": 0.125,
+			"*-blackbronze": 0.1,
+			"*-iron": 0.1,
+			"*-meteoriciron": 0.1,
+			"*-steel": 0.07
+		},
+		handbook: {
+			groupBy: ["arrow-*"]
+		}
+	},
+}

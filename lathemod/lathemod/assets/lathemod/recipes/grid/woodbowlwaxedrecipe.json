@@ -3,7 +3,7 @@
     "ingredients": {
         "W": {
             "type": "block",
-            "code": "bowl-wood-raw-*",
+            "code": "lathemod:bowl-wood-raw-*",
             "name": "wood"
         },
         "B": {
@@ -15,7 +15,7 @@
     "height": 2,
     "output": {
         "type": "block",
-        "code": "bowl-wood-waxed-{wood}",
+        "code": "lathemod:bowl-wood-waxed-{wood}",
         "quantity": 1
     }
 }

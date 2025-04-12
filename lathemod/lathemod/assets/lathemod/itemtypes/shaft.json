@@ -61,7 +61,7 @@
     "variantgroups": [
         {
             "code": "wood",
-            "states": [ "oak", "maple", "larch" ]
+            "states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart" ]
         }
     ],
     "tpHandTransform": {

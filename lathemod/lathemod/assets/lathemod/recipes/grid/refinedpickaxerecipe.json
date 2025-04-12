@@ -1,14 +1,14 @@
 {
-    "ingredientPattern": "T  S",
+    "ingredientPattern": "T\tS",
     "ingredients": {
         "T": {
             "type": "item",
-            "code": "pickaxehead-*",
+            "code": "game:pickaxehead-*",
             "name": "metal"
         },
         "S": {
             "type": "item",
-            "code": "lathemod:shaft"
+            "code": "lathemod:shaft-*"
         }
     },
     "width": 1,

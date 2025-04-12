@@ -7,7 +7,15 @@
     "textures": {
         "oak": { "base": "game:block/wood/debarked/oak" },
         "maple": { "base": "game:block/wood/debarked/maple" },
-        "larch": { "base": "game:block/wood/debarked/larch" }
+        "acacia": { "base": "game:block/wood/debarked/acacia" },
+        "baldcypress": { "base": "game:block/wood/debarked/baldcypress" },
+        "ebony": { "base": "game:block/wood/debarked/ebony" },
+        "walnut": { "base": "game:block/wood/debarked/walnut" },
+        "purpleheart": { "base": "game:block/wood/debarked/purpleheart" },
+        "pine": { "base": "game:block/wood/debarked/pine" },
+        "larch": { "base": "game:block/wood/debarked/larch" },
+        "birch": { "base": "game:block/wood/debarked/birch" },
+        "redwood": { "base": "game:block/wood/debarked/redwood" },
     },
     "sidesolid": { "all": false },
     "sideopaque": { "all": false },

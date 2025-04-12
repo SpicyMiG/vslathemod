@@ -189,5 +189,17 @@
     "sounds": {
         "place": "game:block/anvil",
         "walk": "game:walk/anvil"
+    },
+    "guiTransform": {
+        "translation": {
+            "x": 3,
+            "y": 0,
+            "z": 0
+        },
+        "rotation": {
+            "x": -22,
+            "y": -45.3,
+            "z": 0
+        }
     }
 }

@@ -1,0 +1,44 @@
+[
+    {
+        "ingredientPattern": "T\tS",
+        "ingredients": {
+            "T": {
+                "type": "item",
+                "code": "woodturningchiselhead-*",
+                "name": "metal"
+            },
+            "S": {
+                "type": "item",
+                "code": "lathemod:shaft-*"
+            }
+        },
+        "width": 1,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "woodturningchisel-refined-{metal}",
+            "quantity": 1
+        }
+    },
+    {
+        "ingredientPattern": "T\tS",
+        "ingredients": {
+            "T": {
+                "type": "item",
+                "code": "woodturningchiselhead-*",
+                "name": "metal"
+            },
+            "S": {
+                "type": "item",
+                "code": "game:stick"
+            }
+        },
+        "width": 1,
+        "height": 2,
+        "output": {
+            "type": "item",
+            "code": "woodturningchisel-{metal}",
+            "quantity": 1
+        }
+    }
+]

@@ -43,11 +43,13 @@ namespace lathemod.src.common {
 
         public BlockFacing facing;
         public byte[,,] Voxels = new byte[16, 6, 16];
+        public byte[,,] OrigVoxels = null;
         float voxYOff = 10 / 16f;
         Cuboidf[] selectionBoxes = new Cuboidf[1];
         public float MeshAngle;
         MeshData currentMesh;
         public int rotation = 0;
+        private int rotationSteps = 0;
 
         LatheWorkItemRenderer workItemRenderer;
 
@@ -287,7 +289,6 @@ namespace lathemod.src.common {
             tree.SetInt("selectedRecipeId", selectedRecipeId);
             tree.SetInt("rotation", rotation);
             tree.SetFloat("meshAngle", MeshAngle);
-            //container.ToTreeAttributes(tree);
         }
 
         internal bool OnPlayerInteract(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel) {
@@ -322,21 +323,25 @@ namespace lathemod.src.common {
                 } else return false;
 
                 string facing = Block.Variant["side"];
-                Api.Logger.Event("TryPut: " + facing);
+                //Api.Logger.Event("TryPut: " + facing);
                 switch (facing) {
                     case "north":
                         RotateWorkItem(false);
+                        rotationSteps = 1;
                         break;
                     case "east":
+                        rotationSteps = 0;
                         break;
                     case "south":
                         RotateWorkItem(false);
                         RotateWorkItem(false);
                         RotateWorkItem(false);
+                        rotationSteps = 3;
                         break;
                     case "west":
                         RotateWorkItem(false);
                         RotateWorkItem(false);
+                        rotationSteps = 2;
                         break;
                 }
                 if (selectedRecipeId < 0) {
@@ -407,7 +412,10 @@ namespace lathemod.src.common {
             if (SelectedRecipe == null) {
                 ditchedStack = returnOnCancelStack ?? (workItemStack.Collectible as ILatheWorkable).GetBaseMaterial(workItemStack);
             } else {
-
+                for(int i = 0; i < rotationSteps; i++) {
+                    RotateWorkItem(true);
+                    //it's a little silly but it works B)
+                }
                 workItemStack.Attributes.SetBytes("voxels", serializeVoxels(Voxels));
                 workItemStack.Attributes.SetInt("selectedRecipeId", selectedRecipeId);
 
@@ -713,9 +721,17 @@ namespace lathemod.src.common {
                 int x = voxelPos.X;
                 int y = voxelPos.Y;
                 int z = voxelPos.Z;
-                
-                if (Voxels[x, y, z + 1] == (int)EnumVoxelMaterial.Metal && Voxels[x, y, z - 1] == (int)EnumVoxelMaterial.Metal) return;
-                if (Voxels[x, y + 1, z] == (int)EnumVoxelMaterial.Metal && Voxels[x, y - 1, z] == (int)EnumVoxelMaterial.Metal) return;
+
+                //Api.Logger.Event("X: " + x + ", Y:" + y + "Z: " + z);
+
+                if (Voxels[x, y, z + 1] == (int)EnumVoxelMaterial.Metal && Voxels[x, y, z - 1] == (int)EnumVoxelMaterial.Metal ||
+                    Voxels[x, y + 1, z] == (int)EnumVoxelMaterial.Metal && Voxels[x, y - 1, z] == (int)EnumVoxelMaterial.Metal) {
+                    if (x != 15 && x != 0 && z != 15 && z != 0) {
+                        if (Voxels[x + 1, y, z] != (int)EnumVoxelMaterial.Empty && Voxels[x - 1, y, z] != (int)EnumVoxelMaterial.Empty) {
+                            return;
+                        }
+                    }
+                }//TODO: copy above to other rotation
 
                 try {
                     /*Api.Logger.Event("\nONE\n" + x + ", " + y + ", " + z +
@@ -743,7 +759,7 @@ namespace lathemod.src.common {
 
             } else {
                 int xo = 6;
-                int x = voxelPos.X + 16;
+                int x = voxelPos.X;
                 int y = voxelPos.Y;
                 int z = voxelPos.Z;
 
@@ -796,7 +812,7 @@ namespace lathemod.src.common {
 
             rotation = (rotation + 90) % 360;
 
-            this.Voxels = rotVoxels;
+            Voxels = rotVoxels;
             RegenMeshAndSelectionBoxes();
             MarkDirty();
 

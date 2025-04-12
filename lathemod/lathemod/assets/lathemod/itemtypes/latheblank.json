@@ -8,18 +8,38 @@
     "variantgroups": [
         {
             "code": "wood",
-            "states": [ "oak", "maple", "larch" ]
+            "states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
         }
     ],
-    "texturesByType": {
-        "*-oak": {
-            "all": { "base": "game:block/wood/debarked/{wood}" }
+    "texture": {
+        "base": "game:block/wood/debarked/{wood}",
+        "rotation": 90
+    },
+    "shape": { "base": "lathemod:item/latheblank" },
+    "guiTransform": {
+        "translation": {
+            "x": 32,
+            "y": 20,
+            "z": 0
         },
-        "*-maple": {
-            "all": { "base": "game:block/wood/debarked/{wood}" }
+        "rotation": {
+            "x": -44,
+            "y": -45,
+            "z": 0
         },
-        "*-larch": {
-            "all": { "base": "game:block/wood/debarked/{wood}" }
-        }
+        "scale": 1.96
+    },
+    "tpHandTransform": {
+        "translation": {
+            "x": -0.5,
+            "y": -0.5,
+            "z": -0.2
+        },
+        "rotation": {
+            "x": 126,
+            "y": -90,
+            "z": -15
+        },
+        "scale": 0.8
     }
 }

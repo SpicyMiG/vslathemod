@@ -1,15 +1,16 @@
 {
-    "ingredientPattern": "W  P",
+    "ingredientPattern": "W,P",
     "ingredients": {
         "W": {
             "type": "item",
-            "code": "lathemod:woodturningchisel",
+            "code": "woodturningchisel-*",
             "isTool": true,
             "toolDurabilityCost": 1
         },
         "P": {
             "type": "item",
             "code": "game:plank-*",
+            "allowedVariants": [ "plank-oak", "plank-maple", "plank-acacia", "plank-baldcypress", "plank-ebony", "plank-walnut", "plank-purpleheart" ],
             "name": "wood",
             "quantity": "1"
         }
@@ -18,7 +19,7 @@
     "height": 2,
     "output": {
         "type": "item",
-        "code": "refinedpickaxe-{metal}",
+        "code": "lathemod:latheblank-{wood}",
         "quantity": 1
     }
 }

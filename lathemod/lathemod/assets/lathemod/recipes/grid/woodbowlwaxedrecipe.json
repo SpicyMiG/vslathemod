@@ -1,0 +1,21 @@
+{
+    "ingredientPattern": "W\tB",
+    "ingredients": {
+        "W": {
+            "type": "block",
+            "code": "bowl-wood-raw-*",
+            "name": "wood"
+        },
+        "B": {
+            "type": "item",
+            "code": "game:beeswax"
+        }
+    },
+    "width": 1,
+    "height": 2,
+    "output": {
+        "type": "block",
+        "code": "bowl-wood-waxed-{wood}",
+        "quantity": 1
+    }
+}

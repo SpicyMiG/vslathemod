@@ -57,17 +57,36 @@
   <None Remove="assets\lathemod\blocktypes\fakeblock.json" />
   <None Remove="assets\lathemod\blocktypes\latheblank.json" />
   <None Remove="assets\lathemod\blocktypes\woodtex.json" />
+  <None Remove="assets\lathemod\blocktypes\wood\woodbowlraw-meal.json" />
+  <None Remove="assets\lathemod\blocktypes\wood\woodbowlraw.json" />
+  <None Remove="assets\lathemod\blocktypes\wood\woodbowlwaxed-meal.json" />
+  <None Remove="assets\lathemod\blocktypes\wood\woodbowlwaxed.json" />
+  <None Remove="assets\lathemod\blocktypes\wood\woodflowerpot.json" />
+  <None Remove="assets\lathemod\entities\arrow-refined-.json" />
+  <None Remove="assets\lathemod\itemtypes\arrowshaft.json" />
   <None Remove="assets\lathemod\itemtypes\resource\latheworkitem.json" />
   <None Remove="assets\lathemod\itemtypes\shaft.json" />
+  <None Remove="assets\lathemod\itemtypes\toolhead\woodturningchiselhead.json" />
   <None Remove="assets\lathemod\itemtypes\tool\refinedpickaxe.json" />
+  <None Remove="assets\lathemod\itemtypes\tool\refinedwoodturningchisel.json" />
   <None Remove="assets\lathemod\itemtypes\tool\woodturningchisel.json" />
+  <None Remove="assets\lathemod\patches\arrowpatch.json" />
   <None Remove="assets\lathemod\recipes\grid\latheblankrecipe.json" />
+  <None Remove="assets\lathemod\recipes\grid\arrow-refined-recipe.json" />
   <None Remove="assets\lathemod\recipes\grid\refinedpickaxerecipe.json" />
-  <None Remove="assets\lathemod\recipes\turning\coolershaftrecipe.json" />
+  <None Remove="assets\lathemod\recipes\grid\woodbowlwaxedrecipe.json" />
+  <None Remove="assets\lathemod\recipes\grid\woodturningchiselrecipe.json" />
+  <None Remove="assets\lathemod\recipes\smithing\woodturningchiselheadrecipe.json" />
+  <None Remove="assets\lathemod\recipes\turning\arrowshaftrecipe.json" />
+  <None Remove="assets\lathemod\recipes\turning\woodbowlrecipe.json" />
+  <None Remove="assets\lathemod\recipes\turning\woodflowerpotrecipe.json" />
   <None Remove="assets\lathemod\shapes\block\metal\lathe.json" />
   <None Remove="assets\lathemod\shapes\block\metal\lathe\base-short.json" />
   <None Remove="assets\lathemod\shapes\block\metal\lathe\chuck.json" />
+  <None Remove="assets\lathemod\shapes\item\tool\woodturningchisel.json" />
+  <None Remove="assets\lathemod\shapes\item\tool\woodturningchiselhead.json" />
   <None Remove="assets\lathemod\textures\block\wood\plainoak.png" />
+  <None Remove="assets\worldproperties\item\refined-metal.json" />
   <Content Include="modinfo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </Content>
@@ -77,7 +96,10 @@
 </ItemGroup>
 
 <ItemGroup>
+  <Folder Include="assets\lathemod\entities\" />
   <Folder Include="src\server\" />
 </ItemGroup>
+
+<ProjectExtensions><VisualStudio><UserProperties assets_4lathemod_4recipes_4turning_4woodflowerpotrecipe_1json__JsonSchema="vintagestory" /></VisualStudio></ProjectExtensions>
 
 </Project>

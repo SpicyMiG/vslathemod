@@ -102,6 +102,7 @@ namespace lathemod.src.common {
                     }
                 }
             }
+            int kOffset = 0;
 
             int num3 = (16 - num) / 2;
             int num4 = (16 - length) / 2;
@@ -109,16 +110,15 @@ namespace lathemod.src.common {
                 for (int l = 0; l < Math.Min(num2, QuantityLayers); l++) {
                     for (int m = 0; m < Math.Min(length, 16); m++) {
                         if (RotateRecipe) {
-                            Voxels[m + num4, l, k + num3] = Pattern[l][k][m] != '_' && Pattern[l][k][m] != ' ';
+                            Voxels[m + num4, l, k + num3 + kOffset] = Pattern[l][k][m] != '_' && Pattern[l][k][m] != ' ';
                         } else {
                             try {
-                                Voxels[k + num3, l, m + num4] = Pattern[l][k][m] != '_' && Pattern[l][k][m] != ' ';
+                                Voxels[k + num3 + kOffset, l, m + num4] = Pattern[l][k][m] != '_' && Pattern[l][k][m] != ' ';
                             } catch (Exception e) { throw new Exception(string.Format("{0}", Voxels.Length)); }
                         }
                     }
                 }
             }
         }
-
     }
 }

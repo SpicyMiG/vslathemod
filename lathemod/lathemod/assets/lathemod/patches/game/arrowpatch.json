@@ -1,0 +1,373 @@
+﻿[
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addeach",
+        "path": "/variantgroups/0/states/-",
+        "value": [
+            "flint-refined",
+            "copper-refined",
+            "tinbronze-refined",
+            "bismuthbronze-refined",
+            "blackbronze-refined",
+            "gold-refined",
+            "silver-refined",
+            "iron-refined",
+            "steel-refined",
+            "meteoriciron-refined"
+        ]
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/damageByType/*-flint-refined",
+        "value": -0.5
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/breakChanceOnImpactByType/*-flint-refined",
+        "value": 0.2
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/damageByType/*-copper-refined",
+        "value": 0
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/breakChanceOnImpactByType/*-copper-refined",
+        "value": 0.11
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/damageByType/*-tinbronze-refined",
+        "value": 1
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/breakChanceOnImpactByType/*-tinbronze-refined",
+        "value": 0.09
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/damageByType/*-bismuthbronze-refined",
+        "value": 1
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/breakChanceOnImpactByType/*-bismuthbronze-refined",
+        "value": 0.09
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/damageByType/*-blackbronze-refined",
+        "value": 1.5
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/breakChanceOnImpactByType/*-blackbronze-refined",
+        "value": 0.07
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/damageByType/*-gold-refined",
+        "value": 1
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/breakChanceOnImpactByType/*-gold-refined",
+        "value": 0.11
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/damageByType/*-silver-refined",
+        "value": 1
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/breakChanceOnImpactByType/*-silver-refined",
+        "value": 0.1
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/damageByType/*-iron-refined",
+        "value": 2
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/breakChanceOnImpactByType/*-iron-refined",
+        "value": 0.07
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/damageByType/*-steel-refined",
+        "value": 2.5
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/breakChanceOnImpactByType/*-steel-refined",
+        "value": 0.05
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/damageByType/*-meteoriciron-refined",
+        "value": 2.25
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/attributes/breakChanceOnImpactByType/*-meteoriciron-refined",
+        "value": 0.07
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "move",
+        "frompath": "/texturesByType/*",
+        "path": "/temp"
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/texturesByType/*-flint-refined",
+        "value": {
+            "material": { "base": "game:block/stone/flint" }
+        }
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/texturesByType/*-copper-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/copper" }
+        }
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/texturesByType/*-tinbronze-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/tinbronze" }
+        }
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/texturesByType/*-bismuthbronze-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/bismuthbronze" }
+        }
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/texturesByType/*-blackbronze-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/blackbronze" }
+        }
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/texturesByType/*-gold-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/gold" }
+        }
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/texturesByType/*-silver-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/silver" }
+        }
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/texturesByType/*-iron-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/iron" }
+        }
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/texturesByType/*-steel-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/steel" }
+        }
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/texturesByType/*-meteoriciron-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/meteoriciron" }
+        }
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "move",
+        "frompath": "/temp",
+        "path": "/texturesByType/*"
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "move",
+        "frompath": "/client/texturesByType/*",
+        "path": "/temp"
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addmerge",
+        "path": "/client/texturesByType/*-flint-refined",
+        "value": {
+            "material": { "base": "game:block/stone/flint" }
+        }
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addmerge",
+        "path": "/client/texturesByType/*-copper-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/copper" }
+        }
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addmerge",
+        "path": "/client/texturesByType/*-tinbronze-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/tinbronze" }
+        }
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addmerge",
+        "path": "/client/texturesByType/*-bismuthbronze-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/bismuthbronze" }
+        }
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addmerge",
+        "path": "/client/texturesByType/*-blackbronze-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/blackbronze" }
+        }
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addmerge",
+        "path": "/client/texturesByType/*-gold-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/gold" }
+        }
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addmerge",
+        "path": "/client/texturesByType/*-silver-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/silver" }
+        }
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addmerge",
+        "path": "/client/texturesByType/*-iron-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/iron" }
+        }
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addmerge",
+        "path": "/client/texturesByType/*-steel-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/steel" }
+        }
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addmerge",
+        "path": "/client/texturesByType/*-meteoriciron-refined",
+        "value": {
+            "material": { "base": "game:block/metal/ingot/meteoriciron" }
+        }
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "move",
+        "frompath": "/temp",
+        "path": "/client/texturesByType/*"
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "move",
+        "frompath": "/shapeByType/*",
+        "path": "/temp"
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/shapeByType/*-flint-refined",
+        "value": { "base": "game:item/tool/arrow-stone" }
+
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/shapeByType/*-gold-refined",
+        "value": { "base": "game:item/tool/arrow-gold" }
+
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "addmerge",
+        "path": "/shapeByType/*-silver-refined",
+        "value": { "base": "game:item/tool/arrow-silver" }
+
+    },
+    {
+        "file": "game:itemtypes/tool/arrow.json",
+        "op": "move",
+        "frompath": "/temp",
+        "path": "/shapeByType/*"
+    },
+    {
+        "file": "game:entities/arrow.json",
+        "op": "addeach",
+        "path": "/variantgroups/0/states/-",
+        "value": [
+            "flint-refined",
+            "copper-refined",
+            "tinbronze-refined",
+            "bismuthbronze-refined",
+            "blackbronze-refined",
+            "gold-refined",
+            "silver-refined",
+            "iron-refined",
+            "steel-refined",
+            "meteoriciron-refined"
+        ]
+    }
+]

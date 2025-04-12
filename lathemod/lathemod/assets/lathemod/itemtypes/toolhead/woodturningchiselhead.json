@@ -1,0 +1,89 @@
+﻿{
+    "code": "woodturningchiselhead",
+    "variantgroups": [
+        {
+            "code": "metal",
+            "states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+        }
+    ],
+    "maxstacksize": 4,
+    "shapeByType": {
+        "*": { "base": "item/tool/woodturningchiselhead" }
+    },
+    "texturesByType": {
+        "*": {
+            "metal": { "base": "game:block/metal/ingot/{metal}" }
+        }
+    },
+    "creativeinventory": {
+        "general": [ "*" ],
+        "items": [ "*" ]
+    },
+    "fpHandTransform": {
+        "translation": {
+            "x": -0.5,
+            "y": -0.4,
+            "z": 0
+        },
+        "rotation": {
+            "x": 25,
+            "y": 0,
+            "z": 86
+        },
+        "scale": 2.5
+    },
+    "*": {
+        "translation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotation": {
+            "x": -73,
+            "y": -117,
+            "z": -19
+        },
+        "origin": {
+            "x": 1.06,
+            "y": -0.02,
+            "z": 0.43
+        },
+        "scale": 3.69
+    },
+    "guiTransform": {
+        "translation": {
+            "x": -2,
+            "y": 5,
+            "z": 0
+        },
+        "rotation": {
+            "x": -31,
+            "y": 38,
+            "z": -11
+        },
+        "origin": {
+            "x": 0.9,
+            "y": 0.5,
+            "z": 0
+        },
+        "scale": 5.25
+    },
+    "tpHandTransform": {
+        "translation": {
+            "x": -4,
+            "y": -1.5,
+            "z": -0.85
+        },
+        "rotation": {
+            "x": 0,
+            "y": -2,
+            "z": -25
+        },
+        "origin": {
+            "x": 1.5,
+            "y": 1.5,
+            "z": 0.5
+        },
+        "scale": 0.62
+    }
+}

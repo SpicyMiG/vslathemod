@@ -1,5 +1,5 @@
 ﻿{
-    "code": "woodturningchisel",
+    "code": "woodturningchisel-refined",
     "class": "lathemod.woodturningchisel",
     "attributes": {
         "heldItemPitchFollow": 1,
@@ -107,16 +107,16 @@
         "*-steel": 5
     },
     "durabilitybytype": {
-        "woodturningchisel-stone": 60,
-        "woodturningchisel-gold": 200,
-        "woodturningchisel-silver": 200,
-        "woodturningchisel-copper": 400,
-        "woodturningchisel-tinbronze": 600,
-        "woodturningchisel-bismuthbronze": 720,
-        "woodturningchisel-blackbronze": 880,
-        "woodturningchisel-iron": 1440,
-        "woodturningchisel-meteoriciron": 1680,
-        "woodturningchisel-steel": 3600
+        "woodturningchisel-stone": 100,
+        "woodturningchisel-gold": 300,
+        "woodturningchisel-silver": 300,
+        "woodturningchisel-copper": 550,
+        "woodturningchisel-tinbronze": 800,
+        "woodturningchisel-bismuthbronze": 950,
+        "woodturningchisel-blackbronze": 1100,
+        "woodturningchisel-iron": 1800,
+        "woodturningchisel-meteoriciron": 2100,
+        "woodturningchisel-steel": 4800
     },
     "attackpowerbytype": {
         "woodturningchisel-stone": 0.5,

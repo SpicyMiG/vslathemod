@@ -1,0 +1,45 @@
+﻿{
+    "code": "material",
+    "variants": [
+        {
+            "code": "refined-flint",
+            "tier": 1
+        },
+        {
+            "code": "refined-copper",
+            "tier": 1
+        },
+        {
+            "code": "refined-tinbronze",
+            "tier": 2
+        },
+        {
+            "code": "refined-bismuthbronze",
+            "tier": 2
+        },
+        {
+            "code": "refined-blackbronze",
+            "tier": 2
+        },
+        {
+            "code": "refined-gold",
+            "tier": 1
+        },
+        {
+            "code": "refined-silver",
+            "tier": 1
+        },
+        {
+            "code": "refined-iron",
+            "tier": 3
+        },
+        {
+            "code": "refined-meteoriciron",
+            "tier": 3
+        },
+        {
+            "code": "refined-steel",
+            "tier": 4
+        }
+    ]
+}

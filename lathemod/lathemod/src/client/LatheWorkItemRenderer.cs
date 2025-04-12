@@ -17,9 +17,6 @@ namespace lathemod.src.client {
         private ICoreClientAPI api;
         private BlockPos pos;
 
-        internal bool ShouldRender;
-        internal bool ShouldRotateAutomated;
-
         MeshRef workItemMeshRef;
         MeshRef recipeOutlineMeshRef;
 

@@ -23,9 +23,9 @@ namespace lathemod.src.common {
                 toolModes = ObjectCacheUtil.GetOrCreate(api, "woodturningChiselModes", () => {
                     SkillItem[] modes = new SkillItem[2];
 
-                    modes[0] = new SkillItem() { Code = new AssetLocation("single"), Name = Lang.Get("Single") }.WithIcon(capi, DrawHit);
+                    modes[0] = new SkillItem() { Code = new AssetLocation("flat"), Name = Lang.Get("Single") }.WithIcon(capi, DrawHit);
                     modes[1] = new SkillItem() { Code = new AssetLocation("debugmode"), Name = Lang.Get("Debug Mode") }.WithIcon(capi, DrawHit);
-                    //modes[2] = new SkillItem() { Code = new AssetLocation("triple"), Name = Lang.Get("Triple-wide") }.WithIcon(capi, DrawHit);
+                    //modes[2] = new SkillItem() { Code = new AssetLocation("gouge"), Name = Lang.Get("Gouging") }.WithIcon(capi, DrawHit);
 
                     return modes;
                 });

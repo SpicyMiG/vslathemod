@@ -1,6 +1,5 @@
 ﻿{
-    "code": "latheworkitem",
-    "class": "lathemod.itemlatheworkitem",
+    "code": "arrowshaft",
     "variantgroups": [
         {
             "code": "wood",
@@ -8,11 +7,12 @@
         }
     ],
     "creativeinventory": {
-        "general": [ "" ],
-        "items": [ "" ]
+        "general": [ "*" ],
+        "items": [ "*" ]
     },
     "texture": {
         "base": "game:block/wood/debarked/{wood}",
         "rotation": 90
-    }
+    },
+    "shape": { "base": "lathemod:item/arrowshaft" }
 }

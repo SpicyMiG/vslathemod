@@ -54,7 +54,7 @@ namespace lathemod.src.common {
             return false;
         }
 
-        private void PlaceFakeBlocks(IWorldAccessor world, BlockPos pos, string facing) {
+        /*private void PlaceFakeBlocks(IWorldAccessor world, BlockPos pos, string facing) {
             Block toPlaceBlock = world.GetBlock(new AssetLocation("lathemod:fakeblock"));
             BlockPos newPos = new BlockPos();
             newPos.Z = pos.Z;
@@ -81,7 +81,7 @@ namespace lathemod.src.common {
             if (be != null) {
                 be.Principal = world.BlockAccessor.GetBlockEntity(pos) as BlockEntityLathe;
             } else api.Logger.Event("be null :(");
-        }
+        }*/
 
         public override void OnLoaded(ICoreAPI api) {
             base.OnLoaded(api);
@@ -108,7 +108,7 @@ namespace lathemod.src.common {
                 return new WorldInteraction[] {
                     new WorldInteraction()
                     {
-                        ActionLangCode = "blockhelp-lathe-takeworkable",
+                        ActionLangCode = "blockhelp-takeworkable",
                         HotKeyCode = null,
                         MouseButton = EnumMouseButton.Right,
                         ShouldApply = (wi, bs, es) => {
@@ -118,7 +118,7 @@ namespace lathemod.src.common {
                     },
                     new WorldInteraction()
                     {
-                        ActionLangCode = "blockhelp-lathe-placeworkable",
+                        ActionLangCode = "blockhelp-placeworkable",
                         HotKeyCode = "shift",
                         MouseButton = EnumMouseButton.Right,
                         Itemstacks = workableStacklist.ToArray(),
@@ -131,16 +131,6 @@ namespace lathemod.src.common {
                     {
                         ActionLangCode = "blockhelp-lathe-turn",
                         MouseButton = EnumMouseButton.Left,
-                        Itemstacks = wtcStacklist.ToArray(),
-                        GetMatchingStacks = (wi, bs, es) => {
-                            BlockEntityLathe bel = api.World.BlockAccessor.GetBlockEntity(bs.Position) as BlockEntityLathe;
-                            return bel?.WorkItemStack == null ? null : wi.Itemstacks;
-                        }
-                    },
-                    new WorldInteraction()
-                    {
-                        ActionLangCode = "blockhelp-lathe-rotateworkitem",
-                        MouseButton = EnumMouseButton.Right,
                         Itemstacks = wtcStacklist.ToArray(),
                         GetMatchingStacks = (wi, bs, es) => {
                             BlockEntityLathe bel = api.World.BlockAccessor.GetBlockEntity(bs.Position) as BlockEntityLathe;

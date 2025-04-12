@@ -1,0 +1,50 @@
+﻿{
+    "ingredient": {
+        "type": "item",
+        "code": "latheblank-*",
+        "name": "wood",
+        "allowedVariants": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
+    },
+    "__comment": "first pattern blank to skip bottom Y layer and center 10x2x2 recipe, four blanks at bottom of other layers to keep required blocks in bounds until I fix the recipe generation lol",
+    "pattern": [
+        [
+            "####",
+            "####",
+            "####",
+            "####",
+            "####",
+            "____"
+        ],
+        [
+            "#__#",
+            "#__#",
+            "#__#",
+            "#__#",
+            "#__#",
+            "_##_"
+        ],
+        [
+            "#__#",
+            "#__#",
+            "#__#",
+            "#__#",
+            "#__#",
+            "_##_"
+        ],
+        [
+            "####",
+            "####",
+            "####",
+            "####",
+            "####",
+            "____"
+        ]
+    ],
+        "name": "woodflowerpot",
+        "output":
+        {
+            "type": "block",
+            "code": "lathemod:flowerpot-{wood}",
+            "quantity": 1
+        }
+}

@@ -1,5 +1,6 @@
 {
 	"block-lathe-*": "Wood Lathe",
+
 	"item-latheblank-oak": "Oak Lathe Blank",
 	"item-latheblank-maple": "Maple Lathe Blank",
 	"item-latheblank-acacia": "Acacia Lathe Blank",
@@ -7,6 +8,11 @@
 	"item-latheblank-ebony": "Ebony Lathe Blank",
 	"item-latheblank-walnut": "Walnut Lathe Blank",
 	"item-latheblank-purpleheart": "Purpleheart Lathe Blank",
+	"item-latheblank-pine": "Pine Lathe Blank",
+	"item-latheblank-larch": "Larch Lathe Blank",
+	"item-latheblank-birch": "Birch Lathe Blank",
+	"item-latheblank-redwood": "Redwood Lathe Blank",
+
 	"item-shaft-oak": "Oak Wooden Shaft",
 	"item-shaft-maple": "Maple Wooden Shaft",
 	"item-shaft-acacia": "Acacia Wooden Shaft",
@@ -14,10 +20,12 @@
 	"item-shaft-ebony": "Ebony Wooden Shaft",
 	"item-shaft-walnut": "Walnut Wooden Shaft",
 	"item-shaft-purpleheart": "Purpleheart Wooden Shaft",
-	"blockhelp-selecttoolmode": "Select tool mode",
-	"blockhelp-lathe-takeworkable": "Remove work item",
-	"blockhelp-lathe-placeworkable": "Place work item",
-	"blockhelp-lathe-turn": "Turn workable",
+
+	"lathemod:blockhelp-selecttoolmode": "Select tool mode",
+	"lathemod:blockhelp-lathe-takeworkable": "Remove work item",
+	"lathemod:blockhelp-lathe-placeworkable": "Place work item",
+	"lathemod:blockhelp-lathe-turn": "Turn workable",
+
 	"item-refinedpickaxe-copper": "Refined Copper Pickaxe",
 	"item-refinedpickaxe-tin": "Refined Tin Pickaxe",
 	"item-refinedpickaxe-tinbronze": "Refined Tin Bronze Pickaxe",
@@ -28,6 +36,7 @@
 	"item-refinedpickaxe-iron": "Refined Iron Pickaxe",
 	"item-refinedpickaxe-meteoriciron": "Refined Meteoric Iron Pickaxe",
 	"item-refinedpickaxe-steel": "Refined Steel Pickaxe",
+
 	"item-woodturningchisel-copper": "Copper Woodturning Chisel",
 	"item-woodturningchisel-tin": "Tin Woodturning Chisel",
 	"item-woodturningchisel-tinbronze": "Tin Bronze Woodturning Chisel",
@@ -38,6 +47,7 @@
 	"item-woodturningchisel-iron": "Iron Woodturning Chisel",
 	"item-woodturningchisel-meteoriciron": "Meteoric Iron Woodturning Chisel",
 	"item-woodturningchisel-steel": "Steel Woodturning Chisel",
+
 	"game:item-arrow-flint-refined": "Refined Flint Arrow",
 	"game:item-arrow-copper-refined": "Refined Copper Arrow",
 	"game:item-arrow-tinbronze-refined": "Refined Tin Bronze Arrow",
@@ -47,5 +57,41 @@
 	"game:item-arrow-silver-refined": "Refined Silver Arrow",
 	"game:item-arrow-iron-refined": "Refined Iron Arrow",
 	"game:item-arrow-meteoriciron-refined": "Refined Meteoric Iron Arrow",
-	"game:item-arrow-steel-refined": "Refined Steel Arrow"
+	"game:item-arrow-steel-refined": "Refined Steel Arrow",
+
+	"block-bowl-wood-raw-oak": "Raw Oak Bowl",
+	"block-bowl-wood-raw-maple": "Raw Maple Bowl",
+	"block-bowl-wood-raw-acacia": "Raw Acacia Bowl",
+	"block-bowl-wood-raw-baldcypress": "Raw Baldcypress Bowl",
+	"block-bowl-wood-raw-ebony": "Raw Ebony Bowl",
+	"block-bowl-wood-raw-walnut": "Raw Walnut Bowl",
+	"block-bowl-wood-raw-purpleheart": "Raw Purpleheart Bowl",
+	"block-bowl-wood-raw-pine": "Raw Pine Bowl",
+	"block-bowl-wood-raw-larch": "Raw Larch Bowl",
+	"block-bowl-wood-raw-birch": "Raw Birch Bowl",
+	"block-bowl-wood-raw-redwood": "Raw Redwood Bowl",
+
+	"block-bowl-wood-waxed-oak": "Oak Bowl",
+	"block-bowl-wood-waxed-maple": "Maple Bowl",
+	"block-bowl-wood-waxed-acacia": "Acacia Bowl",
+	"block-bowl-wood-waxed-baldcypress": "Baldcypress Bowl",
+	"block-bowl-wood-waxed-ebony": "Ebony Bowl",
+	"block-bowl-wood-waxed-walnut": "Walnut Bowl",
+	"block-bowl-wood-waxed-purpleheart": "Purpleheart Bowl",
+	"block-bowl-wood-waxed-pine": "Pine Bowl",
+	"block-bowl-wood-waxed-larch": "Larch Bowl",
+	"block-bowl-wood-waxed-birch": "Birch Bowl",
+	"block-bowl-wood-waxed-redwood": "Redwood Bowl",
+
+	"block-bowl-wood-waxed-meal-oak": "Oak Bowl with Meal",
+	"block-bowl-wood-waxed-meal-maple": "Maple Bowl with Meal",
+	"block-bowl-wood-waxed-meal-acacia": "Acacia Bowl with Meal",
+	"block-bowl-wood-waxed-meal-baldcypress": "Baldcypress Bowl with Meal",
+	"block-bowl-wood-waxed-meal-ebony": "Ebony Bowl with Meal",
+	"block-bowl-wood-waxed-meal-walnut": "Walnut Bowl with Meal",
+	"block-bowl-wood-waxed-meal-purpleheart": "Purpleheart Bowl with Meal",
+	"block-bowl-wood-waxed-meal-pine": "Pine Bowl with Meal",
+	"block-bowl-wood-waxed-meal-larch": "Larch Bowl with Meal",
+	"block-bowl-wood-waxed-meal-birch": "Birch Bowl with Meal",
+	"block-bowl-wood-waxed-meal-redwood": "Redwood Bowl with Meal"
 }

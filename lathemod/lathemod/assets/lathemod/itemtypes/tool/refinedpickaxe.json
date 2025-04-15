@@ -5,7 +5,7 @@
     "attributes": {
         "heldItemPitchFollow": 0.9,
         "handbook": {
-            "groupBy": [ "refinedpickaxe-*" ]
+            "groupBy": [ "pickaxe-*" ]
         },
         "toolrackTransform": {
             "rotation": {

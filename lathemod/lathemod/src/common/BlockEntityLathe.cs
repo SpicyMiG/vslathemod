@@ -731,7 +731,16 @@ namespace lathemod.src.common {
                                 return;
                             }
                         }
-                    }//TODO: copy above to other rotation
+                    }
+
+                    if((y == 1 || y == 2) && (z == 7 || z == 8)) {
+                        if(x != 0 && x != 15) {
+                            if (Voxels[x + 1, y, z] == (int)EnumVoxelMaterial.Metal && Voxels[x - 1, y, z] == (int)EnumVoxelMaterial.Metal) {
+                                Api.Logger.Event("Can't split work item");
+                                return; 
+                            }
+                        }
+                    }
                     /*Api.Logger.Event("\nONE\n" + x + ", " + y + ", " + z +
                                      "\n" + x + ", " + y + ", " + (15 - z) +
                                      "\n" + x + ", " + (3 - y) + ", " + z +
@@ -766,6 +775,15 @@ namespace lathemod.src.common {
                     Voxels[x, y + 1, z] == (int)EnumVoxelMaterial.Metal && Voxels[x, y - 1, z] == (int)EnumVoxelMaterial.Metal) {
                         if (x != 15 && x != 0 && z != 15 && z != 0) {
                             if (Voxels[x, y, z + 1] != (int)EnumVoxelMaterial.Empty && Voxels[x, y, z - 1] != (int)EnumVoxelMaterial.Empty) {
+                                return;
+                            }
+                        }
+                    }
+
+                    if ((y == 1 || y == 2) && (x == 7 || x == 8)) {
+                        if (z != 0 && z != 15) {
+                            if (Voxels[x, y, z + 1] == (int)EnumVoxelMaterial.Metal && Voxels[x, y, z - 1] == (int)EnumVoxelMaterial.Metal) {
+                                Api.Logger.Event("Can't split work item");
                                 return;
                             }
                         }

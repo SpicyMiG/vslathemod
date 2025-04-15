@@ -1,5 +1,5 @@
 {
-	code: "arrow-refined",
+	code: "arrow-refined", //need to make this the final item and remove patch
 	class: "ItemArrow",
 	variantgroups: [
 		{ code: "material", states: ["crude", "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel", "erel" ] },

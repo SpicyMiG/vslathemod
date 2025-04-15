@@ -1,5 +1,5 @@
 ﻿[
-    {
+    {//TODO: remove patch entirely and switch to item
         "file": "game:itemtypes/tool/arrow.json",
         "op": "addeach",
         "path": "/variantgroups/0/states/-",

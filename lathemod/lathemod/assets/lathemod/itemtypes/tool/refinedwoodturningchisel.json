@@ -107,28 +107,28 @@
         "*-steel": 5
     },
     "durabilitybytype": {
-        "woodturningchisel-stone": 100,
-        "woodturningchisel-gold": 300,
-        "woodturningchisel-silver": 300,
-        "woodturningchisel-copper": 550,
-        "woodturningchisel-tinbronze": 800,
-        "woodturningchisel-bismuthbronze": 950,
-        "woodturningchisel-blackbronze": 1100,
-        "woodturningchisel-iron": 1800,
-        "woodturningchisel-meteoriciron": 2100,
-        "woodturningchisel-steel": 4800
+        "woodturningchisel-refined-stone": 100,
+        "woodturningchisel-refined-gold": 300,
+        "woodturningchisel-refined-silver": 300,
+        "woodturningchisel-refined-copper": 550,
+        "woodturningchisel-refined-tinbronze": 800,
+        "woodturningchisel-refined-bismuthbronze": 950,
+        "woodturningchisel-refined-blackbronze": 1100,
+        "woodturningchisel-refined-iron": 1800,
+        "woodturningchisel-refined-meteoriciron": 2100,
+        "woodturningchisel-refined-steel": 4800
     },
     "attackpowerbytype": {
-        "woodturningchisel-stone": 0.5,
-        "woodturningchisel-copper": 0.75,
-        "woodturningchisel-gold": 1.0,
-        "woodturningchisel-silver": 1.0,
-        "woodturningchisel-bismuthbronze": 1.0,
-        "woodturningchisel-tinbronze": 1.25,
-        "woodturningchisel-blackbronze": 1.5,
-        "woodturningchisel-iron": 1.75,
-        "woodturningchisel-meteoriciron": 1.85,
-        "woodturningchisel-steel": 2
+        "woodturningchisel-refined-stone": 0.5,
+        "woodturningchisel-refined-copper": 0.75,
+        "woodturningchisel-refined-gold": 1.0,
+        "woodturningchisel-refined-silver": 1.0,
+        "woodturningchisel-refined-bismuthbronze": 1.0,
+        "woodturningchisel-refined-tinbronze": 1.25,
+        "woodturningchisel-refined-blackbronze": 1.5,
+        "woodturningchisel-refined-iron": 1.75,
+        "woodturningchisel-refined-meteoriciron": 1.85,
+        "woodturningchisel-refined-steel": 2
     },
     "creativeinventory": {
         "general": [ "*" ],

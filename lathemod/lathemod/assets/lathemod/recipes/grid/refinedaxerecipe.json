@@ -1,0 +1,17 @@
+[
+	{
+		ingredientPattern: "T	S",
+		ingredients: {
+			"T": {
+				"type": "item",
+				"code": "game:axehead-*",
+				"name": "material",
+				"allowedVariants": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+			},
+			"S": { type: "item", code: "lathemod:shaft-*" }
+		},
+		width: 1,
+		height: 2,
+		output: { type: "item", code: "lathemod:refinedaxe-felling-{material}", quantity: 1  }
+	}
+]

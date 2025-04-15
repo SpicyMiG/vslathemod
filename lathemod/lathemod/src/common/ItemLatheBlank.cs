@@ -73,6 +73,7 @@ namespace lathemod.src.common {
                     }
                 }
             }
+            //TODO: wide blanks (6x6 ideally to fit flowerpot)
 
             voxels[10, 1, 7] = (byte)EnumVoxelMaterial.Metal;
             voxels[10, 1, 8] = (byte)EnumVoxelMaterial.Metal;

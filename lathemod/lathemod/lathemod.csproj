@@ -69,6 +69,7 @@
   <None Remove="assets\lathemod\itemtypes\shaft.json" />
   <None Remove="assets\lathemod\itemtypes\toolhead\woodturningchiselhead.json" />
   <None Remove="assets\lathemod\itemtypes\tool\customarrow.json" />
+  <None Remove="assets\lathemod\itemtypes\tool\refinedaxe-metal.json" />
   <None Remove="assets\lathemod\itemtypes\tool\refinedpickaxe.json" />
   <None Remove="assets\lathemod\itemtypes\tool\refinedwoodturningchisel.json" />
   <None Remove="assets\lathemod\itemtypes\tool\woodturningchisel.json" />
@@ -76,6 +77,7 @@
   <None Remove="assets\lathemod\recipes\grid\latheblankhalfrecipe.json" />
   <None Remove="assets\lathemod\recipes\grid\latheblankrecipe.json" />
   <None Remove="assets\lathemod\recipes\grid\arrow-refined-recipe.json" />
+  <None Remove="assets\lathemod\recipes\grid\refinedaxerecipe.json" />
   <None Remove="assets\lathemod\recipes\grid\refinedpickaxerecipe.json" />
   <None Remove="assets\lathemod\recipes\grid\woodbowlwaxedrecipe.json" />
   <None Remove="assets\lathemod\recipes\grid\woodturningchiselrecipe.json" />

@@ -1,54 +1,64 @@
 {
-	code: "arrow-refined",
-	class: "EntityProjectile",
-	variantgroups: [
-		{ code: "material", states: ["crude", "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "steel", "meteoriciron" ] },
+	"code": "arrow-refined", //need to make this the final item and remove patch
+	"class": "EntityProjectile",
+	"variantgroups": [
+		{
+			"code": "material",
+			"states": [ "crude", "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "steel", "meteoriciron" ]
+		}
 	],
-	attributes: {
-		isProjectile: true
+	"attributes": {
+		"isProjectile": true
 	},
-	hitboxSize: { x: 0.125, y: 0.125 },
-	client: {
-		size: 0.75,
-		renderer: "Shape",
-		shapeByType: {
+	"hitboxSize": {
+		"x": 0.125,
+		"y": 0.125
+	},
+	"client": {
+		"size": 0.75,
+		"renderer": "Shape",
+		"shapeByType": {
 			"arrow-crude": { "base": "game:entity/arrow/crude" },
 			"arrow-flint": { "base": "game:entity/arrow/stone" },
 			"arrow-gold": { "base": "game:entity/arrow/gold" },
 			"arrow-silver": { "base": "game:entity/arrow/silver" },
 			"*": { "base": "game:entity/arrow/copper" }
 		},
-		texturesByType: {
+		"texturesByType": {
 			"arrow-refined-crude": {
 
 			},
 			"arrow-refined-flint": {
-				"material": { base: "game:block/stone/flint" }
+				"material": { "base": "game:block/stone/flint" }
 			},
 			"*": {
 				"material": { "base": "game:block/metal/ingot/{material}" }
 			}
 		},
-		behaviors: [
-			{ code: "passivephysics",
-				groundDragFactor: 1,
-				airDragFactor: 0.25,
-				gravityFactor: 0.75
-			}, 
-			{ code: "interpolateposition" }
-		],
+		"behaviors": [
+			{
+				"code": "passivephysics",
+				"groundDragFactor": 1,
+				"airDragFactor": 0.25,
+				"gravityFactor": 0.75
+			},
+			{ "code": "interpolateposition" }
+		]
 	},
-	server: {
-		behaviors: [
-			{ 
-				code: "passivephysics",
-				groundDragFactor: 1,
-				airDragFactor: 0.25,
-				gravityFactor: 0.75
-			}, 
-			{ code: "despawn", minSeconds: 600 }
-		],
+	"server": {
+		"behaviors": [
+			{
+				"code": "passivephysics",
+				"groundDragFactor": 1,
+				"airDragFactor": 0.25,
+				"gravityFactor": 0.75
+			},
+			{
+				"code": "despawn",
+				"minSeconds": 600
+			}
+		]
 	},
-	sounds: {
+	"sounds": {
 	}
 }

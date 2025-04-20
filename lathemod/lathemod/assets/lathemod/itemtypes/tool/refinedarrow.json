@@ -1,8 +1,8 @@
 {
-	code: "arrow-refined", //need to make this the final item and remove patch
+	code: "arrow-refined",
 	class: "ItemArrow",
 	variantgroups: [
-		{ code: "material", states: ["crude", "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel", "erel" ] },
+		{ code: "material", states: [ "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ] },
 	],
 	maxstacksize: 64,
 	storageFlags: 513,
@@ -15,8 +15,6 @@
 		"*": { "base": "game:item/tool/arrow-copper" }
 	},
 	texturesByType: {
-		"*-crude": { },
-		"*-erel": { },
 		"*-flint": {
 			"material": { "base": "game:block/stone/flint" }
 		},
@@ -48,36 +46,32 @@
 	},
 	attributes: {
 		arrowEntityCodeByType: {
-			"*-erel": "game:erelprojectile-small-usable",
 			"*": "lathemod:arrow-refined-{material}"
 		},
 		damageByType: {
-			"*-crude": -0.75,
-			"*-flint": -0.5,
-			"*-copper": 0,
-			"*-erel": 0,
-			"*-tinbronze": 1,
-			"*-gold": 1,
-			"*-silver": 1,
-			"*-bismuthbronze": 1,
-			"*-blackbronze": 1.5,
-			"*-iron": 2,
-			"*-meteoriciron": 2.25,
-			"*-steel": 2.5
+			"*-flint": 0,
+			"*-copper": 0.5,
+			"*-erel": 0.5,
+			"*-tinbronze": 1.5,
+			"*-gold": 1.5,
+			"*-silver": 1.5,
+			"*-bismuthbronze": 1.5,
+			"*-blackbronze": 2.0,
+			"*-iron": 2.5,
+			"*-meteoriciron": 2.75,
+			"*-steel": 3.0
 		},
 		breakChanceOnImpactByType: {
-			"*-crude": 0.3,
-			"*-erel": 1,
-			"*-flint": 0.25,
-			"*-copper": 0.15,
-			"*-tinbronze": 0.125,
-			"*-gold": 0.15,
-			"*-silver": 0.15,
-			"*-bismuthbronze": 0.125,
-			"*-blackbronze": 0.1,
-			"*-iron": 0.1,
-			"*-meteoriciron": 0.1,
-			"*-steel": 0.07
+			"*-flint": 0.15,
+			"*-copper": 0.1,
+			"*-tinbronze": 0.1,
+			"*-gold": 0.125,
+			"*-silver": 0.125,
+			"*-bismuthbronze": 0.1,
+			"*-blackbronze": 0.05,
+			"*-iron": 0.05,
+			"*-meteoriciron": 0.05,
+			"*-steel": 0.03
 		},
 		handbook: {
 			groupBy: ["arrow-*"]

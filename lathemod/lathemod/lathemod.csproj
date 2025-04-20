@@ -68,7 +68,7 @@
   <None Remove="assets\lathemod\itemtypes\resource\latheworkitem.json" />
   <None Remove="assets\lathemod\itemtypes\shaft.json" />
   <None Remove="assets\lathemod\itemtypes\toolhead\woodturningchiselhead.json" />
-  <None Remove="assets\lathemod\itemtypes\tool\customarrow.json" />
+  <None Remove="assets\lathemod\itemtypes\tool\refinedarrow.json" />
   <None Remove="assets\lathemod\itemtypes\tool\refinedaxe-metal.json" />
   <None Remove="assets\lathemod\itemtypes\tool\refinedpickaxe.json" />
   <None Remove="assets\lathemod\itemtypes\tool\refinedwoodturningchisel.json" />

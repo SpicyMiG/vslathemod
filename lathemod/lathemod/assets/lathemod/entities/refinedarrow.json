@@ -1,10 +1,10 @@
 {
-	"code": "arrow-refined", //need to make this the final item and remove patch
+	"code": "arrow-refined", 
 	"class": "EntityProjectile",
 	"variantgroups": [
 		{
 			"code": "material",
-			"states": [ "crude", "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "steel", "meteoriciron" ]
+			"states": [ "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "steel", "meteoriciron" ]
 		}
 	],
 	"attributes": {
@@ -18,16 +18,12 @@
 		"size": 0.75,
 		"renderer": "Shape",
 		"shapeByType": {
-			"arrow-crude": { "base": "game:entity/arrow/crude" },
 			"arrow-flint": { "base": "game:entity/arrow/stone" },
 			"arrow-gold": { "base": "game:entity/arrow/gold" },
 			"arrow-silver": { "base": "game:entity/arrow/silver" },
 			"*": { "base": "game:entity/arrow/copper" }
 		},
 		"texturesByType": {
-			"arrow-refined-crude": {
-
-			},
 			"arrow-refined-flint": {
 				"material": { "base": "game:block/stone/flint" }
 			},

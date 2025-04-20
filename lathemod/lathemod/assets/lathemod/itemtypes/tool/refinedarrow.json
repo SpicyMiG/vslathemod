@@ -1,12 +1,15 @@
 {
-	code: "arrow-refined",
-	class: "ItemArrow",
-	variantgroups: [
-		{ code: "material", states: [ "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ] },
+	"code": "arrow-refined",
+	"class": "ItemArrow",
+	"variantgroups": [
+		{
+			"code": "material",
+			"states": [ "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+		}
 	],
-	maxstacksize: 64,
-	storageFlags: 513,
-	shapeByType: {
+	"maxstacksize": 64,
+	"storageFlags": 513,
+	"shapeByType": {
 		"arrow-crude": { "base": "game:item/tool/arrow-crude" },
 		"arrow-flint": { "base": "game:item/tool/arrow-stone" },
 		"arrow-gold": { "base": "game:item/tool/arrow-gold" },
@@ -14,7 +17,7 @@
 		"arrow-erel": { "base": "game:entity/air/erel/projectile-small-usable" },
 		"*": { "base": "game:item/tool/arrow-copper" }
 	},
-	texturesByType: {
+	"texturesByType": {
 		"*-flint": {
 			"material": { "base": "game:block/stone/flint" }
 		},
@@ -22,33 +25,73 @@
 			"material": { "base": "game:block/metal/ingot/{material}" }
 		}
 	},
-	creativeinventory: { "general": ["*"], "items": ["*"], "tools": ["*"] },
-	guiTransform: {
-		rotation: { x: -23, y: -45, z: -145 },
-		origin: { x: 0.7, y: -0.45, z: 0 },
-		scale: 1.44
+	"creativeinventory": {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"tools": [ "*" ]
 	},
-	fpHandTransform: {
-		translation: { x: 0.35, y: 0, z: 0 },
-		rotation: { x: 87, y: 90, z: -30 },
-		scale: 1.14
+	"guiTransform": {
+		"rotation": {
+			"x": -23,
+			"y": -45,
+			"z": -145
+		},
+		"origin": {
+			"x": 0.7,
+			"y": -0.45,
+			"z": 0
+		},
+		"scale": 1.44
 	},
-	tpHandTransform: {
-		translation: { x: -1.05, y: -0.4599, z: -0.87 },
-		rotation: { x: 0, y: 2, z: 3 },
-		scale: 0.55
+	"fpHandTransform": {
+		"translation": {
+			"x": 0.35,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 87,
+			"y": 90,
+			"z": -30
+		},
+		"scale": 1.14
 	},
-	groundTransform: {
-		translation: { x: 0, y: 0, z: 0 },
-		rotation: { x: 0, y: 0, z: 0 },
-		origin: { x: 0.5, y: -0.03, z: 0.5 },
-		scale: 2.64
+	"tpHandTransform": {
+		"translation": {
+			"x": -1.05,
+			"y": -0.4599,
+			"z": -0.87
+		},
+		"rotation": {
+			"x": 0,
+			"y": 2,
+			"z": 3
+		},
+		"scale": 0.55
 	},
-	attributes: {
-		arrowEntityCodeByType: {
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": -0.03,
+			"z": 0.5
+		},
+		"scale": 2.64
+	},
+	"attributes": {
+		"arrowEntityCodeByType": {
 			"*": "lathemod:arrow-refined-{material}"
 		},
-		damageByType: {
+		"damageByType": {
 			"*-flint": 0,
 			"*-copper": 0.5,
 			"*-erel": 0.5,
@@ -61,7 +104,7 @@
 			"*-meteoriciron": 2.75,
 			"*-steel": 3.0
 		},
-		breakChanceOnImpactByType: {
+		"breakChanceOnImpactByType": {
 			"*-flint": 0.15,
 			"*-copper": 0.1,
 			"*-tinbronze": 0.1,
@@ -73,8 +116,8 @@
 			"*-meteoriciron": 0.05,
 			"*-steel": 0.03
 		},
-		handbook: {
-			groupBy: ["arrow-*"]
+		"handbook": {
+			"groupBy": [ "arrow-*" ]
 		}
-	},
+	}
 }

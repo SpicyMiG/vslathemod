@@ -13,6 +13,18 @@
 	"item-latheblank-birch": "Birch lathe blank",
 	"item-latheblank-redwood": "Redwood lathe blank",
 
+	"item-latheblankhalf-oak": "Oak lathe blank half",
+	"item-latheblankhalf-maple": "Maple lathe blank half",
+	"item-latheblankhalf-acacia": "Acacia lathe blank half",
+	"item-latheblankhalf-baldcypress": "Baldcypress lathe blank half",
+	"item-latheblankhalf-ebony": "Ebony lathe blank half",
+	"item-latheblankhalf-walnut": "Walnut lathe blank half",
+	"item-latheblankhalf-purpleheart": "Purpleheart lathe blank half",
+	"item-latheblankhalf-pine": "Pine lathe blank half",
+	"item-latheblankhalf-larch": "Larch lathe blank half",
+	"item-latheblankhalf-birch": "Birch lathe blank half",
+	"item-latheblankhalf-redwood": "Redwood lathe blank half",
+
 	"item-shaft-oak": "Oak wooden shaft",
 	"item-shaft-maple": "Maple wooden shaft",
 	"item-shaft-acacia": "Acacia wooden shaft",
@@ -21,10 +33,12 @@
 	"item-shaft-walnut": "Walnut wooden shaft",
 	"item-shaft-purpleheart": "Purpleheart wooden shaft",
 
-	"lathemod:blockhelp-selecttoolmode": "Select tool mode",
-	"lathemod:blockhelp-lathe-takeworkable": "Remove work item",
-	"lathemod:blockhelp-lathe-placeworkable": "Place work item",
-	"lathemod:blockhelp-lathe-turn": "Turn workable",
+	"blockhelp-selecttoolmode": "Select tool mode",
+	"blockhelp-lathe-takeworkable": "Remove work item",
+	"blockhelp-lathe-placeworkable": "Place work item",
+	"blockhelp-lathe-turn": "Turn workable",
+
+	"tabname-lathe": "Lathe Mod",
 
 	"item-refinedpickaxe-copper": "Refined copper pickaxe",
 	"item-refinedpickaxe-tin": "Refined tin pickaxe",
@@ -47,7 +61,17 @@
 	"item-refinedblade-falx-iron": "Refined iron falx",
 	"item-refinedblade-falx-meteoriciron": "Refined meteoric iron falx",
 	"item-refinedblade-falx-steel": "Refined steel falx",
-	"item-refiunedblade-blackguard-iron": "Refined blackguard shortsword",
+	"item-refinedblade-blackguard-iron": "Refined blackguard shortsword",
+
+	"item-woodturningchiselhead-copper": "Copper woodturning chiselhead",
+	"item-woodturningchiselhead-bronze": "Bronze woodturning chiselhead",
+	"item-woodturningchiselhead-bismuthbronze": "Bismuth bronze woodturning chiselhead",
+	"item-woodturningchiselhead-blackbronze": "Black bronze woodturning chiselhead",
+	"item-woodturningchiselhead-gold": "Gold woodturning chiselhead",
+	"item-woodturningchiselhead-silver": "Silver woodturning chiselhead",
+	"item-woodturningchiselhead-iron": "Iron woodturning chiselhead",
+	"item-woodturningchiselhead-meteoriciron": "Meteoric iron woodturning chiselhead",
+	"item-woodturningchiselhead-steel": "Steel woodturning chiselhead",
 
 	"item-woodturningchisel-copper": "Copper woodturning chisel",
 	"item-woodturningchisel-tin": "Tin woodturning chisel",
@@ -128,5 +152,17 @@
 	"block-bowl-wood-waxed-meal-pine": "Pine bowl with meal",
 	"block-bowl-wood-waxed-meal-larch": "Larch bowl with meal",
 	"block-bowl-wood-waxed-meal-birch": "Birch bowl with meal",
-	"block-bowl-wood-waxed-meal-redwood": "Redwood bowl with meal"
+	"block-bowl-wood-waxed-meal-redwood": "Redwood bowl with meal",
+
+	"block-flowerpot-oak": "Oak Flowerpot",
+	"block-flowerpot-maple": "Maple Flowerpot",
+	"block-flowerpot-acacia": "Acacia Flowerpot",
+	"block-flowerpot-baldcypress": "Baldcypress Flowerpot",
+	"block-flowerpot-ebony": "Ebony Flowerpot",
+	"block-flowerpot-walnut": "Walnut Flowerpot",
+	"block-flowerpot-purpleheart": "Purpleheart Flowerpot",
+	"block-flowerpot-pine": "Pine Flowerpot",
+	"block-flowerpot-larch": "Larch Flowerpot",
+	"block-flowerpot-birch": "Birch Flowerpot",
+	"block-flowerpot-redwood": "Redwood Flowerpot"
 }

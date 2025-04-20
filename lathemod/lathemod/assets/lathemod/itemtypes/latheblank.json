@@ -20,19 +20,6 @@
         "rotation": 90
     },
     "shape": { "base": "lathemod:item/latheblank" },
-    "guiTransform": {
-        "translation": {
-            "x": 32,
-            "y": 20,
-            "z": 0
-        },
-        "rotation": {
-            "x": -44,
-            "y": -45,
-            "z": 0
-        },
-        "scale": 1.96
-    },
     "tpHandTransform": {
         "translation": {
             "x": -0.5,
@@ -45,5 +32,23 @@
             "z": -15
         },
         "scale": 0.8
+    },
+    "guiTransform": {
+        "translation": {
+            "x": 2,
+            "y": 0,
+            "z": 0
+        },
+        "rotation": {
+            "x": -63,
+            "y": -48,
+            "z": -16
+        },
+        "origin": {
+            "x": -0.6,
+            "y": 1.05,
+            "z": 0
+        },
+        "scale": 1.96
     }
 }

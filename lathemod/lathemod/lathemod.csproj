@@ -105,6 +105,6 @@
   <Folder Include="src\server\" />
 </ItemGroup>
 
-<ProjectExtensions><VisualStudio><UserProperties assets_4lathemod_4recipes_4turning_4woodflowerpotrecipe_1json__JsonSchema="vintagestory" /></VisualStudio></ProjectExtensions>
+<ProjectExtensions><VisualStudio><UserProperties assets_4lathemod_4itemtypes_4tool_4woodturningchisel_1json__JsonSchema="https://cdn.subsquid.io/schemas/squid_manifest.json" assets_4lathemod_4recipes_4turning_4woodflowerpotrecipe_1json__JsonSchema="vintagestory" /></VisualStudio></ProjectExtensions>
 
 </Project>

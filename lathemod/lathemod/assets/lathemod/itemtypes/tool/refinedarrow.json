@@ -28,7 +28,8 @@
 	"creativeinventory": {
 		"general": [ "*" ],
 		"items": [ "*" ],
-		"tools": [ "*" ]
+		"tools": [ "*" ],
+		"lathe": [ "*" ]
 	},
 	"guiTransform": {
 		"rotation": {

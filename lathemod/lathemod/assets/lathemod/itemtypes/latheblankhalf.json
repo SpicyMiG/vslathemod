@@ -19,16 +19,21 @@
         "base": "game:block/wood/debarked/{wood}",
         "rotation": 90
     },
-    "shape": { "base": "lathemod:item/latheblank" },
+    "shape": { "base": "lathemod:item/latheblankhalf" },
     "guiTransform": {
         "translation": {
-            "x": 32,
-            "y": 20,
+            "x": 0,
+            "y": 0,
             "z": 0
         },
         "rotation": {
             "x": -44,
             "y": -45,
+            "z": 0
+        },
+        "origin": {
+            "x": -0.18,
+            "y": 0.45,
             "z": 0
         },
         "scale": 1.96

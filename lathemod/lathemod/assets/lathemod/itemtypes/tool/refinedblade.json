@@ -168,7 +168,8 @@
 		"*": {
 			"general": [ "*" ],
 			"items": [ "*" ],
-			"tools": [ "*" ]
+			"tools": [ "*" ],
+			"lathe": [ "*" ]
 		}
 	},
 	"guiTransformByType": {

@@ -1,0 +1,298 @@
+{
+	"code": "refinedblade",
+	"damagedby": [ "blockbreaking", "attacking" ],
+	"tool": "sword",
+	"attributes": {
+		"heldItemPitchFollow": 0.9,
+		"handbook": {
+			"groupBy": [ "blade-*" ]
+		},
+		"toolrackTransformByType": {
+			"refinedblade-blackguard-iron": {
+				"rotation": {
+					"y": 180,
+					"z": 1
+				},
+				"translation": {
+					"x": -0.1,
+					"y": 0.6
+				},
+				"scale": 1.25
+			},
+			"refinedblade-claymore-ruined": {
+				"translation": {
+					"x": 0.56,
+					"y": 0.6,
+					"z": -0.2
+				},
+				"rotation": {
+					"x": -16,
+					"y": 180,
+					"z": 1
+				},
+				"scale": 1.25
+			},
+			"*": {
+				"rotation": {
+					"y": 180,
+					"z": 1
+				},
+				"translation": {
+					"x": -0.1,
+					"y": 0.6
+				},
+				"scale": 1.25
+			}
+		},
+		"groundStorageTransformByType": {
+			"refinedblade-falx-*": {
+				"translation": {
+					"x": 0.24,
+					"y": 0.195,
+					"z": -0.06
+				},
+				"rotation": {
+					"x": 24,
+					"y": 61,
+					"z": -87
+				},
+				"scale": 0.88
+			},
+			"*": {
+				"translation": {
+					"x": 0.24,
+					"y": 0.195,
+					"z": -0.06
+				},
+				"rotation": {
+					"x": 24,
+					"y": 61,
+					"z": -87
+				},
+				"scale": 0.88
+			}
+		}
+	},
+	"behaviors": [
+		{
+			"name": "GroundStorable",
+			"properties": {
+				"layout": "WallHalves",
+				"wallOffYByType": {
+					"*": 1
+				},
+				"ctrlKey": true,
+				"selectionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 1,
+					"y2": 0.1,
+					"z2": 1
+				},
+				"collisionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 0,
+					"y2": 0,
+					"z2": 0
+				}
+			}
+		},
+		{ "name": "AnimationAuthoritative" }
+	],
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "falx", "blackguard" ]
+		},
+		{
+			"code": "metal",
+			"states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+		}
+	],
+	"allowedVariants": [
+		"refinedblade-falx-*",
+		"refinedblade-blackguard-iron"
+	],
+	"shapeByType": {
+		"refinedblade-falx-*": { "base": "game:item/tool/blade/falx/{metal}" },
+		"*": { "base": "game:item/tool/blade/{type}" }
+	},
+	"heldTpHitAnimationByType": {
+		"refinedblade-blackguard-iron": "spearhit",
+		"*": "falx"
+	},
+	"attackRangebytype": {
+		"*": 2.5
+	},
+	"tooltierbytype": {
+		"*-copper": 2,
+		"*-ruined": 2,
+		"*-gold": 5,
+		"*-silver": 5,
+		"*-bismuthbronze": 3,
+		"*-tinbronze": 3,
+		"*-blackbronze": 3,
+		"*-iron": 4,
+		"*-meteoriciron": 4,
+		"*-steel": 5,
+		"*-blackguard": 4
+	},
+	"attackpowerbytype": {
+		"refinedblade-falx-copper": 4.25,
+		"refinedblade-falx-bismuthbronze": 4.5,
+		"refinedblade-falx-tinbronze": 4.75,
+		"refinedblade-falx-blackbronze": 5,
+		"refinedblade-falx-iron": 5.25,
+		"refinedblade-falx-meteoriciron": 5.5,
+		"refinedblade-falx-steel": 5.5,
+		"refinedblade-falx-gold": 5.5,
+		"refinedblade-falx-silver": 5.5,
+		"refinedblade-blackguard-iron": 5.5
+	},
+	"durabilitybytype": {
+		"refinedblade-falx-copper": 350,
+		"refinedblade-falx-tinbronze": 600,
+		"refinedblade-falx-bismuthbronze": 700,
+		"refinedblade-falx-blackbronze": 800,
+		"refinedblade-falx-iron": 1100,
+		"refinedblade-falx-meteoriciron": 1500,
+		"refinedblade-falx-steel": 2700,
+		"refinedblade-falx-gold": 2700,
+		"refinedblade-falx-silver": 2700,
+		"refinedblade-blackguard-iron": 1500
+	},
+	"creativeinventoryByType": {
+		"*": {
+			"general": [ "*" ],
+			"items": [ "*" ],
+			"tools": [ "*" ]
+		}
+	},
+	"guiTransformByType": {
+		"refinedblade-blackguard-iron": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": -89,
+				"y": 47,
+				"z": -13
+			},
+			"origin": {
+				"x": 0.6,
+				"y": -0.1,
+				"z": 0.44
+			},
+			"scale": 1.65
+		},
+		"*": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": -53,
+				"y": 118,
+				"z": -5
+			},
+			"origin": {
+				"x": 0.65,
+				"y": 0.1,
+				"z": 0.37
+			},
+			"scale": 1.65
+		}
+	},
+	"fpHandTransformByType": {
+		"refinedblade-blackguard-iron": {
+			"translation": {
+				"x": -0.2,
+				"y": -0.2,
+				"z": 0
+			},
+			"rotation": {
+				"x": -21,
+				"y": 15,
+				"z": 90
+			},
+			"scale": 3.18
+		},
+		"*": {
+			"translation": {
+				"x": -0.2,
+				"y": -0.2,
+				"z": 0
+			},
+			"rotation": {
+				"x": -3,
+				"y": 15,
+				"z": 90
+			},
+			"scale": 3.18
+		}
+	},
+	"groundTransformByType": {
+		"*": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 3.4
+		}
+	},
+	"tpHandTransformByType": {
+		"refinedblade-blackguard-iron": {
+			"translation": {
+				"x": -1.03,
+				"y": -0.01,
+				"z": -0.56
+			},
+			"rotation": {
+				"x": -90,
+				"y": 0,
+				"z": 0
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 0.8
+		},
+		"*": {
+			"translation": {
+				"x": -1.03,
+				"y": -0.005,
+				"z": -0.66
+			},
+			"rotation": {
+				"x": 85,
+				"y": 0,
+				"z": 2
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 0.8
+		}
+	}
+}

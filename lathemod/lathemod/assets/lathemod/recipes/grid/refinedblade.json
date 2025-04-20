@@ -1,0 +1,85 @@
+[
+	{
+		"ingredientPattern": "T\tS",
+		"ingredients": {
+			"T": {
+				"type": "item",
+				"code": "game:bladehead-falx-*",
+				"name": "metal",
+				"allowedVariants": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "iron", "meteoriciron", "steel" ]
+			},
+			"S": {
+				"type": "item",
+				"code": "lathemod:shaft-*"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"output": {
+			"type": "item",
+			"code": "refinedblade-falx-{metal}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "TC,S_",
+		"requiresTrait": "merciless",
+		"ingredients": {
+			"T": {
+				"type": "item",
+				"code": "game:bladehead-short-iron"
+			},
+			"S": {
+				"type": "item",
+				"code": "lathemod:shaft-*"
+			},
+			"C": {
+				"type": "item",
+				"code": "game:charcoal"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"output": {
+			"type": "item",
+			"code": "refinedblade-blackguard-iron",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "T,P,S",
+		"ingredients": {
+			"T": {
+				"type": "item",
+				"code": "game:bladehead-falx-steel"
+			},
+			"S": {
+				"type": "item",
+				"code": "lathemod:shaft-*"
+			},
+			"P": {
+				"type": "item",
+				"code": "game:metalplate-gold",
+				"quantity": 1
+			}
+		},
+		"width": 1,
+		"height": 3,
+		"output": {
+			"type": "item",
+			"code": "refinedblade-falx-gold",
+			"quantity": 1
+		}
+	},	
+	{
+		ingredientPattern: "T,P,S",
+		ingredients: {
+			"T": { type: "item", code: "game:bladehead-falx-steel" },
+			"S": { type: "item", code: "lathemod:shaft-*" },
+			"P": { type: "item", code: "game:metalplate-silver", quantity: 1 },
+		},
+		width: 1,
+		height: 3,
+		output: { type: "item", code: "refinedblade-falx-silver", quantity: 1  }
+	}
+]

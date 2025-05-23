@@ -63,8 +63,18 @@
 	"item-refinedblade-falx-steel": "Refined steel falx",
 	"item-refinedblade-blackguard-iron": "Refined blackguard shortsword",
 
+	"item-refinedaxe-felling-copper": "Refined copper axe",
+	"item-refinedaxe-felling-tinbronze": "Refined tin bronze axe",
+	"item-refinedaxe-felling-blackbronze": "Refined black bronze axe",
+	"item-refinedaxe-felling-bismuthbronze": "Refined bismuth bronze axe",
+	"item-refinedaxe-felling-gold": "Refined gold axe",
+	"item-refinedaxe-felling-silver": "Refined silver axe",
+	"item-refinedaxe-felling-iron": "Refined iron axe",
+	"item-refinedaxe-felling-meteoriciron": "Refined meteoric iron axe",
+	"item-refinedaxe-felling-steel": "Refined steel axe",
+
 	"item-woodturningchiselhead-copper": "Copper woodturning chiselhead",
-	"item-woodturningchiselhead-bronze": "Bronze woodturning chiselhead",
+	"item-woodturningchiselhead-tinbronze": "Bronze woodturning chiselhead",
 	"item-woodturningchiselhead-bismuthbronze": "Bismuth bronze woodturning chiselhead",
 	"item-woodturningchiselhead-blackbronze": "Black bronze woodturning chiselhead",
 	"item-woodturningchiselhead-gold": "Gold woodturning chiselhead",
@@ -74,7 +84,6 @@
 	"item-woodturningchiselhead-steel": "Steel woodturning chiselhead",
 
 	"item-woodturningchisel-copper": "Copper woodturning chisel",
-	"item-woodturningchisel-tin": "Tin woodturning chisel",
 	"item-woodturningchisel-tinbronze": "Tin bronze woodturning chisel",
 	"item-woodturningchisel-bismuthbronze": "Bismuth bronze woodturning chisel",
 	"item-woodturningchisel-blackbronze": "Black bronze woodturning chisel",
@@ -85,7 +94,6 @@
 	"item-woodturningchisel-steel": "Steel woodturning chisel",
 
 	"item-woodturningchisel-refined-copper": "Refined copper woodturning chisel",
-	"item-woodturningchisel-refined-tin": "Refined tin woodturning chisel",
 	"item-woodturningchisel-refined-tinbronze": "Refined tin bronze woodturning chisel",
 	"item-woodturningchisel-refined-bismuthbronze": "Refined bismuth bronze woodturning chisel",
 	"item-woodturningchisel-refined-blackbronze": "Refined black bronze woodturning chisel",

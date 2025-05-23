@@ -51,6 +51,9 @@ namespace lathemod.src.common {
         public int rotation = 0;
         private int rotationSteps = 0;
 
+        public static SimpleParticleProperties bigWoodchips;
+        public static SimpleParticleProperties smallWoodchips;
+
         LatheWorkItemRenderer workItemRenderer;
 
         #region Getters
@@ -72,6 +75,51 @@ namespace lathemod.src.common {
         }
         #endregion
 
+        #region Particles
+        static BlockEntityLathe() {
+            smallWoodchips = new SimpleParticleProperties(
+                2, 5,
+                ColorUtil.ToRgba(255, 255, 233, 83),
+                new Vec3d(), new Vec3d(),
+                new Vec3f(-3f, 8f, -3f),
+                new Vec3f(3f, 12f, 3f),
+                0.1f,
+                1f,
+                0.25f, 0.25f,
+                EnumParticleModel.Quad
+            );
+            smallWoodchips.VertexFlags = 128;
+            smallWoodchips.AddPos.Set(1 / 16f, 0, 1 / 16f);
+            smallWoodchips.ParticleModel = EnumParticleModel.Quad;
+            smallWoodchips.LifeLength = 0.03f;
+            smallWoodchips.MinVelocity = new Vec3f(-2f, 1f, -2f);
+            smallWoodchips.AddVelocity = new Vec3f(4f, -1f, 4f);
+            smallWoodchips.MinQuantity = 6;
+            smallWoodchips.AddQuantity = 12;
+            smallWoodchips.MinSize = 0.1f;
+            smallWoodchips.MaxSize = 0.1f;
+            smallWoodchips.SizeEvolve = new EvolvingNatFloat(EnumTransformFunction.LINEAR, -0.1f);
+
+
+            bigWoodchips = new SimpleParticleProperties(
+                4, 8,
+                ColorUtil.ToRgba(255, 255, 233, 83),
+                new Vec3d(), new Vec3d(),
+                new Vec3f(-1f, 1f, -1f),
+                new Vec3f(2f, 4f, 2f),
+                0.5f,
+                1f,
+                0.25f, 0.25f
+            );
+            bigWoodchips.VertexFlags = 128;
+            bigWoodchips.AddPos.Set(1 / 16f, 0, 1 / 16f);
+            bigWoodchips.SizeEvolve = new EvolvingNatFloat(EnumTransformFunction.LINEAR, -0.25f);
+            bigWoodchips.Bounciness = 0.2f;
+            bigWoodchips.addLifeLength = 2f;
+            bigWoodchips.GreenEvolve = new EvolvingNatFloat(EnumTransformFunction.LINEAR, -233f);
+            bigWoodchips.BlueEvolve = new EvolvingNatFloat(EnumTransformFunction.LINEAR, -83f);
+        }
+        #endregion
         public BlockEntityLathe() {
             this.inventory = new InventoryLathe(null, null);
             this.inventory.SlotModified += OnSlotModified;
@@ -686,7 +734,8 @@ namespace lathemod.src.common {
             EnumVoxelMaterial voxelMat = (EnumVoxelMaterial)Voxels[voxelPos.X, voxelPos.Y, voxelPos.Z];
 
             if (voxelMat != EnumVoxelMaterial.Empty && timer > 5) {
-                //spawnParticles(voxelPos, voxelMat, byPlayer);
+                spawnParticles(voxelPos, voxelMat, byPlayer);
+
                 //Api.Logger.Event("voxelMat != EnumVoxelMaterial.Empty");
                 switch (toolMode) {
                     case 0: OnSplit(voxelPos); break;
@@ -708,6 +757,24 @@ namespace lathemod.src.common {
 
             CheckIfFinished(byPlayer);
             MarkDirty();
+        }
+
+        private void spawnParticles(Vec3i voxelPos, EnumVoxelMaterial voxelMat, IPlayer byPlayer) {
+            if (voxelMat == EnumVoxelMaterial.Metal) {
+
+                bigWoodchips.MinPos = Pos.ToVec3d().AddCopy(voxelPos.X / 16f, voxYOff + voxelPos.Y / 16f + 0.0625f, voxelPos.Z / 16f);
+                bigWoodchips.AddPos.Set(1 / 16f, 0, 1 / 16f);
+                bigWoodchips.VertexFlags = (byte)GameMath.Clamp((int)(80 - 550) / 2, 32, 128);
+
+                Api.World.SpawnParticles(bigWoodchips, byPlayer);
+
+
+                smallWoodchips.MinPos = Pos.ToVec3d().AddCopy(voxelPos.X / 16f, voxYOff + voxelPos.Y / 16f + 0.0625f, voxelPos.Z / 16f);
+                smallWoodchips.VertexFlags = (byte)GameMath.Clamp((int)(80 - 550) / 3, 32, 128);
+                smallWoodchips.AddPos.Set(1 / 16f, 0, 1 / 16f);
+
+                Api.World.SpawnParticles(smallWoodchips, byPlayer);
+            }
         }
 
         internal void OnBeginUse(IPlayer byPlayer, BlockSelection blockSel) {
@@ -741,6 +808,9 @@ namespace lathemod.src.common {
                             }
                         }
                     }
+
+                    //play sound
+
                     /*Api.Logger.Event("\nONE\n" + x + ", " + y + ", " + z +
                                      "\n" + x + ", " + y + ", " + (15 - z) +
                                      "\n" + x + ", " + (3 - y) + ", " + z +
@@ -788,6 +858,8 @@ namespace lathemod.src.common {
                             }
                         }
                     }
+
+                    //play sound
 
                     /*Api.Logger.Event("\nONE\n" + (x) + ", " + (y) + ", " + z +
                                      "\n" + (15 - x) + ", " + y + ", " + z +

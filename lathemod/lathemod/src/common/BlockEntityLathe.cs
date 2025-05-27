@@ -79,7 +79,7 @@ namespace lathemod.src.common {
         static BlockEntityLathe() {
             smallWoodchips = new SimpleParticleProperties(
                 2, 5,
-                ColorUtil.ToRgba(255, 255, 233, 83),
+                ColorUtil.ToRgba(255, 95, 75, 35), //TODO: match to wood variant colour
                 new Vec3d(), new Vec3d(),
                 new Vec3f(-3f, 8f, -3f),
                 new Vec3f(3f, 12f, 3f),
@@ -92,32 +92,30 @@ namespace lathemod.src.common {
             smallWoodchips.AddPos.Set(1 / 16f, 0, 1 / 16f);
             smallWoodchips.ParticleModel = EnumParticleModel.Quad;
             smallWoodchips.LifeLength = 0.03f;
-            smallWoodchips.MinVelocity = new Vec3f(-2f, 1f, -2f);
-            smallWoodchips.AddVelocity = new Vec3f(4f, -1f, 4f);
+            smallWoodchips.MinVelocity = new Vec3f(-0.5f, -0.5f, -0.5f);
+            smallWoodchips.AddVelocity = new Vec3f(0.2f, -0.1f, 0.2f);
             smallWoodchips.MinQuantity = 6;
             smallWoodchips.AddQuantity = 12;
             smallWoodchips.MinSize = 0.1f;
             smallWoodchips.MaxSize = 0.1f;
-            smallWoodchips.SizeEvolve = new EvolvingNatFloat(EnumTransformFunction.LINEAR, -0.1f);
+
 
 
             bigWoodchips = new SimpleParticleProperties(
-                4, 8,
-                ColorUtil.ToRgba(255, 255, 233, 83),
-                new Vec3d(), new Vec3d(),
-                new Vec3f(-1f, 1f, -1f),
-                new Vec3f(2f, 4f, 2f),
-                0.5f,
-                1f,
-                0.25f, 0.25f
+                4, 8, //min, max
+                ColorUtil.ToRgba(255, 95, 75, 35), //TODO: match to wood variant colour
+                new Vec3d(), new Vec3d(), //minPox, maxPos
+                new Vec3f(-0.5f, -0.5f, -0.5f), //minVel
+                new Vec3f(0.2f, -0.1f, 0.2f),    //maxVel //TODO: if voxel covered, spawn particles to side
+                0.5f, //lifeLength
+                1f,   //gravityEffect
+                0.25f, 0.25f //minSize, maxSize
             );
             bigWoodchips.VertexFlags = 128;
             bigWoodchips.AddPos.Set(1 / 16f, 0, 1 / 16f);
-            bigWoodchips.SizeEvolve = new EvolvingNatFloat(EnumTransformFunction.LINEAR, -0.25f);
+            bigWoodchips.SizeEvolve = new EvolvingNatFloat(EnumTransformFunction.LINEAR, 0f);
             bigWoodchips.Bounciness = 0.2f;
             bigWoodchips.addLifeLength = 2f;
-            bigWoodchips.GreenEvolve = new EvolvingNatFloat(EnumTransformFunction.LINEAR, -233f);
-            bigWoodchips.BlueEvolve = new EvolvingNatFloat(EnumTransformFunction.LINEAR, -83f);
         }
         #endregion
         public BlockEntityLathe() {

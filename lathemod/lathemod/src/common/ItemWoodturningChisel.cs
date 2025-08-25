@@ -72,7 +72,7 @@ namespace lathemod.src.common {
                 api.Logger.Event("OnHeldActionAnimStart, BE not lathe. Returning. Block found: " + byEntity.World.BlockAccessor.GetBlock(blockSel.Position));
                 if (byEntity.World.BlockAccessor.GetBlockEntity(blockSel.Position) is BELatheEntityRedirect) {
                     bel = (byEntity.World.BlockAccessor.GetBlockEntity(blockSel.Position) as BELatheEntityRedirect).Principal;
-                    api.Logger.Event("Found BE");
+                    //api.Logger.Event("Found BE");
                     bel.OnBeginUse(byPlayer, blockSel);
                     startHitAction(slot, byEntity, false);
 
@@ -96,8 +96,24 @@ namespace lathemod.src.common {
             slot.Itemstack.TempAttributes.SetBool("isLatheAction", true);
             var state = byEntity.AnimManager.GetAnimationState(anim);
 
-            //byEntity.AnimManager.RegisterFrameCallback(new AnimFrameCallback() { Animation = anim, Frame = framesound, Callback = () => turnWoodSound(byEntity, merge) });
+            byEntity.AnimManager.RegisterFrameCallback(new AnimFrameCallback() { Animation = anim, Frame = framesound, Callback = () => turnWoodSound(byEntity, merge) });
             byEntity.AnimManager.RegisterFrameCallback(new AnimFrameCallback() { Animation = anim, Frame = framehitaction, Callback = () => turnWood(byEntity, slot) });
+        }
+
+        protected virtual void turnWoodSound(EntityAgent byEntity, bool merge) {
+            IPlayer byPlayer = (byEntity as EntityPlayer).Player;
+            if (byPlayer == null) return;
+            var blockSel = byPlayer.CurrentBlockSelection;
+            if (blockSel == null) return;
+
+            byPlayer.Entity.World.PlaySoundAt(
+                merge ? new AssetLocation("lathemod:sounds/effect/lathecarve") : new AssetLocation("lathemod:sounds/effect/lathecarve"),
+                byPlayer.Entity,
+                byPlayer,
+                0.9f + (float)byEntity.World.Rand.NextDouble() * 0.2f,
+                16,
+                0.35f
+            );
         }
 
         protected virtual void turnWood(EntityAgent byEntity, ItemSlot slot) {

@@ -133,7 +133,7 @@ namespace lathemod.src.common {
             if (api.Side == EnumAppSide.Client) {
                 renderer = new LatheChuckRenderer(api as ICoreClientAPI, Pos, GenMesh("chuck"), this);
                 baseRenderer = new LatheRenderer(api as ICoreClientAPI, this, Pos, GenMesh("base"));
-
+                
                 renderer.mechPowerPart = this.mpc;
 
                 if (automated) {

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>bin\$(Configuration)\Mods\mod</OutputPath>
   </PropertyGroup>
@@ -21,10 +21,6 @@
     </Reference>
     <Reference Include="VSCreativeMod">
       <HintPath>$(VINTAGE_STORY)/Mods/VSCreativeMod.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>$(VINTAGE_STORY)/Lib/Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="0Harmony">
@@ -106,5 +102,9 @@
 </ItemGroup>
 
 <ProjectExtensions><VisualStudio><UserProperties assets_4lathemod_4itemtypes_4tool_4woodturningchisel_1json__JsonSchema="https://cdn.subsquid.io/schemas/squid_manifest.json" assets_4lathemod_4recipes_4turning_4woodflowerpotrecipe_1json__JsonSchema="vintagestory" /></VisualStudio></ProjectExtensions>
+
+<ItemGroup>
+  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+</ItemGroup>
 
 </Project>

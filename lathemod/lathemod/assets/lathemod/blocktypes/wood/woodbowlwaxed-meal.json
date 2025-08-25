@@ -48,7 +48,10 @@
     "maxStackSize": 1,
     "lightAbsorption": 0,
     "sounds": {
-        "walk": "game:walk/wood"
+        "walk": "game:walk/wood",
+        "break": "game:block/planks",
+        "hit": "game:block/planks",
+        "place": "game:block/planks"
     },
     "texture": {
         "base": "game:block/wood/debarked/{wood}"

@@ -18,10 +18,10 @@
 		"size": 0.75,
 		"renderer": "Shape",
 		"shapeByType": {
-			"arrow-flint": { "base": "game:entity/arrow/stone" },
-			"arrow-gold": { "base": "game:entity/arrow/gold" },
-			"arrow-silver": { "base": "game:entity/arrow/silver" },
-			"*": { "base": "game:entity/arrow/copper" }
+			"arrow-flint": { "base": "game:entity/nonliving/projectile/arrow/stone" },
+			"arrow-gold": { "base": "game:entity/nonliving/projectile/arrow/gold" },
+			"arrow-silver": { "base": "game:entity/nonliving/projectile/arrow/silver" },
+			"*": { "base": "game:entity/nonliving/projectile/arrow/copper" }
 		},
 		"texturesByType": {
 			"arrow-refined-flint": {

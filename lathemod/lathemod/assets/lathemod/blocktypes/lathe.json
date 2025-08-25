@@ -189,7 +189,9 @@
     "resistance": "3",
     "sounds": {
         "place": "game:block/anvil",
-        "walk": "game:walk/anvil"
+        "walk": "game:walk/anvil",
+        "break": "game:block/anvil",
+        "hit": "game:block/anvil"
     },
     "guiTransform": {
         "translation": {

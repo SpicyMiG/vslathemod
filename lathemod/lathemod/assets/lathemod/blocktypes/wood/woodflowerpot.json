@@ -93,9 +93,9 @@
     },
     "sounds": {
         "walk": "game:walk/wood",
-        "break": "game:block/woodplace",
-        "hit": "block/woodhit",
-        "place": "block/woodplace"
+        "break": "game:block/planks",
+        "hit": "game:block/planks",
+        "place": "game:block/planks"
     },
     "collisionbox": {
         "x1": 0.3125,

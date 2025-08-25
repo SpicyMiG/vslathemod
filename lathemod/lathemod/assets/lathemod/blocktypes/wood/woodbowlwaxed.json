@@ -75,7 +75,10 @@
         "base": "game:block/wood/debarked/{wood}"
     },
     "sounds": {
-        "walk": "game:walk/wood"
+        "walk": "game:walk/wood",
+        "break": "game:block/planks",
+        "hit": "game:block/planks",
+        "place": "game:block/planks"
     },
     "sideopaque": {
         "all": false

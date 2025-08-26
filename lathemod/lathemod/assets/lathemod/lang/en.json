@@ -33,10 +33,10 @@
 	"item-shaft-walnut": "Walnut wooden shaft",
 	"item-shaft-purpleheart": "Purpleheart wooden shaft",
 
-	"blockhelp-selecttoolmode": "Select tool mode",
-	"blockhelp-lathe-takeworkable": "Remove work item",
-	"blockhelp-lathe-placeworkable": "Place work item",
-	"blockhelp-lathe-turn": "Turn workable",
+	"game:blockhelp-lathe-selecttoolmode": "Select tool mode",
+	"game:blockhelp-lathe-takeworkable": "Remove work item",
+	"game:blockhelp-lathe-placeworkable": "Place work item",
+	"game:blockhelp-lathe-turn": "Turn workable",
 
 	"game:tabname-lathe": "Lathe Mod",
 
@@ -75,8 +75,8 @@
 
 	"itemdesc-woodturningchisel-*": "A woodturning chisel for turning wood blanks into items on the lathe.",
 	"itemdesc-woodturningchiselhead-*": "A chiselhead for crafting woodturning chisels.",
-    "itemdesc-latheblank-*": "A wood blank for turning into bowls, tool handles, arrow shafts, and more on the lathe.",
-    "blockdesc-lathe-*": "A lathe for turning wood blanks into cylindrical items.",
+	"itemdesc-latheblank-*": "A wood blank for turning into bowls, tool handles, arrow shafts, and more on the lathe.",
+	"blockdesc-lathe-*": "A lathe for turning wood blanks into cylindrical items.",
 
 	"item-woodturningchiselhead-copper": "Copper woodturning chiselhead",
 	"item-woodturningchiselhead-tinbronze": "Bronze woodturning chiselhead",

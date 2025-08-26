@@ -1,0 +1,18 @@
+{
+	ingredientPattern: "T	S",
+	ingredients: {
+		"T": {
+			"type": "item",
+			"code": "game:shovelhead-*",
+			"name": "metal",
+			"allowedVariants": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+		},
+		"S": {
+			"type": "item",
+			"code": "lathemod:shaft-*"
+		}
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "lathemod:refinedshovel-{metal}", quantity: 1  }
+}

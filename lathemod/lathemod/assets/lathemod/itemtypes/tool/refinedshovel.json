@@ -1,0 +1,186 @@
+{
+	code: "refinedshovel",
+	behaviors: [{ 
+		name: "GroundStorable",
+		properties: {
+			layout: 'WallHalves',
+			wallOffY: 2,
+			ctrlKey: true,
+			selectionBox: { x1: 0, y1: 0, z1: 0, x2: 1, y2: 0.1, z2: 1 },
+			collisionBox: { x1: 0, y1: 0, z1: 0, x2: 0, y2: 0, z2: 0 },
+		}
+	}],
+	attributes: {
+		groundStorageTransformByType: {
+			"@shovel-(copper|tinbronze|bismuthbronze|blackbronze|gold|silver|iron|meteoriciron|steel)": {
+				translation: { x: 0, y: 0.59, z: -0.15 },
+				rotation: { x: 13, y: 88, z: -87 },
+				scale: 0.88
+			},
+			"*": {
+				translation: { x: 0, y: 0.4, z: -0.155 },
+				rotation: { x: 13, y: 88, z: -87 },
+				scale: 0.88
+			}
+		},
+		handbook: {
+			groupBy: ["shovel-*"]
+		},
+		toolrackTransform: {
+			rotation: { y: 1, z: -1 },
+			translation: { x: -0.47, y: 0.6 },
+			scale: 1.25,
+		}
+	},
+	variantgroups: [
+		{
+			"code": "material",
+			"states": [
+				"copper",
+				"tinbronze",
+				"bismuthbronze",
+				"blackbronze",
+				"gold",
+				"silver",
+				"iron",
+				"meteoriciron",
+				"steel"
+			]
+		}
+	],
+	tool: "shovel",
+	damagedby: ["blockbreaking", "attacking"],
+	shapeByType: {
+		"refinedshovel-copper": { "base": "game:item/tool/shovel-copper" },
+		"refinedshovel-tinbronze": { "base": "game:item/tool/shovel-copper" },
+		"refinedshovel-bismuthbronze": { "base": "game:item/tool/shovel-copper" },
+		"refinedshovel-blackbronze": { "base": "game:item/tool/shovel-copper" },
+		"refinedshovel-gold": { "base": "game:item/tool/shovel-copper" },
+		"refinedshovel-silver": { "base": "game:item/tool/shovel-copper" },
+		"refinedshovel-iron": { "base": "game:item/tool/shovel-copper" },
+		"refinedshovel-meteoriciron": { "base": "game:item/tool/shovel-copper" },
+		"refinedshovel-steel": { "base": "game:item/tool/shovel-copper" }
+	},
+	heldTpIdleAnimation: "shovelidle",
+	heldRightReadyAnimation: "shovelready",
+	heldTpHitAnimation: "shoveldig",
+	heldTpUseAnimation: "interactStaticLong",
+	texturesByType: {
+		"*": {
+			"material": { "base": "game:block/metal/ingot/{material}" },
+		},
+	},
+	miningspeedbytype: {
+		"refinedshovel-copper": {
+			"soil": 4,
+			"sand": 4,
+			"gravel": 2.6,
+			"snow": 2.6
+		},
+		"refinedshovel-bismuthbronze": {
+			"soil": 5,
+			"sand": 5,
+			"gravel": 3.2,
+			"snow": 3.2
+		},
+		"refinedshovel-tinbronze": {
+			"soil": 5.4,
+			"sand": 5.4,
+			"gravel": 3.6,
+			"snow": 3.6
+		},
+		"refinedshovel-gold": {
+			"soil": 5.4,
+			"sand": 5.4,
+			"gravel": 3.6,
+			"snow": 3.6
+		},
+		"refinedshovel-silver": {
+			"soil": 5.4,
+			"sand": 5.4,
+			"gravel": 3.6,
+			"snow": 3.6
+		},
+		"refinedshovel-blackbronze": {
+			"soil": 5.5,
+			"sand": 5.5,
+			"gravel": 3.7,
+			"snow": 3.7
+		},
+		"refinedshovel-iron": {
+			"soil": 6,
+			"sand": 6,
+			"gravel": 4,
+			"snow": 4
+		},
+		"refinedshovel-meteoriciron": {
+			"soil": 6.5,
+			"sand": 6.5,
+			"gravel": 4.2,
+			"snow": 4.2
+		},
+		"refinedshovel-steel": {
+			"soil": 7,
+			"sand": 7,
+			"gravel": 4.4,
+			"snow": 4.4
+		}
+	},
+	attackpowerbytype: {
+		"refinedshovel-copper": 1.25,
+		"refinedshovel-gold": 1.5,
+		"refinedshovel-silver": 1.5,
+		"refinedshovel-bismuthbronze": 1.5,
+		"refinedshovel-tinbronze": 1.75,
+		"refinedshovel-blackbronze": 2,
+		"refinedshovel-iron": 2.25,
+		"refinedshovel-meteoriciron": 2.35,
+		"refinedshovel-steel": 2.5
+	},
+	durabilitybytype: {
+		"refinedshovel-gold": 250,
+		"refinedshovel-silver": 250,
+		"refinedshovel-copper": 500,
+		"refinedshovel-tinbronze": 750,
+		"refinedshovel-bismuthbronze": 800,
+		"refinedshovel-blackbronze": 900,
+		"refinedshovel-iron": 1500,
+		"refinedshovel-meteoriciron": 1750,
+		"refinedshovel-steel": 3750
+	},
+	creativeinventory: {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"tools": [ "*" ],
+		"lathe": [ "*" ]
+	},
+	fpHandTransform: {
+		translation: { x: 0.046875, y: -0.2, z: 0 },
+		rotation: { x: -15, y: 15, z: 100 },
+		scale: 2
+	},
+	guiTransformByType: {
+		"@shovel-(copper|tinbronze|bismuthbronze|blackbronze|gold|silver|iron|meteoriciron|steel)": {
+			translation: { x: 0, y: 0, z: 0 },
+			rotation: { x: -113, y: -147, z: 139 },
+			origin: { x: 0.2, y: 0.7, z: 0.8 }
+		},
+		"*": {
+		translation: { x: 7, y: 0, z: 1 },
+		rotation: { x: -112, y: -147, z: 139 },
+		origin: { x: 0.3, y: 0.7, z: 0.7 },
+		scale: 1.18
+		}
+	},
+	groundTransform: {
+		translation: { x: 0, y: 0, z: 0 },
+		rotation: { x: 0, y: 0, z: 0 },
+		origin: { x: 0.5, y: 0, z: 0.5 },
+		scale: 3.6
+	},
+	tpHandTransform: {
+		translation: { x: -1.69, y: -0.29, z: -0.6 },
+		rotation: { x: 0, y: 0, z: -10 },
+		scale: 0.8
+	}
+}

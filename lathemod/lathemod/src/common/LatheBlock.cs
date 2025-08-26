@@ -108,7 +108,7 @@ namespace lathemod.src.common {
                 return new WorldInteraction[] {
                     new WorldInteraction()
                     {
-                        ActionLangCode = "blockhelp-takeworkable",
+                        ActionLangCode = "blockhelp-lathe-takeworkable",
                         HotKeyCode = null,
                         MouseButton = EnumMouseButton.Right,
                         ShouldApply = (wi, bs, es) => {
@@ -118,7 +118,7 @@ namespace lathemod.src.common {
                     },
                     new WorldInteraction()
                     {
-                        ActionLangCode = "blockhelp-placeworkable",
+                        ActionLangCode = "blockhelp-lathe-placeworkable",
                         HotKeyCode = "shift",
                         MouseButton = EnumMouseButton.Right,
                         Itemstacks = workableStacklist.ToArray(),
@@ -139,7 +139,7 @@ namespace lathemod.src.common {
                     },
                     new WorldInteraction()
                     {
-                        ActionLangCode = "blockhelp-selecttoolmode",
+                        ActionLangCode = "blockhelp-lathe-selecttoolmode",
                         HotKeyCode = "toolmodeselect",
                         MouseButton = EnumMouseButton.None,
                         Itemstacks = wtcStacklist.ToArray(),

@@ -5,10 +5,30 @@
         {
             "name": "GroundStorable",
             "properties": {
-                "layout": "WallHalves",
-                "wallOffY": 1,
-                "ctrlKey": true,
-                "selectionBox": {
+                "layout": "Stacking",
+                "stackingModel": "block/wood/shaftpile",
+                "stackingCapacity": 32,
+                "cbScaleYByLayer": 0.125,
+                "modelItemsToStackSizeRatio": 0.5,
+                "transferQuantity": 2,
+                "bulkTransferQuantity": 8,
+                "upSolid": true,
+                "collisionBox": {
+                    "x1": 0,
+                    "y1": 0,
+                    "z1": 0,
+                    "x2": 1,
+                    "y2": 0.25,
+                    "z2": 1
+                },
+                "burnHoursPerItem": 0.25,
+                "stackingTexture": {
+                    "base": "game:block/wood/debarked/{wood}",
+                    "rotation": 90
+                }
+                //"wallOffY": 1,
+                //"ctrlKey": true
+                /*"selectionBox": {
                     "x1": 0,
                     "y1": 0,
                     "z1": 0,
@@ -23,7 +43,7 @@
                     "x2": 0,
                     "y2": 0,
                     "z2": 0
-                }
+                }*/
             }
         }
     ],

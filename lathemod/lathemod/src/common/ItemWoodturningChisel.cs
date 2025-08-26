@@ -8,6 +8,7 @@ using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Server;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
@@ -21,10 +22,10 @@ namespace lathemod.src.common {
 
             if (api is ICoreClientAPI capi) {
                 toolModes = ObjectCacheUtil.GetOrCreate(api, "woodturningChiselModes", () => {
-                    SkillItem[] modes = new SkillItem[2];
+                    SkillItem[] modes = new SkillItem[1];
 
                     modes[0] = new SkillItem() { Code = new AssetLocation("flat"), Name = Lang.Get("Single") }.WithIcon(capi, DrawHit);
-                    modes[1] = new SkillItem() { Code = new AssetLocation("debugmode"), Name = Lang.Get("Debug Mode") }.WithIcon(capi, DrawHit);
+                    //modes[1] = new SkillItem() { Code = new AssetLocation("debugmode"), Name = Lang.Get("Debug Mode") }.WithIcon(capi, DrawHit);
                     //modes[2] = new SkillItem() { Code = new AssetLocation("gouge"), Name = Lang.Get("Gouging") }.WithIcon(capi, DrawHit);
 
                     return modes;
@@ -51,7 +52,7 @@ namespace lathemod.src.common {
 
             if (!(byEntity.World.BlockAccessor.GetBlock(blockSel.Position) is LatheBlock)) {
                 base.OnHeldAttackStart(slot, byEntity, blockSel, entitySel, ref handling);
-                api.Logger.Event("OnHeldAttackStart, BE not lathe. Returning. Block found: " + byEntity.World.BlockAccessor.GetBlock(blockSel.Position));
+                //api.Logger.Event("OnHeldAttackStart, BE not lathe. Returning. Block found: " + byEntity.World.BlockAccessor.GetBlock(blockSel.Position));
                 //handling = EnumHandHandling.PreventDefault;
                 //turnWood(byEntity, slot);
                 return;
@@ -59,6 +60,38 @@ namespace lathemod.src.common {
 
             handling = EnumHandHandling.PreventDefault;
         }
+
+        public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling) {
+            base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
+            if (handling == EnumHandHandling.PreventDefault) return;
+
+            IPlayer byPlayer = (byEntity as EntityPlayer)?.Player;
+
+            if (blockSel?.Position == null) return;
+            var pos = blockSel.Position;
+            Block block = byEntity.World.BlockAccessor.GetBlock(pos);
+
+            if (!byEntity.World.Claims.TryAccess(byPlayer, pos, EnumBlockAccessFlags.BuildOrBreak)) {
+                byPlayer.InventoryManager.ActiveHotbarSlot.MarkDirty();
+                return;
+            }
+
+            if (block is BlockGroundStorage) { //returns false on tool rack
+                BlockEntityGroundStorage begs = api.World.BlockAccessor.GetBlockEntity(pos) as BlockEntityGroundStorage;
+                var neslot = begs.Inventory.FirstNonEmptySlot;
+                if (neslot != null && neslot.Itemstack.Block != null) {
+                    block = neslot.Itemstack.Block;
+                }
+            }
+
+            if (blockSel == null) {
+                base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
+                return;
+            }
+
+            handling = EnumHandHandling.PreventDefaultAction;
+        }
+
 
         public override void OnHeldActionAnimStart(ItemSlot slot, EntityAgent byEntity, EnumHandInteract type) {
             var eplr = byEntity as EntityPlayer;
@@ -69,7 +102,7 @@ namespace lathemod.src.common {
             BlockEntity be = byEntity.World.BlockAccessor.GetBlockEntity(blockSel.Position);
             BlockEntityLathe bel = null;
             if (!(byEntity.World.BlockAccessor.GetBlock(blockSel.Position) is LatheBlock)) {
-                api.Logger.Event("OnHeldActionAnimStart, BE not lathe. Returning. Block found: " + byEntity.World.BlockAccessor.GetBlock(blockSel.Position));
+                //api.Logger.Event("OnHeldActionAnimStart, BE not lathe. Returning. Block found: " + byEntity.World.BlockAccessor.GetBlock(blockSel.Position));
                 if (byEntity.World.BlockAccessor.GetBlockEntity(blockSel.Position) is BELatheEntityRedirect) {
                     bel = (byEntity.World.BlockAccessor.GetBlockEntity(blockSel.Position) as BELatheEntityRedirect).Principal;
                     //api.Logger.Event("Found BE");
@@ -80,7 +113,7 @@ namespace lathemod.src.common {
                 }
             }
 
-            if(bel == null) bel = be as BlockEntityLathe;
+            if (bel == null) bel = be as BlockEntityLathe;
             if (bel == null) return;
             bel.OnBeginUse(byPlayer, blockSel);
 
@@ -162,6 +195,8 @@ namespace lathemod.src.common {
 
             return false;
         }
+
+
 
         public override bool OnHeldAttackStep(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSelection, EntitySelection entitySel) {
             if (!slot.Itemstack.TempAttributes.GetBool("isLatheAction")) {

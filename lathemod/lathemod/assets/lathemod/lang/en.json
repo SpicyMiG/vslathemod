@@ -25,6 +25,18 @@
 	"item-latheblankhalf-birch": "Birch lathe blank half",
 	"item-latheblankhalf-redwood": "Redwood lathe blank half",
 
+	"item-latheworkitem-oak": "Oak lathe work item",
+	"item-latheworkitem-maple": "Maple lathe work item",
+	"item-latheworkitem-acacia": "Acacia lathe work item",
+	"item-latheworkitem-baldcypress": "Bald cypress lathe work item",
+	"item-latheworkitem-ebony": "Ebony lathe work item",
+	"item-latheworkitem-walnut": "Walnut lathe work item",
+	"item-latheworkitem-purpleheart": "Purpleheart lathe work item",
+	"item-latheworkitem-pine": "Pine lathe work item",
+	"item-latheworkitem-larch": "Larch lathe work item",
+	"item-latheworkitem-birch": "Birch lathe work item",
+	"item-latheworkitem-redwood": "Redwood lathe work item",
+
 	"item-shaft-oak": "Oak wooden shaft",
 	"item-shaft-maple": "Maple wooden shaft",
 	"item-shaft-acacia": "Acacia wooden shaft",
@@ -72,6 +84,11 @@
 	"item-refinedaxe-felling-iron": "Refined iron axe",
 	"item-refinedaxe-felling-meteoriciron": "Refined meteoric iron axe",
 	"item-refinedaxe-felling-steel": "Refined steel axe",
+
+	"item-refinedspear-generic-copper": "Refined copper spear",
+	"item-refinedspear-generic-tinbronze": "Refined tin bronze spear",
+	"item-refinedspear-generic-blackbronze": "Refined black bronze spear",
+	"item-refinedspear-generic-bismuthbronze": "Refined bismuth bronze spear",
 
 	"itemdesc-woodturningchisel-*": "A woodturning chisel for turning wood blanks into items on the lathe.",
 	"itemdesc-woodturningchiselhead-*": "A chiselhead for crafting woodturning chisels.",

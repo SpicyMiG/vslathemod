@@ -1,0 +1,81 @@
+{
+	code: "refinedspear",
+	class: "EntityProjectile",
+	tags: ["inanimate", "projectile"],
+	hitboxSize: { x: 0.125, y: 0.125 },
+	variantgroups: [
+		{ code: "type", states: ["generic"] },
+		{ code: "material", states: ["copper", "tinbronze",  "bismuthbronze", "blackbronze"] }
+	],
+	skipVariants: [
+		"refinedspear-generic-ruined",
+		"refinedspear-generic-scrap"
+	],
+	allowedVariants: [
+		"refinedspear-generic-*"
+	],
+	attributes: {
+		isProjectile: true
+	},
+	client: {
+		renderer: "Shape",
+		shapeByType: {
+			"refinedspear-generic-copper": {
+				"base": "game:item/tool/spear/ornatesilver",
+				"offsetX": -0.8125
+			},
+			"refinedspear-generic-tinbronze": {
+				"base": "game:item/tool/spear/ornatesilver",
+				"offsetX": -0.8125
+			},
+			"refinedspear-generic-bismuthbronze": {
+				"base": "game:item/tool/spear/ornatesilver",
+				"offsetX": -0.8125
+			},
+			"refinedspear-generic-blackbronze": {
+				"base": "game:item/tool/spear/ornatesilver",
+				"offsetX": -0.8125
+			},
+			"refinedspear-generic-ornategold": {
+				"base": "game:item/tool/spear/ornategold",
+				"offsetX": -0.8125
+			},
+			"refinedspear-generic-ornatesilver": {
+				"base": "game:item/tool/spear/ornatesilver",
+				"offsetX": -0.8125
+			},
+			"*": {
+				"base": "game:item/tool/spear/stone",
+				"offsetX": -0.8125
+			}
+		},
+		texturesByType: {
+			"spear-generic-ornate*": { },
+			"*": {
+				"iron4": { base: "game:item/tool/material/{material}" }
+			}
+		},
+		behaviors: [
+			{ 
+				code: "passivephysics", 
+				groundDragFactor: 1,
+				airDragFactor: 0.25,
+				gravityFactor: 0.75
+			}, 
+			{ code: "interpolateposition" }
+		],
+	},
+	server: {
+		behaviors: [
+			{ 
+				code: "passivephysics", 
+				groundDragFactor: 1,
+				airDragFactor: 0.25,
+				gravityFactor: 0.75
+			}, 
+			{ code: "despawn", minSeconds: 600 },
+			{ code: "entitystatetags" }
+		]
+	},
+	sounds: { }
+}

@@ -15,5 +15,18 @@
     "texture": {
         "base": "game:block/wood/debarked/{wood}",
         "rotation": 90
+    },
+    "guiTransform": {
+        "rotation": {
+            "x": 37,
+            "y": 0,
+            "z": -47
+        },
+        "origin": {
+            "x": 0.65,
+            "y": 0.5,
+            "z": 0
+        },
+        "scale": 1.86
     }
 }

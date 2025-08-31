@@ -8,14 +8,15 @@
         },
         "S": {
             "type": "item",
-            "code": "lathemod:shaft-*"
+            "code": "lathemod:shaft-*",
+            "name": "wood"
         }
     },
     "width": 1,
     "height": 2,
     "output": {
         "type": "item",
-        "code": "refinedpickaxe-{metal}",
+        "code": "refinedpickaxe-{metal}-{wood}",
         "quantity": 1
     }
 }

@@ -8,7 +8,8 @@
         },
         "S": {
             "type": "item",
-            "code": "arrowshaft-*"
+            "code": "arrowshaft-*",
+            "name": "wood"
         },
         "F": {
             "type": "item",
@@ -19,7 +20,7 @@
     "height": 3,
     "output": {
         "type": "item",
-        "code": "lathemod:arrow-refined-{metal}",
+        "code": "lathemod:arrow-refined-{metal}-{wood}",
         "quantity": 1
     }
 }

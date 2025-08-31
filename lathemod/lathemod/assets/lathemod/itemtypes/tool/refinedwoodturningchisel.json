@@ -87,49 +87,54 @@
                 "meteoriciron",
                 "steel"
             ]
+        },
+        {
+            "code": "wood",
+            "states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
         }
     ],
     "shape": { "base": "lathemod:item/tool/woodturningchisel" },
     "textures": {
-        "metal": { "base": "game:block/metal/ingot/{material}" }
+        "metal": { "base": "game:block/metal/ingot/{material}" },
+        "wood": { "base": "game:block/wood/debarked/{wood}" }
     },
     "damagedBy": [ "blockbreaking", "attacking" ],
     "heldTpHitAnimation": "chiselhit",
     "helpTpUseAnimation": "chiselhit",
     "tooltierbytype": {
-        "*-copper": 2,
-        "*-gold": 2,
-        "*-silver": 2,
-        "*-bismuthbronze": 3,
-        "*-tinbronze": 3,
-        "*-blackbronze": 3,
-        "*-iron": 4,
-        "*-meteoriciron": 4,
-        "*-steel": 5
+        "*-copper-*": 2,
+        "*-gold-*": 2,
+        "*-silver-*": 2,
+        "*-bismuthbronze-*": 3,
+        "*-tinbronze-*": 3,
+        "*-blackbronze-*": 3,
+        "*-iron-*": 4,
+        "*-meteoriciron-*": 4,
+        "*-steel-*": 5
     },
     "durabilitybytype": {
-        "woodturningchisel-refined-stone": 100,
-        "woodturningchisel-refined-gold": 300,
-        "woodturningchisel-refined-silver": 300,
-        "woodturningchisel-refined-copper": 550,
-        "woodturningchisel-refined-tinbronze": 800,
-        "woodturningchisel-refined-bismuthbronze": 950,
-        "woodturningchisel-refined-blackbronze": 1100,
-        "woodturningchisel-refined-iron": 1800,
-        "woodturningchisel-refined-meteoriciron": 2100,
-        "woodturningchisel-refined-steel": 4800
+        "woodturningchisel-refined-stone-*": 100,
+        "woodturningchisel-refined-gold-*": 300,
+        "woodturningchisel-refined-silver-*": 300,
+        "woodturningchisel-refined-copper-*": 550,
+        "woodturningchisel-refined-tinbronze-*": 800,
+        "woodturningchisel-refined-bismuthbronze-*": 950,
+        "woodturningchisel-refined-blackbronze-*": 1100,
+        "woodturningchisel-refined-iron-*": 1800,
+        "woodturningchisel-refined-meteoriciron-*": 2100,
+        "woodturningchisel-refined-steel-*": 4800
     },
     "attackpowerbytype": {
-        "woodturningchisel-refined-stone": 0.5,
-        "woodturningchisel-refined-copper": 0.75,
-        "woodturningchisel-refined-gold": 1.0,
-        "woodturningchisel-refined-silver": 1.0,
-        "woodturningchisel-refined-bismuthbronze": 1.0,
-        "woodturningchisel-refined-tinbronze": 1.25,
-        "woodturningchisel-refined-blackbronze": 1.5,
-        "woodturningchisel-refined-iron": 1.75,
-        "woodturningchisel-refined-meteoriciron": 1.85,
-        "woodturningchisel-refined-steel": 2
+        "woodturningchisel-refined-stone-*": 0.5,
+        "woodturningchisel-refined-copper-*": 0.75,
+        "woodturningchisel-refined-gold-*": 1.0,
+        "woodturningchisel-refined-silver-*": 1.0,
+        "woodturningchisel-refined-bismuthbronze-*": 1.0,
+        "woodturningchisel-refined-tinbronze-*": 1.25,
+        "woodturningchisel-refined-blackbronze-*": 1.5,
+        "woodturningchisel-refined-iron-*": 1.75,
+        "woodturningchisel-refined-meteoriciron-*": 1.85,
+        "woodturningchisel-refined-steel-*": 2
     },
     "creativeinventory": {
         "general": [ "*" ],

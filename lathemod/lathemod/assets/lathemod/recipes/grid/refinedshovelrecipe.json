@@ -9,10 +9,11 @@
 		},
 		"S": {
 			"type": "item",
-			"code": "lathemod:shaft-*"
+			"code": "lathemod:shaft-*",
+            "name": "wood"
 		}
 	},
 	width: 1,
 	height: 2,
-	output: { type: "item", code: "lathemod:refinedshovel-{metal}", quantity: 1  }
+	output: { type: "item", code: "lathemod:refinedshovel-{metal}-{wood}", quantity: 1  }
 }

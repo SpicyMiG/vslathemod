@@ -5,24 +5,35 @@
 		{
 			"code": "material",
 			"states": [ "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+		},
+		{
+			"code": "wood",
+			"states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
 		}
 	],
 	"maxstacksize": 64,
 	"storageFlags": 513,
 	"shapeByType": {
-		"arrow-crude": { "base": "game:item/tool/arrow-crude" },
-		"arrow-flint": { "base": "game:item/tool/arrow-stone" },
-		"arrow-gold": { "base": "game:item/tool/arrow-gold" },
-		"arrow-silver": { "base": "game:item/tool/arrow-silver" },
-		"arrow-erel": { "base": "game:entity/air/erel/projectile-small-usable" },
+		"arrow-refined-crude": { "base": "game:item/tool/arrow-crude" },
+		"arrow-refined-flint": { "base": "game:item/tool/arrow-stone" },
+		"arrow-refined-gold": { "base": "game:item/tool/arrow-gold" },
+		"arrow-refined-silver": { "base": "game:item/tool/arrow-silver" },
 		"*": { "base": "game:item/tool/arrow-copper" }
 	},
 	"texturesByType": {
-		"*-flint": {
-			"material": { "base": "game:block/stone/flint" }
+		"*-flint-*": {
+			"material": { "base": "game:block/stone/flint" },
+			"handle": {
+				"base": "game:block/wood/debarked/{wood}"//,
+				//"rotation": 90
+			}
 		},
 		"*": {
-			"material": { "base": "game:block/metal/ingot/{material}" }
+			"material": { "base": "game:block/metal/ingot/{material}" },
+			"handle": {
+				"base": "game:block/wood/debarked/{wood}"//,
+				//"rotation": 90
+			}
 		}
 	},
 	"creativeinventory": {
@@ -90,7 +101,7 @@
 	},
 	"attributes": {
 		"arrowEntityCodeByType": {
-			"*": "lathemod:arrow-refined-{material}"
+			"*": "lathemod:arrow-refined-{material}-{wood}"
 		},
 		"damageByType": {
 			"*-flint": 0,
@@ -106,16 +117,137 @@
 			"*-steel": 3.0
 		},
 		"breakChanceOnImpactByType": {
-			"*-flint": 0.15,
-			"*-copper": 0.1,
-			"*-tinbronze": 0.1,
-			"*-gold": 0.125,
-			"*-silver": 0.125,
-			"*-bismuthbronze": 0.1,
-			"*-blackbronze": 0.05,
-			"*-iron": 0.05,
-			"*-meteoriciron": 0.05,
-			"*-steel": 0.03
+			"*-flint-oak": 0.12,
+			"*-copper-oak": 0.08,
+			"*-tinbronze-oak": 0.08,
+			"*-gold-oak": 0.10,
+			"*-silver-oak": 0.10,
+			"*-bismuthbronze-oak": 0.08,
+			"*-blackbronze-oak": 0.04,
+			"*-iron-oak": 0.04,
+			"*-meteoriciron-oak": 0.04,
+			"*-steel-oak": 0.02,
+
+			"*-flint-maple": 0.12,
+			"*-copper-maple": 0.08,
+			"*-tinbronze-maple": 0.08,
+			"*-gold-maple": 0.10,
+			"*-silver-maple": 0.10,
+			"*-bismuthbronze-maple": 0.08,
+			"*-blackbronze-maple": 0.04,
+			"*-iron-maple": 0.04,
+			"*-meteoriciron-maple": 0.04,
+			"*-steel-maple": 0.02,
+
+			"*-flint-purpleheart": 0.13,
+			"*-copper-purpleheart": 0.08,
+			"*-tinbronze-purpleheart": 0.08,
+			"*-gold-purpleheart": 0.11,
+			"*-silver-purpleheart": 0.11,
+			"*-bismuthbronze-purpleheart": 0.08,
+			"*-blackbronze-purpleheart": 0.04,
+			"*-iron-purpleheart": 0.04,
+			"*-meteoriciron-purpleheart": 0.04,
+			"*-steel-purpleheart": 0.02,
+
+			"*-flint-walnut": 0.13,
+			"*-copper-walnut": 0.08,
+			"*-tinbronze-walnut": 0.08,
+			"*-gold-walnut": 0.11,
+			"*-silver-walnut": 0.11,
+			"*-bismuthbronze-walnut": 0.08,
+			"*-blackbronze-walnut": 0.04,
+			"*-iron-walnut": 0.04,
+			"*-meteoriciron-walnut": 0.04,
+			"*-steel-walnut": 0.02,
+
+			"*-flint-pine": 0.18,
+			"*-copper-pine": 0.12,
+			"*-tinbronze-pine": 0.12,
+			"*-gold-pine": 0.15,
+			"*-silver-pine": 0.15,
+			"*-bismuthbronze-pine": 0.12,
+			"*-blackbronze-pine": 0.06,
+			"*-iron-pine": 0.06,
+			"*-meteoriciron-pine": 0.06,
+			"*-steel-pine": 0.04,
+
+			"*-flint-larch": 0.18,
+			"*-copper-larch": 0.12,
+			"*-tinbronze-larch": 0.12,
+			"*-gold-larch": 0.15,
+			"*-silver-larch": 0.15,
+			"*-bismuthbronze-larch": 0.12,
+			"*-blackbronze-larch": 0.06,
+			"*-iron-larch": 0.06,
+			"*-meteoriciron-larch": 0.06,
+			"*-steel-larch": 0.04,
+
+			"*-flint-birch": 0.17,
+			"*-copper-birch": 0.11,
+			"*-tinbronze-birch": 0.11,
+			"*-gold-birch": 0.14,
+			"*-silver-birch": 0.14,
+			"*-bismuthbronze-birch": 0.11,
+			"*-blackbronze-birch": 0.06,
+			"*-iron-birch": 0.06,
+			"*-meteoriciron-birch": 0.06,
+			"*-steel-birch": 0.03,
+
+			"*-flint-redwood": 0.18,
+			"*-copper-redwood": 0.12,
+			"*-tinbronze-redwood": 0.12,
+			"*-gold-redwood": 0.15,
+			"*-silver-redwood": 0.15,
+			"*-bismuthbronze-redwood": 0.12,
+			"*-blackbronze-redwood": 0.06,
+			"*-iron-redwood": 0.06,
+			"*-meteoriciron-redwood": 0.06,
+			"*-steel-redwood": 0.04,
+
+			"*-flint-acacia": 0.14,
+			"*-copper-acacia": 0.09,
+			"*-tinbronze-acacia": 0.09,
+			"*-gold-acacia": 0.11,
+			"*-silver-acacia": 0.11,
+			"*-bismuthbronze-acacia": 0.09,
+			"*-blackbronze-acacia": 0.05,
+			"*-iron-acacia": 0.05,
+			"*-meteoriciron-acacia": 0.05,
+			"*-steel-acacia": 0.03,
+
+			"*-flint-ebony": 0.14,
+			"*-copper-ebony": 0.09,
+			"*-tinbronze-ebony": 0.09,
+			"*-gold-ebony": 0.11,
+			"*-silver-ebony": 0.11,
+			"*-bismuthbronze-ebony": 0.09,
+			"*-blackbronze-ebony": 0.05,
+			"*-iron-ebony": 0.05,
+			"*-meteoriciron-ebony": 0.05,
+			"*-steel-ebony": 0.03,
+
+			"*-flint-baldcypress": 0.18,
+			"*-copper-baldcypress": 0.12,
+			"*-tinbronze-baldcypress": 0.12,
+			"*-gold-baldcypress": 0.15,
+			"*-silver-baldcypress": 0.15,
+			"*-bismuthbronze-baldcypress": 0.12,
+			"*-blackbronze-baldcypress": 0.06,
+			"*-iron-baldcypress": 0.06,
+			"*-meteoriciron-baldcypress": 0.06,
+			"*-steel-baldcypress": 0.04,
+
+			"*-flint-*": 0.15,
+			"*-copper-*": 0.1,
+			"*-tinbronze-*": 0.1,
+			"*-gold-*": 0.125,
+			"*-silver-*": 0.125,
+			"*-bismuthbronze-*": 0.1,
+			"*-blackbronze-*": 0.05,
+			"*-iron-*": 0.05,
+			"*-meteoriciron-*": 0.05,
+			"*-steel-*": 0.03
 		},
 		"handbook": {
 			"groupBy": [ "arrow-*" ]

@@ -5,11 +5,18 @@
 	hitboxSize: { x: 0.125, y: 0.125 },
 	variantgroups: [
 		{ code: "type", states: ["generic"] },
-		{ code: "material", states: ["copper", "tinbronze",  "bismuthbronze", "blackbronze"] }
+		{
+			code: "material",
+			states: [ "copper", "tinbronze", "bismuthbronze", "blackbronze" ]
+		},
+		{
+			"code": "wood",
+			"states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
+		}
 	],
 	skipVariants: [
-		"refinedspear-generic-ruined",
-		"refinedspear-generic-scrap"
+		"refinedspear-generic-ruined-*",
+		"refinedspear-generic-scrap-*"
 	],
 	allowedVariants: [
 		"refinedspear-generic-*"
@@ -20,27 +27,27 @@
 	client: {
 		renderer: "Shape",
 		shapeByType: {
-			"refinedspear-generic-copper": {
+			"refinedspear-generic-copper-*": {
 				"base": "game:item/tool/spear/ornatesilver",
 				"offsetX": -0.8125
 			},
-			"refinedspear-generic-tinbronze": {
+			"refinedspear-generic-tinbronze-*": {
 				"base": "game:item/tool/spear/ornatesilver",
 				"offsetX": -0.8125
 			},
-			"refinedspear-generic-bismuthbronze": {
+			"refinedspear-generic-bismuthbronze-*": {
 				"base": "game:item/tool/spear/ornatesilver",
 				"offsetX": -0.8125
 			},
-			"refinedspear-generic-blackbronze": {
+			"refinedspear-generic-blackbronze-*": {
 				"base": "game:item/tool/spear/ornatesilver",
 				"offsetX": -0.8125
 			},
-			"refinedspear-generic-ornategold": {
+			"refinedspear-generic-ornategold-*": {
 				"base": "game:item/tool/spear/ornategold",
 				"offsetX": -0.8125
 			},
-			"refinedspear-generic-ornatesilver": {
+			"refinedspear-generic-ornatesilver-*": {
 				"base": "game:item/tool/spear/ornatesilver",
 				"offsetX": -0.8125
 			},
@@ -52,7 +59,11 @@
 		texturesByType: {
 			"spear-generic-ornate*": { },
 			"*": {
-				"iron4": { base: "game:item/tool/material/{material}" }
+				"iron4": { "base": "game:item/tool/material/{material}" },
+				"redwood": {
+					"base": "game:block/wood/debarked/{wood}" //,
+					//"rotation": 90
+				}
 			}
 		},
 		behaviors: [

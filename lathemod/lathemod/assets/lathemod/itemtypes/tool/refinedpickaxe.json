@@ -63,6 +63,10 @@
         {
             "code": "metal",
             "states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+        },
+        {
+            "code": "wood",
+            "states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
         }
     ],
     "tool": "pickaxe",
@@ -71,78 +75,82 @@
     "heldTpHitAnimation": "pickaxe",
     "texturesByType": {
         "*": {
-            "metal": { "base": "game:block/metal/ingot/{metal}" }
+            "metal": { "base": "game:block/metal/ingot/{metal}" },
+            "handle": {
+                "base": "game:block/wood/debarked/{wood}"
+                //"rotation": 90
+            }
         }
     },
     "tooltierbytype": {
-        "*-copper": 2,
-        "*-gold": 2,
-        "*-silver": 2,
-        "*-bismuthbronze": 3,
-        "*-tinbronze": 3,
-        "*-blackbronze": 3,
-        "*-iron": 4,
-        "*-meteoriciron": 4,
-        "*-steel": 5
+        "*-copper-*": 2,
+        "*-gold-*": 2,
+        "*-silver-*": 2,
+        "*-bismuthbronze-*": 3,
+        "*-tinbronze-*": 3,
+        "*-blackbronze-*": 3,
+        "*-iron-*": 4,
+        "*-meteoriciron-*": 4,
+        "*-steel-*": 5
     },
     "miningspeedbytype": {
-        "refinedpickaxe-copper": {
+        "refinedpickaxe-copper-*": {
             "ceramic": 1.5,
             "stone": 4.5,
             "ore": 4.5,
             "metal": 4.5,
             "ice": 2.25
         },
-        "refinedpickaxe-bismuthbronze": {
+        "refinedpickaxe-bismuthbronze-*": {
             "ceramic": 2.5,
             "stone": 6,
             "ore": 6,
             "metal": 6,
             "ice": 2.7
         },
-        "refinedpickaxe-tinbronze": {
+        "refinedpickaxe-tinbronze-*": {
             "ceramic": 2.75,
             "stone": 6.5,
             "ore": 6.5,
             "metal": 6.5,
             "ice": 2.7
         },
-        "refinedpickaxe-gold": {
+        "refinedpickaxe-gold-*": {
             "ceramic": 2.25,
             "stone": 5.5,
             "ore": 5.5,
             "metal": 5.5,
             "ice": 2.5
         },
-        "refinedpickaxe-silver": {
+        "refinedpickaxe-silver-*": {
             "ceramic": 1.25,
             "stone": 5.5,
             "ore": 5.5,
             "metal": 5.5,
             "ice": 2.5
         },
-        "refinedpickaxe-blackbronze": {
+        "refinedpickaxe-blackbronze-*": {
             "ceramic": 3,
             "stone": 7,
             "ore": 7,
             "metal": 7,
             "ice": 3.3
         },
-        "refinedpickaxe-iron": {
+        "refinedpickaxe-iron-*": {
             "ceramic": 3.25,
             "stone": 8,
             "ore": 8,
             "metal": 8,
             "ice": 4
         },
-        "refinedpickaxe-meteoriciron": {
+        "refinedpickaxe-meteoriciron-*": {
             "ceramic": 3.5,
             "stone": 8.5,
             "ore": 8.5,
             "metal": 8.5,
             "ice": 4.25
         },
-        "refinedpickaxe-steel": {
+        "refinedpickaxe-steel-*": {
             "ceramic": 3.75,
             "stone": 9.5,
             "ore": 9.5,
@@ -151,26 +159,136 @@
         }
     },
     "attackpowerbytype": {
-        "refinedpickaxe-copper": 1.25,
-        "refinedpickaxe-bismuthbronze": 1.5,
-        "refinedpickaxe-tinbronze": 1.75,
-        "refinedpickaxe-gold": 1.75,
-        "refinedpickaxe-silver": 1.75,
-        "refinedpickaxe-blackbronze": 2,
-        "refinedpickaxe-iron": 2.25,
-        "refinedpickaxe-meteoriciron": 2.5,
-        "refinedpickaxe-steel": 2.5
+        "refinedpickaxe-copper-*": 1.25,
+        "refinedpickaxe-bismuthbronze-*": 1.5,
+        "refinedpickaxe-tinbronze-*": 1.75,
+        "refinedpickaxe-gold-*": 1.75,
+        "refinedpickaxe-silver-*": 1.75,
+        "refinedpickaxe-blackbronze-*": 2,
+        "refinedpickaxe-iron-*": 2.25,
+        "refinedpickaxe-meteoriciron-*": 2.5,
+        "refinedpickaxe-steel-*": 2.5
     },
     "durabilitybytype": {
-        "refinedpickaxe-gold": 250,
-        "refinedpickaxe-silver": 275,
-        "refinedpickaxe-copper": 400,
-        "refinedpickaxe-tinbronze": 550,
-        "refinedpickaxe-bismuthbronze": 600,
-        "refinedpickaxe-blackbronze": 650,
-        "refinedpickaxe-iron": 1200,
-        "refinedpickaxe-meteoriciron": 1500,
-        "refinedpickaxe-steel": 3000
+        "refinedpickaxe-gold-oak": 275,
+        "refinedpickaxe-silver-oak": 300,
+        "refinedpickaxe-copper-oak": 450,
+        "refinedpickaxe-tinbronze-oak": 600,
+        "refinedpickaxe-bismuthbronze-oak": 650,
+        "refinedpickaxe-blackbronze-oak": 700,
+        "refinedpickaxe-iron-oak": 1325,
+        "refinedpickaxe-meteoriciron-oak": 1650,
+        "refinedpickaxe-steel-oak": 3300,
+
+        "refinedpickaxe-gold-maple": 275,
+        "refinedpickaxe-silver-maple": 300,
+        "refinedpickaxe-copper-maple": 450,
+        "refinedpickaxe-tinbronze-maple": 600,
+        "refinedpickaxe-bismuthbronze-maple": 650,
+        "refinedpickaxe-blackbronze-maple": 700,
+        "refinedpickaxe-iron-maple": 1325,
+        "refinedpickaxe-meteoriciron-maple": 1650,
+        "refinedpickaxe-steel-maple": 3300,
+
+        "refinedpickaxe-gold-purpleheart": 270,
+        "refinedpickaxe-silver-purpleheart": 300,
+        "refinedpickaxe-copper-purpleheart": 430,
+        "refinedpickaxe-tinbronze-purpleheart": 600,
+        "refinedpickaxe-bismuthbronze-purpleheart": 650,
+        "refinedpickaxe-blackbronze-purpleheart": 650,
+        "refinedpickaxe-iron-purpleheart": 1290,
+        "refinedpickaxe-meteoriciron-purpleheart": 1620,
+        "refinedpickaxe-steel-purpleheart": 3240,
+
+        "refinedpickaxe-gold-walnut": 265,
+        "refinedpickaxe-silver-walnut": 290,
+        "refinedpickaxe-copper-walnut": 425,
+        "refinedpickaxe-tinbronze-walnut": 600,
+        "refinedpickaxe-bismuthbronze-walnut": 625,
+        "refinedpickaxe-blackbronze-walnut": 650,
+        "refinedpickaxe-iron-walnut": 1275,
+        "refinedpickaxe-meteoriciron-walnut": 1590,
+        "refinedpickaxe-steel-walnut": 3180,
+
+        "refinedpickaxe-gold-pine": 225,
+        "refinedpickaxe-silver-pine": 250,
+        "refinedpickaxe-copper-pine": 375,
+        "refinedpickaxe-tinbronze-pine": 500,
+        "refinedpickaxe-bismuthbronze-pine": 550,
+        "refinedpickaxe-blackbronze-pine": 600,
+        "refinedpickaxe-iron-pine": 1080,
+        "refinedpickaxe-meteoriciron-pine": 1350,
+        "refinedpickaxe-steel-pine": 2700,
+
+        "refinedpickaxe-gold-larch": 225,
+        "refinedpickaxe-silver-larch": 250,
+        "refinedpickaxe-copper-larch": 375,
+        "refinedpickaxe-tinbronze-larch": 500,
+        "refinedpickaxe-bismuthbronze-larch": 550,
+        "refinedpickaxe-blackbronze-larch": 600,
+        "refinedpickaxe-iron-larch": 1080,
+        "refinedpickaxe-meteoriciron-larch": 1350,
+        "refinedpickaxe-steel-larch": 2700,
+
+        "refinedpickaxe-gold-birch": 235,
+        "refinedpickaxe-silver-birch": 260,
+        "refinedpickaxe-copper-birch": 375,
+        "refinedpickaxe-tinbronze-birch": 510,
+        "refinedpickaxe-bismuthbronze-birch": 565,
+        "refinedpickaxe-blackbronze-birch": 600,
+        "refinedpickaxe-iron-birch": 1115,
+        "refinedpickaxe-meteoriciron-birch": 1500,
+        "refinedpickaxe-steel-birch": 3000,
+
+        "refinedpickaxe-gold-redwood": 225,
+        "refinedpickaxe-silver-redwood": 250,
+        "refinedpickaxe-copper-redwood": 375,
+        "refinedpickaxe-tinbronze-redwood": 500,
+        "refinedpickaxe-bismuthbronze-redwood": 550,
+        "refinedpickaxe-blackbronze-redwood": 600,
+        "refinedpickaxe-iron-redwood": 1080,
+        "refinedpickaxe-meteoriciron-redwood": 1350,
+        "refinedpickaxe-steel-redwood": 2700,
+
+        "refinedpickaxe-gold-acacia": 260,
+        "refinedpickaxe-silver-acacia": 290,
+        "refinedpickaxe-copper-acacia": 420,
+        "refinedpickaxe-tinbronze-acacia": 580,
+        "refinedpickaxe-bismuthbronze-acacia": 615,
+        "refinedpickaxe-blackbronze-acacia": 650,
+        "refinedpickaxe-iron-acacia": 1260,
+        "refinedpickaxe-meteoriciron-acacia": 1575,
+        "refinedpickaxe-steel-acacia": 3150,
+
+        "refinedpickaxe-gold-ebony": 260,
+        "refinedpickaxe-silver-ebony": 290,
+        "refinedpickaxe-copper-ebony": 420,
+        "refinedpickaxe-tinbronze-ebony": 580,
+        "refinedpickaxe-bismuthbronze-ebony": 615,
+        "refinedpickaxe-blackbronze-ebony": 650,
+        "refinedpickaxe-iron-ebony": 1260,
+        "refinedpickaxe-meteoriciron-ebony": 1575,
+        "refinedpickaxe-steel-ebony": 3150,
+
+        "refinedpickaxe-gold-baldcypress": 225,
+        "refinedpickaxe-silver-baldcypress": 250,
+        "refinedpickaxe-copper-baldcypress": 375,
+        "refinedpickaxe-tinbronze-baldcypress": 500,
+        "refinedpickaxe-bismuthbronze-baldcypress": 550,
+        "refinedpickaxe-blackbronze-baldcypress": 600,
+        "refinedpickaxe-iron-baldcypress": 1080,
+        "refinedpickaxe-meteoriciron-baldcypress": 1350,
+        "refinedpickaxe-steel-baldcypress": 2700,
+
+        "refinedpickaxe-gold-*": 250,
+        "refinedpickaxe-silver-*": 275,
+        "refinedpickaxe-copper-*": 400,
+        "refinedpickaxe-tinbronze-*": 550,
+        "refinedpickaxe-bismuthbronze-*": 600,
+        "refinedpickaxe-blackbronze-*": 650,
+        "refinedpickaxe-iron-*": 1200,
+        "refinedpickaxe-meteoriciron-*": 1500,
+        "refinedpickaxe-steel-*": 3000
     },
     "creativeinventory": {
         "general": [ "*" ],

@@ -5,6 +5,10 @@
 		{
 			"code": "material",
 			"states": [ "flint", "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "steel", "meteoriciron" ]
+		},
+		{
+			"code": "wood",
+			"states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
 		}
 	],
 	"attributes": {
@@ -18,17 +22,26 @@
 		"size": 0.75,
 		"renderer": "Shape",
 		"shapeByType": {
-			"arrow-flint": { "base": "game:entity/nonliving/projectile/arrow/stone" },
-			"arrow-gold": { "base": "game:entity/nonliving/projectile/arrow/gold" },
-			"arrow-silver": { "base": "game:entity/nonliving/projectile/arrow/silver" },
+			"arrow-flint-*": { "base": "game:entity/nonliving/projectile/arrow/stone" },
+			"arrow-gold-*": { "base": "game:entity/nonliving/projectile/arrow/gold" },
+			"arrow-silver-*": { "base": "game:entity/nonliving/projectile/arrow/silver" },
 			"*": { "base": "game:entity/nonliving/projectile/arrow/copper" }
 		},
 		"texturesByType": {
-			"arrow-refined-flint": {
-				"material": { "base": "game:block/stone/flint" }
+			"arrow-refined-flint-*": {
+				"material": { "base": "game:block/stone/flint" },
+				"handle": {
+					"base": "game:block/wood/debarked/{wood}"
+					//"rotation": 90
+				}
+
 			},
 			"*": {
-				"material": { "base": "game:block/metal/ingot/{material}" }
+				"material": { "base": "game:block/metal/ingot/{material}" },
+				"handle": {
+					"base": "game:block/wood/debarked/{wood}"
+					//"rotation": 90
+				}
 			}
 		},
 		"behaviors": [

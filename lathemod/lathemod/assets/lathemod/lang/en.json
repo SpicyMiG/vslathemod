@@ -70,6 +70,7 @@
 	"game:blockhelp-candlestick-removecandle": "Remove candle",
 
 	"game:tabname-lathe": "Lathe",
+	"lathemod:enable-tools": "Enable Tools?",
 
 	// Refined Pickaxes
 	"game:item-pickaxe-refined-copper-oak": "Refined copper pickaxe (oak)",

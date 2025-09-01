@@ -1,12 +1,21 @@
 {
-	ingredientPattern: "T	S",
-	ingredients: {
-		"T": { type: "item", code: "game:scythehead-*", name: "metal"  },
-		"S": { type: "item", code: "lathemod:toolhandle-*", "name": "wood" }
+	"enabled": true,
+	"ingredientPattern": "T\tS",
+	"ingredients": {
+		"T": {
+			"type": "item",
+			"code": "game:scythehead-*",
+			"name": "metal"
+		},
+		"S": {
+			"type": "item",
+			"code": "lathemod:toolhandle-*",
+			"name": "wood"
+		}
 	},
-	width: 1,
-	height: 2,
-	output: {
+	"width": 1,
+	"height": 2,
+	"output": {
 		"type": "item",
 		"code": "game:scythe-refined-{metal}-{wood}",
 		"quantity": 1

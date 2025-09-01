@@ -1,4 +1,5 @@
 {
+    "enabled": true,
     "ingredientPattern": "T\tS",
     "ingredients": {
         "T": {

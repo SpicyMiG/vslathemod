@@ -1,51 +1,94 @@
 {
-	code: "axe-refined",
-	damagedby: ["blockbreaking", "attacking"],
-	tool: "axe",
-	class: "ItemAxe",
-	attributes: {
-		heldItemPitchFollow: 0.9,
-		handbook: {
-			groupBy: ["axe-*"]
+	"code": "axe-refined",
+	"damagedby": [ "blockbreaking", "attacking" ],
+	"enabled": true,
+	"tool": "axe",
+	"class": "ItemAxe",
+	"attributes": {
+		"heldItemPitchFollow": 0.9,
+		"handbook": {
+			"groupBy": [ "axe-*" ]
 		},
-		toolrackTransformByType: {
+		"toolrackTransformByType": {
 			"*": {
-				rotation: { y: 1, z: -1 },
-				translation: { x: -0.3, y: 0.6 },
-				scale: 1.25,
+				"rotation": {
+					"y": 1,
+					"z": -1
+				},
+				"translation": {
+					"x": -0.3,
+					"y": 0.6
+				},
+				"scale": 1.25
 			}
 		},
-		groundStorageTransformByType: {
+		"groundStorageTransformByType": {
 			"*": {
-				translation: { x: 0, y: 0.19, z: -0.125 },
-				rotation: { x: 26, y: 88, z: -87 },
-				scale: 0.88
+				"translation": {
+					"x": 0,
+					"y": 0.19,
+					"z": -0.125
+				},
+				"rotation": {
+					"x": 26,
+					"y": 88,
+					"z": -87
+				},
+				"scale": 0.88
 			}
 		}
 	},
-	behaviors: [{ 
-		name: "GroundStorable",
-		properties: {
-			layout: 'WallHalves',
-			wallOffYByType: {
-				"axe-bardiche-ruined": 2,
-				"axe-double-ruined": 2,
-				"*": 1
-			},
-			ctrlKey: true,
-			selectionBox: { x1: 0, y1: 0, z1: 0, x2: 1, y2: 0.1, z2: 1 },
-			collisionBox: { x1: 0, y1: 0, z1: 0, x2: 0, y2: 0, z2: 0 },
-		}
-	}, { name: "AnimationAuthoritative", properties: { onlyOnEntity: true } }],
-	variantgroups: [
+	"behaviors": [
 		{
-			code: "type",
-			states: [ "felling" ]
+			"name": "GroundStorable",
+			"properties": {
+				"layout": "WallHalves",
+				"wallOffYByType": {
+					"axe-bardiche-ruined": 2,
+					"axe-double-ruined": 2,
+					"*": 1
+				},
+				"ctrlKey": true,
+				"selectionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 1,
+					"y2": 0.1,
+					"z2": 1
+				},
+				"collisionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 0,
+					"y2": 0,
+					"z2": 0
+				}
+			}
 		},
 		{
-			code: "material",
-			states: [
-				"copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel"
+			"name": "AnimationAuthoritative",
+			"properties": { "onlyOnEntity": true }
+		}
+	],
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "felling" ]
+		},
+		{
+			"code": "material",
+			"states": [
+				"copper",
+				"tinbronze",
+				"bismuthbronze",
+				"blackbronze",
+				"gold",
+				"silver",
+				"iron",
+				"meteoriciron",
+				"steel"
 			]
 		},
 		{
@@ -53,10 +96,10 @@
 			"states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
 		}
 	],
-	allowedVariants: [
+	"allowedVariants": [
 		"axe-refined-felling-*"
 	],
-	shapeByType: {
+	"shapeByType": {
 		"axe-refined-felling-copper-*": { "base": "game:item/tool/axe/copper" },
 		"axe-refined-felling-tinbronze-*": { "base": "game:item/tool/axe/copper" },
 		"axe-refined-felling-bismuthbronze-*": { "base": "game:item/tool/axe/copper" },
@@ -68,24 +111,25 @@
 		"axe-refined-felling-steel-*": { "base": "game:item/tool/axe/iron" }
 	},
 
-	heldRightReadyAnimationByType: {
+	"heldRightReadyAnimationByType": {
 		"axe-refined-felling-*": "axeready",
 		"*": "beginholditem"
 	},
-	heldTpHitAnimationByType: {
+	"heldTpHitAnimationByType": {
 		"axe-refined-felling-*": "axechop",
 		"*": "breaktool"
 	},
-	texturesByType: {
+	"texturesByType": {
 		"axe-refined-felling-*": {
 			"material": { "base": "game:block/metal/ingot/{material}" },
 			"string": { "base": "game:item/tool/material/string" },
-			"handle": { "base": "game:block/wood/debarked/{wood}"
+			"handle": {
+				"base": "game:block/wood/debarked/{wood}"
 			}
 		}
 	},
-	attackRange: 2,
-	tooltierbytype: {
+	"attackRange": 2,
+	"tooltierbytype": {
 		"*-copper-*": 2,
 		"*-gold-*": 2,
 		"*-silver-*": 2,
@@ -97,7 +141,7 @@
 		"*-meteoriciron-*": 4,
 		"*-steel-*": 5
 	},
-	miningspeedbytype: {
+	"miningspeedbytype": {
 		"axe-refined-felling-copper-*": {
 			"wood": 5.2,
 			"plant": 2.8,
@@ -149,7 +193,7 @@
 			"leaves": 4
 		}
 	},
-	durabilitybytype: {
+	"durabilitybytype": {
 		"axe-refined-felling-gold-oak": 175,
 		"axe-refined-felling-silver-oak": 175,
 		"axe-refined-felling-copper-oak": 325,
@@ -271,7 +315,7 @@
 		"axe-refined-felling-steel-*": 2200
 
 	},
-	attackpowerbytype: {
+	"attackpowerbytype": {
 		"axe-refined-felling-copper-*": 2,
 		"axe-refined-felling-bismuthbronze-*": 2.5,
 		"axe-refined-felling-gold-*": 2.5,
@@ -282,35 +326,84 @@
 		"axe-refined-felling-meteoriciron-*": 3.5,
 		"axe-refined-felling-steel-*": 4
 	},
-	creativeinventory: { "general": ["*"], "items": ["*"], "tools": ["*"], "lathe": ["*"] },
+	"creativeinventory": {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"tools": [ "*" ],
+		"lathe": [ "*" ]
+	},
 
-	fpHandTransform: {
-		translation: { x: -0.3, y: -0.5, z: 0.3 },
-		rotation: { x: -29, y: 1, z: 88 },
-		origin: { x: 0.2, y: 0.5, z: 0.5 },
-		scale: 2.5
+	"fpHandTransform": {
+		"translation": {
+			"x": -0.3,
+			"y": -0.5,
+			"z": 0.3
+		},
+		"rotation": {
+			"x": -29,
+			"y": 1,
+			"z": 88
+		},
+		"origin": {
+			"x": 0.2,
+			"y": 0.5,
+			"z": 0.5
+		},
+		"scale": 2.5
 	},
-	guiTransformByType: {
+	"guiTransformByType": {
 		"*": {
-			translation: { x: 0, y: 0, z: 0 },
-			rotation: { x: -63, y: -123, z: -180 },
-			origin: { x: 0.61, y: 0, z: 0.47 },
-			scale: 1.58
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": -63,
+				"y": -123,
+				"z": -180
+			},
+			"origin": {
+				"x": 0.61,
+				"y": 0,
+				"z": 0.47
+			},
+			"scale": 1.58
 		}
 	},
-	groundTransformByType: {
+	"groundTransformByType": {
 		"*": {
-			translation: { x: 0, y: 0, z: 0 },
-			rotation: { x: 0, y: 0, z: 0 },
-			origin: { x: 0.5, y: 0, z: 0.5 },
-			scale: 3.6
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 3.6
 		}
 	},
-	tpHandTransformByType: {
+	"tpHandTransformByType": {
 		"*": {
-			translation: { x: -0.43, y: -0.52, z: -0.07 },
-			rotation: { x: 90, y: 0, z: 0 },
-			scale: 0.95
+			"translation": {
+				"x": -0.43,
+				"y": -0.52,
+				"z": -0.07
+			},
+			"rotation": {
+				"x": 90,
+				"y": 0,
+				"z": 0
+			},
+			"scale": 0.95
 		}
 	}
 }

@@ -1,6 +1,7 @@
 {
 	"code": "blade-refined",
 	"damagedby": [ "blockbreaking", "attacking" ],
+	"enabled": true,
 	"tool": "sword",
 	"attributes": {
 		"heldItemPitchFollow": 0.9,

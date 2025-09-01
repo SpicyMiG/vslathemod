@@ -1,5 +1,6 @@
 {
 	"code": "spear-refined",
+	"enabled": true,
 	"class": "ItemSpear",
 	"tags": [ "weapon", "weapon-melee" ],
 	"damagedby": [ "attacking" ],

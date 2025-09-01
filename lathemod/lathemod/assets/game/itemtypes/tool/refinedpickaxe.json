@@ -1,6 +1,7 @@
 ﻿{
     "mainpurpose": "Diggy diggy hole!",
     "code": "pickaxe-refined",
+    "enabled": true,
     "storageFlags": 5,
     "attributes": {
         "heldItemPitchFollow": 0.9,

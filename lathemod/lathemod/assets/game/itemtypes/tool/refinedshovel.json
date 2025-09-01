@@ -1,38 +1,77 @@
 {
-	code: "shovel-refined",
-	behaviors: [{ 
-		name: "GroundStorable",
-		properties: {
-			layout: 'WallHalves',
-			wallOffY: 2,
-			ctrlKey: true,
-			selectionBox: { x1: 0, y1: 0, z1: 0, x2: 1, y2: 0.1, z2: 1 },
-			collisionBox: { x1: 0, y1: 0, z1: 0, x2: 0, y2: 0, z2: 0 },
+	"code": "shovel-refined",
+	"enabled": true,
+	"behaviors": [
+		{
+			"name": "GroundStorable",
+			"properties": {
+				"layout": "WallHalves",
+				"wallOffY": 2,
+				"ctrlKey": true,
+				"selectionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 1,
+					"y2": 0.1,
+					"z2": 1
+				},
+				"collisionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 0,
+					"y2": 0,
+					"z2": 0
+				}
+			}
 		}
-	}],
-	attributes: {
-		groundStorageTransformByType: {
+	],
+	"attributes": {
+		"groundStorageTransformByType": {
 			"@shovel-(copper|tinbronze|bismuthbronze|blackbronze|gold|silver|iron|meteoriciron|steel)-*": {
-				translation: { x: 0, y: 0.59, z: -0.15 },
-				rotation: { x: 13, y: 88, z: -87 },
-				scale: 0.88
+				"translation": {
+					"x": 0,
+					"y": 0.59,
+					"z": -0.15
+				},
+				"rotation": {
+					"x": 13,
+					"y": 88,
+					"z": -87
+				},
+				"scale": 0.88
 			},
 			"*": {
-				translation: { x: 0, y: 0.4, z: -0.155 },
-				rotation: { x: 13, y: 88, z: -87 },
-				scale: 0.88
+				"translation": {
+					"x": 0,
+					"y": 0.4,
+					"z": -0.155
+				},
+				"rotation": {
+					"x": 13,
+					"y": 88,
+					"z": -87
+				},
+				"scale": 0.88
 			}
 		},
-		handbook: {
-			groupBy: ["shovel-*"]
+		"handbook": {
+			"groupBy": [ "shovel-*" ]
 		},
-		toolrackTransform: {
-			rotation: { y: 1, z: -1 },
-			translation: { x: -0.47, y: 0.6 },
-			scale: 1.25,
+		"toolrackTransform": {
+			"rotation": {
+				"y": 1,
+				"z": -1
+			},
+			"translation": {
+				"x": -0.47,
+				"y": 0.6
+			},
+			"scale": 1.25
 		}
 	},
-	variantgroups: [
+	"variantgroups": [
 		{
 			"code": "material",
 			"states": [
@@ -52,9 +91,9 @@
 			"states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
 		}
 	],
-	tool: "shovel",
-	damagedby: ["blockbreaking", "attacking"],
-	shapeByType: {
+	"tool": "shovel",
+	"damagedby": [ "blockbreaking", "attacking" ],
+	"shapeByType": {
 		"shovel-refined-copper-*": { "base": "game:item/tool/shovel-copper" },
 		"shovel-refined-tinbronze-*": { "base": "game:item/tool/shovel-copper" },
 		"shovel-refined-bismuthbronze-*": { "base": "game:item/tool/shovel-copper" },
@@ -65,17 +104,17 @@
 		"shovel-refined-meteoriciron-*": { "base": "game:item/tool/shovel-copper" },
 		"shovel-refined-steel-*": { "base": "game:item/tool/shovel-copper" }
 	},
-	heldTpIdleAnimation: "shovelidle",
-	heldRightReadyAnimation: "shovelready",
-	heldTpHitAnimation: "shoveldig",
-	heldTpUseAnimation: "interactStaticLong",
-	texturesByType: {
+	"heldTpIdleAnimation": "shovelidle",
+	"heldRightReadyAnimation": "shovelready",
+	"heldTpHitAnimation": "shoveldig",
+	"heldTpUseAnimation": "interactStaticLong",
+	"texturesByType": {
 		"*": {
 			"material": { "base": "game:block/metal/ingot/{material}" },
 			"handle": { "base": "game:block/wood/debarked/{wood}" }
-		},
+		}
 	},
-	miningspeedbytype: {
+	"miningspeedbytype": {
 		"shovel-refined-copper-*": {
 			"soil": 4,
 			"sand": 4,
@@ -131,7 +170,7 @@
 			"snow": 4.4
 		}
 	},
-	attackpowerbytype: {
+	"attackpowerbytype": {
 		"shovel-refined-copper-*": 1.25,
 		"shovel-refined-gold-*": 1.5,
 		"shovel-refined-silver-*": 1.5,
@@ -142,7 +181,7 @@
 		"shovel-refined-meteoriciron-*": 2.35,
 		"shovel-refined-steel-*": 2.5
 	},
-	durabilitybytype: {
+	"durabilitybytype": {
 		"shovel-refined-gold-oak": 275,
 		"shovel-refined-silver-oak": 275,
 		"shovel-refined-copper-oak": 550,
@@ -263,39 +302,91 @@
 		"shovel-refined-meteoriciron-*": 1750,
 		"shovel-refined-steel-*": 3750
 	},
-	creativeinventory: {
+	"creativeinventory": {
 		"general": [ "*" ],
 		"items": [ "*" ],
 		"tools": [ "*" ],
 		"lathe": [ "*" ]
 	},
-	fpHandTransform: {
-		translation: { x: 0.046875, y: -0.2, z: 0 },
-		rotation: { x: -15, y: 15, z: 100 },
-		scale: 2
+	"fpHandTransform": {
+		"translation": {
+			"x": 0.046875,
+			"y": -0.2,
+			"z": 0
+		},
+		"rotation": {
+			"x": -15,
+			"y": 15,
+			"z": 100
+		},
+		"scale": 2
 	},
-	guiTransformByType: {
+	"guiTransformByType": {
 		"@shovel-(copper|tinbronze|bismuthbronze|blackbronze|gold|silver|iron|meteoriciron|steel)": {
-			translation: { x: 0, y: 0, z: 0 },
-			rotation: { x: -113, y: -147, z: 139 },
-			origin: { x: 0.2, y: 0.7, z: 0.8 }
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": -113,
+				"y": -147,
+				"z": 139
+			},
+			"origin": {
+				"x": 0.2,
+				"y": 0.7,
+				"z": 0.8
+			}
 		},
 		"*": {
-		translation: { x: 7, y: 0, z: 1 },
-		rotation: { x: -112, y: -147, z: 139 },
-		origin: { x: 0.3, y: 0.7, z: 0.7 },
-		scale: 1.18
+			"translation": {
+				"x": 7,
+				"y": 0,
+				"z": 1
+			},
+			"rotation": {
+				"x": -112,
+				"y": -147,
+				"z": 139
+			},
+			"origin": {
+				"x": 0.3,
+				"y": 0.7,
+				"z": 0.7
+			},
+			"scale": 1.18
 		}
 	},
-	groundTransform: {
-		translation: { x: 0, y: 0, z: 0 },
-		rotation: { x: 0, y: 0, z: 0 },
-		origin: { x: 0.5, y: 0, z: 0.5 },
-		scale: 3.6
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 3.6
 	},
-	tpHandTransform: {
-		translation: { x: -1.69, y: -0.29, z: -0.6 },
-		rotation: { x: 0, y: 0, z: -10 },
-		scale: 0.8
+	"tpHandTransform": {
+		"translation": {
+			"x": -1.69,
+			"y": -0.29,
+			"z": -0.6
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": -10
+		},
+		"scale": 0.8
 	}
 }

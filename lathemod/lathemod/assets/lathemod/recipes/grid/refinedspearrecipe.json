@@ -1,12 +1,22 @@
 {
-	ingredientPattern: "T	S",
-	ingredients: {
-		"T": { type: "item", code: "game:spearhead-*", name: "metal", allowedVariants: ["copper", "tinbronze", "bismuthbronze", "blackbronze"] },
-		"S": { type: "item", code: "lathemod:toolhandle-*", "name": "wood" }
+	"enabled": true,
+	"ingredientPattern": "T\tS",
+	"ingredients": {
+		"T": {
+			"type": "item",
+			"code": "game:spearhead-*",
+			"name": "metal",
+			"allowedVariants": [ "copper", "tinbronze", "bismuthbronze", "blackbronze" ]
+		},
+		"S": {
+			"type": "item",
+			"code": "lathemod:toolhandle-*",
+			"name": "wood"
+		}
 	},
-	width: 1,
-	height: 2,
-	output: {
+	"width": 1,
+	"height": 2,
+	"output": {
 		"type": "item",
 		"code": "game:spear-refined-generic-{metal}-{wood}",
 		"quantity": 1

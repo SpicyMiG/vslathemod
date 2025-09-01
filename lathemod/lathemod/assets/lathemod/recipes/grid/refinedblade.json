@@ -1,5 +1,6 @@
 [
 	{
+		"enabled": true,
 		"ingredientPattern": "T\tS",
 		"ingredients": {
 			"T": {
@@ -23,6 +24,7 @@
 		}
 	},
 	{
+		"enabled": true,
 		"ingredientPattern": "TC,S_",
 		"requiresTrait": "merciless",
 		"ingredients": {
@@ -49,6 +51,7 @@
 		}
 	},
 	{
+		"enabled": true,
 		"ingredientPattern": "T,P,S",
 		"ingredients": {
 			"T": {
@@ -73,21 +76,29 @@
 			"code": "game:blade-refined-falx-gold-{wood}",
 			"quantity": 1
 		}
-	},	
+	},
 	{
-		ingredientPattern: "T,P,S",
-		ingredients: {
-			"T": { type: "item", code: "game:bladehead-falx-steel" },
+		"enabled": true,
+		"ingredientPattern": "T,P,S",
+		"ingredients": {
+			"T": {
+				"type": "item",
+				"code": "game:bladehead-falx-steel"
+			},
 			"S": {
 				"type": "item",
 				"code": "lathemod:toolhandle-*",
 				"name": "wood"
 			},
-			"P": { type: "item", code: "game:metalplate-silver", quantity: 1 },
+			"P": {
+				"type": "item",
+				"code": "game:metalplate-silver",
+				"quantity": 1
+			}
 		},
-		width: 1,
-		height: 3,
-		output: {
+		"width": 1,
+		"height": 3,
+		"output": {
 			"type": "item",
 			"code": "game:blade-refined-falx-silver-{wood}",
 			"quantity": 1

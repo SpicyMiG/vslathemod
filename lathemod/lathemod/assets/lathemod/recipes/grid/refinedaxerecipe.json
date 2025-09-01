@@ -1,5 +1,6 @@
 [
 	{
+		"enabled": true,
 		ingredientPattern: "T	S",
 		ingredients: {
 			"T": {
@@ -8,10 +9,18 @@
 				"name": "material",
 				"allowedVariants": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
 			},
-			"S": { type: "item", code: "lathemod:toolhandle-*", "name": "wood" }
+			"S": {
+				type: "item",
+				code: "lathemod:toolhandle-*",
+				"name": "wood"
+			}
 		},
 		width: 1,
 		height: 2,
-		output: { type: "item", code: "game:axe-refined-felling-{material}-{wood}", quantity: 1  }
+		output: {
+			type: "item",
+			code: "game:axe-refined-felling-{material}-{wood}",
+			quantity: 1
+		}
 	}
 ]

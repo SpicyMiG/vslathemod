@@ -1,0 +1,54 @@
+{
+    "version": 5,
+    "patches": {
+        "boolean": {
+            "game:itemtypes/tool/refinedaxe-metal.json": {
+                "enabled": "ENABLE_TOOLS"
+            },
+            "game:itemtypes/tool/refinedshovel.json": {
+                "enabled": "ENABLE_TOOLS"
+            },
+            "game:itemtypes/tool/refinedblade.json": {
+                "enabled": "ENABLE_TOOLS"
+            },
+            "game:itemtypes/tool/refinedpickaxe.json": {
+                "enabled": "ENABLE_TOOLS"
+            },
+            "game:itemtypes/tool/refinedspear.json": {
+                "enabled": "ENABLE_TOOLS"
+            },
+            "game:itemtypes/tool/refinedscythe.json": {
+                "enabled": "ENABLE_TOOLS"
+            },
+            "lathemod:recipes/grid/refinedaxerecipe.json": {
+                "0/enabled": "ENABLE_TOOLS"
+            },
+            "lathemod:recipes/grid/refinedblade.json": {
+                "0-4/enabled": "ENABLE_TOOLS"
+            },
+            "lathemod:recipes/grid/refinedshovelrecipe.json": {
+                "enabled": "ENABLE_TOOLS"
+            },
+            "lathemod:recipes/grid/refinedpickaxerecipe.json": {
+                "enabled": "ENABLE_TOOLS"
+            },
+            "lathemod:recipes/grid/refinedscytherecipe.json": {
+                "enabled": "ENABLE_TOOLS"
+            },
+            "lathemod:recipes/grid/refinedspearrecipe.json": {
+                "enabled": "ENABLE_TOOLS"
+            }
+        }
+    },
+    "settings": {
+        "boolean": {
+            "ENABLE_TOOLS": {
+                "name": "enable-tools",
+                "ingui": "lathemod:enable-tools",
+                "comment": "Disable the added tools if you don't want them.",
+                "weight": 0.5,
+                "default": false
+            }
+        }
+    }
+}

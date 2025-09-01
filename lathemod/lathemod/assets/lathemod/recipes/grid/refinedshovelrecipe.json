@@ -1,6 +1,7 @@
 {
-	ingredientPattern: "T	S",
-	ingredients: {
+	"enabled": true,
+	"ingredientPattern": "T\tS",
+	"ingredients": {
 		"T": {
 			"type": "item",
 			"code": "game:shovelhead-*",
@@ -10,12 +11,12 @@
 		"S": {
 			"type": "item",
 			"code": "lathemod:toolhandle-*",
-            "name": "wood"
+			"name": "wood"
 		}
 	},
-	width: 1,
-	height: 2,
-	output: {
+	"width": 1,
+	"height": 2,
+	"output": {
 		"type": "item",
 		"code": "game:shovel-refined-{metal}-{wood}",
 		"quantity": 1

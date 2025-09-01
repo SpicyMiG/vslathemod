@@ -18,9 +18,18 @@
             }
         },
         {
-            "name": "Unplaceable"
-        },
-        { "name": "RightClickPickup" }
+            "name": "Unstable",
+            "properties": {
+                "attachmentArea": {
+                    "x1": 5,
+                    "y1": 0,
+                    "z1": 5,
+                    "x2": 10,
+                    "y2": 0,
+                    "z2": 10
+                }
+            }
+        }
     ],
     "variantgroups": [
         {
@@ -41,7 +50,16 @@
         "wood": { "base": "game:block/wood/debarked/{wood}" }
     },
     "attributes": {
-        "reinforcable": true
+        "reinforcable": true,
+        "shelvable": true,
+        "onDisplayTransform": {
+            "origin": {
+                "x": 0.5,
+                "y": 0,
+                "z": 0.5
+            },
+            "scale": 0.75
+        }
     },
     "doNotRenderAtLod2": true,
     "sidesolid": {
@@ -49,6 +67,15 @@
     },
     "sideopaque": {
         "all": false
+    },
+    "emitsideao": {
+        "all": false
+    },
+    "sounds": {
+        "walk": "game:walk/wood",
+        "break": "game:block/planks",
+        "hit": "game:block/planks",
+        "place": "game:block/planks"
     },
     "creativeinventory": {
         "general": [ "*-empty" ],
@@ -120,7 +147,7 @@
                         "var": 0.025
                     },
                     {
-                        "avg": 0.15,
+                        "avg": 0.1,
                         "var": 0.1
                     },
                     {
@@ -128,7 +155,7 @@
                         "var": 0.025
                     }
                 ],
-                "quantity": { "avg": 0.4 },
+                "quantity": { "avg": 0.2 },
                 "size": {
                     "avg": 0.05,
                     "var": 0.02

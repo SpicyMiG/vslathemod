@@ -7,7 +7,7 @@
             "code": "turnlathe",
             "animation": "turnlathe",
             "blendMode": "Add",
-            "animationSpeed": 0.5
+            "animationSpeed": 1
         },
         "elementWeight": {
             "UpperTorso": 100,

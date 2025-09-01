@@ -1,0 +1,54 @@
+﻿{
+    "ingredient": {
+        "type": "item",
+        "code": "latheblank-*",
+        "name": "wood",
+        "allowedVariants": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
+    },
+    "__comment": "first pattern blank to skip bottom Y layer and center 10x2x2 recipe, four blanks at bottom of other layers to keep required blocks in bounds until I fix the recipe generation lol",
+    "pattern": [
+        [
+            "####",
+            "####",
+            "____",
+            "____",
+            "____",
+            "####",
+            "____"
+        ],
+        [
+            "#__#",
+            "#__#",
+            "_##_",
+            "_##_",
+            "_##_",
+            "####",
+            "_##_"
+        ],
+        [
+            "#__#",
+            "#__#",
+            "_##_",
+            "_##_",
+            "_##_",
+            "####",
+            "_##_"
+        ],
+        [
+            "####",
+            "####",
+            "____",
+            "____",
+            "____",
+            "####",
+            "____"
+        ]
+    ],
+        "name": "candlestick",
+        "output":
+        {
+            "type": "block",
+            "code": "lathemod:candlestick-{wood}-empty",
+            "quantity": 1
+        }
+}

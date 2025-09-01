@@ -1,7 +1,7 @@
 {
     "code": "flowerpot",
     "classByType": {
-        "*-raw": "Block",
+        "*-raw": "Block", //unused
         "*": "BlockPlantContainer"
     },
     "entityClass": "PlantContainer",

@@ -62,7 +62,7 @@ namespace Vintagestory.GameContent
                     {
                         ActionLangCode = "blockhelp-candlestick-addcandle",
                         MouseButton = EnumMouseButton.Right,
-                        Itemstacks = new ItemStack[] { new ItemStack(world.GetBlock(new AssetLocation("candle"))) }
+                        Itemstacks = new ItemStack[] { new ItemStack(world.GetItem(new AssetLocation("candle"))) }
                     }
                 }.Append(base.GetPlacedBlockInteractionHelp(world, selection, forPlayer));
             } else

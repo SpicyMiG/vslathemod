@@ -58,7 +58,6 @@
   <None Remove="assets\lathemod\itemtypes\arrowshaft.json" />
   <None Remove="assets\lathemod\itemtypes\latheblankhalf.json" />
   <None Remove="assets\lathemod\itemtypes\resource\latheworkitem.json" />
-  <None Remove="assets\lathemod\itemtypes\shaft.json" />
   <None Remove="assets\lathemod\itemtypes\toolhead\woodturningchiselhead.json" />
   <None Remove="assets\lathemod\itemtypes\tool\refinedarrow.json" />
   <None Remove="assets\lathemod\itemtypes\tool\axe-refined-metal.json" />
@@ -83,7 +82,6 @@
   <None Remove="assets\lathemod\shapes\block\metal\lathe\chuck.json" />
   <None Remove="assets\lathemod\shapes\item\tool\woodturningchisel.json" />
   <None Remove="assets\lathemod\shapes\item\tool\woodturningchiselhead.json" />
-  <None Remove="assets\lathemod\textures\block\wood\plainoak.png" />
   <None Remove="assets\worldproperties\item\refined-metal.json" />
   <Content Include="modinfo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

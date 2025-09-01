@@ -116,7 +116,7 @@ namespace lathemod.src.client {
             }
         }
         public void Dispose() {
-            api.Logger.Event("Disposing chuck renderer");
+            //api.Logger.Event("Disposing chuck renderer");
 
             api.Event.UnregisterRenderer(this, EnumRenderStage.Opaque);
 

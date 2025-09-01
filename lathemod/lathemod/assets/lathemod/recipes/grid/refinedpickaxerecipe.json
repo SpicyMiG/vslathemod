@@ -8,7 +8,7 @@
         },
         "S": {
             "type": "item",
-            "code": "lathemod:shaft-*",
+            "code": "lathemod:toolhandle-*",
             "name": "wood"
         }
     },

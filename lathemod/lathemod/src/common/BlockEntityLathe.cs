@@ -396,7 +396,7 @@ namespace lathemod.src.common {
                         selectedRecipeId = list[0].RecipeId;
                     } else {
                         if (world.Side == EnumAppSide.Client) {
-                            Api.Logger.Event("selectedRecipeId: " + selectedRecipeId + ", workitem: " + stack.ToString());
+                            //Api.Logger.Event("selectedRecipeId: " + selectedRecipeId + ", workitem: " + stack.ToString());
                             OpenDialog(stack);
                         }
                     }
@@ -600,7 +600,7 @@ namespace lathemod.src.common {
                 .ToList();
 
             foreach (ItemStack stack in stacks) {
-                Api.Logger.Event("recipe: " + stack.ToString());
+                //Api.Logger.Event("recipe: " + stack.ToString());
             }
 
             IClientWorldAccessor clientWorld = (IClientWorldAccessor)Api.World;
@@ -701,12 +701,12 @@ namespace lathemod.src.common {
             timer += TurnSpeed;
             //Api.Logger.Event("timer: " + timer + ", TurnSpeed: " + TurnSpeed);
             if (voxelPos == null) {
-                Api.Logger.Event("voxelPos == null");
+                Api.Logger.Error("voxelPos == null");
                 return;
             }
 
             if (SelectedRecipe == null) {
-                Api.Logger.Event("SelectedRecipe == null");
+                Api.Logger.Error("SelectedRecipe == null");
                 ditchWorkItemStack();
                 return;
             }
@@ -720,7 +720,7 @@ namespace lathemod.src.common {
 
             ItemSlot slot = byPlayer.InventoryManager.ActiveHotbarSlot;
             if (slot.Itemstack == null) { //add or no power
-                Api.Logger.Event("slot.Itemstack == null");
+                Api.Logger.Error("slot.Itemstack == null");
                 return;
             }
             int toolMode = slot.Itemstack.Collectible.GetToolMode(slot, byPlayer, blockSel);
@@ -846,7 +846,7 @@ namespace lathemod.src.common {
                 int z = voxelPos.Z;
 
                 try {
-                    Api.Logger.Event("Split at " + voxelPos.ToString());
+                    //Api.Logger.Event("Split at " + voxelPos.ToString());
 
                     if (Voxels[x + 1, y, z] == (int)EnumVoxelMaterial.Metal && Voxels[x - 1, y, z] == (int)EnumVoxelMaterial.Metal ||
                     Voxels[x, y + 1, z] == (int)EnumVoxelMaterial.Metal && Voxels[x, y - 1, z] == (int)EnumVoxelMaterial.Metal) {
@@ -910,12 +910,12 @@ namespace lathemod.src.common {
 
         public bool CheckCornersIntactNS(int z) {
             if (Voxels[6, 0, z] == 1 || Voxels[9, 3, z] == 1) {
-                Api.Logger.Event("No floating corners");
+                //Api.Logger.Event("No floating corners");
                 return true;
             }
 
             if (Voxels[6, 0, z] == 1 || Voxels[9, 0, z] == 1) {
-                Api.Logger.Event("No floating corners");
+                //Api.Logger.Event("No floating corners");
                 return true;
             }
 
@@ -923,12 +923,12 @@ namespace lathemod.src.common {
         }
         public bool CheckCornersIntactWE(int x) {
             if (Voxels[x, 0, 9] == 1 || Voxels[x, 3, 6] == 1) {
-                Api.Logger.Event("No floating corners");
+                //Api.Logger.Event("No floating corners");
                 return true;
             }
 
             if (Voxels[x, 0, 6] == 1 || Voxels[x, 3, 9] == 1) {
-                Api.Logger.Event("No floating corners");
+                //Api.Logger.Event("No floating corners");
                 return true;
             }
 

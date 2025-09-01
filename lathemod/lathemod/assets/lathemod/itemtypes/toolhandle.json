@@ -1,12 +1,12 @@
 ﻿{
-    "code": "shaft",
+    "code": "toolhandle",
     "maxStackSize": 64,
     "behaviors": [
         {
             "name": "GroundStorable",
             "properties": {
                 "layout": "Stacking",
-                "stackingModel": "block/wood/shaftpile",
+                "stackingModel": "block/wood/toolhandlepile",
                 "stackingCapacity": 32,
                 "cbScaleYByLayer": 0.125,
                 "modelItemsToStackSizeRatio": 0.5,
@@ -29,7 +29,7 @@
             }
         }
     ],
-    "shape": { "base": "item/shaft" },
+    "shape": { "base": "item/toolhandle" },
     "texture": {
         "base": "game:block/wood/debarked/{wood}",
         "rotation": 90
@@ -56,7 +56,7 @@
         "lathe": [ "*" ]
     },
     "materialDensity": 650,
-    "attackRange": 2.75,
+    "attackRange": 1.5,
     "combustibleProps": {
         "burnTemperature": 750,
         "burnDuration": 10
@@ -64,7 +64,7 @@
     "variantgroups": [
         {
             "code": "wood",
-            "states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart" ]
+            "states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
         }
     ],
     "tpHandTransform": {
@@ -82,14 +82,19 @@
     },
     "guiTransform": {
         "translation": {
-            "x": -7,
-            "y": 8,
+            "x": -3,
+            "y": 4,
             "z": 0
         },
         "rotation": {
-            "x": -8,
-            "y": 7,
-            "z": 50
+            "x": 44,
+            "y": 0,
+            "z": 45
+        },
+        "origin": {
+            "x": 0.5,
+            "y": 0.5,
+            "z": 0.6
         },
         "scale": 2.09
     }

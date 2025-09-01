@@ -163,7 +163,7 @@ namespace lathemod.src.common {
 
             var blockSel = byPlayer.CurrentBlockSelection;
             if (blockSel == null) {
-                api.Logger.Event("blockSel == null");
+                //api.Logger.Event("blockSel == null");
                 return; 
             }
 
@@ -171,7 +171,7 @@ namespace lathemod.src.common {
             BlockEntityLathe bel = null;
 
             if (!(byEntity.World.BlockAccessor.GetBlock(blockSel.Position) is LatheBlock)) {
-                api.Logger.Event("turnWood, BE not lathe. Returning. Block found: " + byEntity.World.BlockAccessor.GetBlock(blockSel.Position));
+                //api.Logger.Event("turnWood, BE not lathe. Returning. Block found: " + byEntity.World.BlockAccessor.GetBlock(blockSel.Position));
                 if (byEntity.World.BlockAccessor.GetBlockEntity(blockSel.Position) is BELatheEntityRedirect) {
                     bel = (byEntity.World.BlockAccessor.GetBlockEntity(blockSel.Position) as BELatheEntityRedirect).Principal;
                 }

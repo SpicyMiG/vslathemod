@@ -1,6 +1,8 @@
 ﻿using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
+using Vintagestory.Client.NoObf;
 
 namespace Vintagestory.GameContent
 {
@@ -11,6 +13,12 @@ namespace Vintagestory.GameContent
             get { return Variant["state"] == "empty"; }
         }
 
+        Vec3f[][] candleWickPositionsByRot = new Vec3f[4][];
+        internal Vec3f[] candleWickPositions;
+
+        public BlockCandleHolder() {
+            
+        }
         public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {
             if (Empty)

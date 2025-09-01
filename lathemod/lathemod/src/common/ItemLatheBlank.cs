@@ -16,10 +16,10 @@ namespace lathemod.src.common {
         public int length;
 
         public List<LatheRecipe> GetMatchingRecipes(ItemStack stack) {
-            api.Logger.Event(api.GetType().Name + " found " + api.GetLatheRecipes()
+            /*api.Logger.Event(api.GetType().Name + " found " + api.GetLatheRecipes()
                 .Where(r => r.Ingredient.SatisfiesAsIngredient(stack))
                 .OrderBy(r => r.Output.ResolvedItemstack.Collectible.Code)
-                .ToList().Count + " matching recipes");
+                .ToList().Count + " matching recipes");*/
 
             return api.GetLatheRecipes()
                 .Where(r => r.Ingredient.SatisfiesAsIngredient(stack))
@@ -31,7 +31,7 @@ namespace lathemod.src.common {
         public ItemStack TryPlaceOn(ItemStack stack, BlockEntityLathe be) {
             Item item = api.World.GetItem(new AssetLocation("lathemod:latheworkitem-" + Variant["wood"]));
             if (item == null) {
-                api.Logger.Event("item == null in ItemLatheBlank");
+                api.Logger.Error("item == null in ItemLatheBlank");
                 return null;
             }
 
@@ -39,9 +39,9 @@ namespace lathemod.src.common {
 
             if (stack?.ItemAttributes?["blanklength"].Exists == true) {
                 length = (int)stack.ItemAttributes?["blanklength"].AsInt();
-                api.Logger.Event("blanklength: " + length);
+                //api.Logger.Event("blanklength: " + length);
             } else {
-                api.Logger.Event("no blankLength attribute found!");
+                api.Logger.Error("no blankLength attribute found!");
                 length = 10;
             }
 

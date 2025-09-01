@@ -100,23 +100,22 @@
     "particlePropertiesByType": {
         "*-filled": [
             {
-                // Smoke quads
                 "hsvaColor": [
                     {
-                        "avg": 0,
-                        "var": 0
+                        "avg": 20,
+                        "var": 20
                     },
                     {
-                        "avg": 0,
-                        "var": 0
-                    },
-                    {
-                        "avg": 40,
-                        "var": 30
-                    },
-                    {
-                        "avg": 220,
+                        "avg": 255,
                         "var": 50
+                    },
+                    {
+                        "avg": 255,
+                        "var": 50
+                    },
+                    {
+                        "avg": 255,
+                        "var": 0
                     }
                 ],
                 "opacityEvolve": {
@@ -127,45 +126,33 @@
                     "avg": 0,
                     "var": 0
                 },
-                "posOffset": [
-                    {
-                        "avg": 0,
-                        "var": 0.1
-                    },
-                    {
-                        "avg": 0,
-                        "var": 0
-                    },
-                    {
-                        "avg": 0,
-                        "var": 0.1
-                    }
-                ],
                 "velocity": [
                     {
                         "avg": 0,
-                        "var": 0.025
+                        "var": 0.0125
                     },
                     {
-                        "avg": 0.1,
-                        "var": 0.1
+                        "avg": 0.03,
+                        "var": 0.01
                     },
                     {
                         "avg": 0,
-                        "var": 0.025
+                        "var": 0.0125
                     }
                 ],
-                "quantity": { "avg": 0.2 },
+                "quantity": { "avg": 0.1 },
                 "size": {
                     "avg": 0.05,
-                    "var": 0.02
+                    "var": 0.025
                 },
+                "lifeLength": { "avg": 0.5 },
                 "sizeEvolve": {
                     "transform": "linear",
-                    "factor": 0.5
+                    "factor": 0.1
                 },
                 "particleModel": "Quad",
-                "windAffectednes": 0.7
+                "vertexFlags": 128,
+                "windAffectednes": 0.05
             }
         ]
     },

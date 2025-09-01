@@ -23,7 +23,7 @@ namespace lathemod.src.common {
                     int length = 10;
 
                     if (itemstack.Attributes.HasAttribute("blanklength")) length = itemstack.Attributes.GetAsInt("blankLength");
-                    api.Logger.Event("LatheWorkItem: " + length);
+                    //api.Logger.Event("LatheWorkItem: " + length);
                     ItemLatheBlank.CreateVoxelsFromBlank(capi, ref voxels, length);
                     MeshData mesh = GenMesh(capi, itemstack, voxels, out textureid);
 

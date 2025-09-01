@@ -10,7 +10,7 @@
 			},
 			"S": {
 				"type": "item",
-				"code": "lathemod:shaft-*",
+				"code": "lathemod:toolhandle-*",
 				"name": "wood"
 			}
 		},
@@ -32,7 +32,7 @@
 			},
 			"S": {
 				"type": "item",
-				"code": "lathemod:shaft-*",
+				"code": "lathemod:toolhandle-*",
 				"name": "wood"
 			},
 			"C": {
@@ -57,7 +57,7 @@
 			},
 			"S": {
 				"type": "item",
-				"code": "lathemod:shaft-*",
+				"code": "lathemod:toolhandle-*",
 				"name": "wood"
 			},
 			"P": {
@@ -80,7 +80,7 @@
 			"T": { type: "item", code: "game:bladehead-falx-steel" },
 			"S": {
 				"type": "item",
-				"code": "lathemod:shaft-*",
+				"code": "lathemod:toolhandle-*",
 				"name": "wood"
 			},
 			"P": { type: "item", code: "game:metalplate-silver", quantity: 1 },

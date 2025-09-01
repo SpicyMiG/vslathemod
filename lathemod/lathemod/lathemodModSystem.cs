@@ -25,7 +25,7 @@ namespace lathemod
 
             api.RegisterEntity(Mod.Info.ModID + ".entityprojectilelathe", typeof(EntityProjectileLathe));
 
-            api.RegisterBlockEntityClass("TEST", typeof(BlockEntityLathe));
+            api.RegisterBlockEntityClass(Mod.Info.ModID + ".belathe", typeof(BlockEntityLathe));
             api.RegisterBlockEntityClass(Mod.Info.ModID + ".belatheentityredirect", typeof(BELatheEntityRedirect));
             api.RegisterBlockEntityClass(Mod.Info.ModID + ".candleholder", typeof(BlockEntityCandleHolder));
 

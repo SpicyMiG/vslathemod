@@ -3,7 +3,7 @@
         "type": "item",
         "code": "latheblank-*",
         "name": "wood",
-        "allowedVariants": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart" ]
+        "allowedVariants": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
     },
     "__comment": "first pattern blank to skip bottom Y layer and center 10x2x2 recipe, four blanks at bottom of other layers to keep required blocks in bounds until I fix the recipe generation lol",
     "pattern": [
@@ -59,10 +59,10 @@
             "__"
         ]
     ],
-    "name": "shaft",
+    "name": "toolhandle",
     "output": {
         "type": "item",
-        "code": "shaft-{wood}",
+        "code": "toolhandle-{wood}",
         "quantity": 2
     }
 }

@@ -45,15 +45,7 @@
 		{
 			code: "material",
 			states: [
-				"copper",
-				"tinbronze",
-				"bismuthbronze",
-				"blackbronze",
-				"gold",
-				"silver",
-				"iron",
-				"meteoriciron",
-				"steel"
+				"copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel"
 			]
 		},
 		{
@@ -65,10 +57,10 @@
 		"axe-refined-felling-*"
 	],
 	shapeByType: {
-		"axe-refined-felling-copper-*": { "base": "lathemod:item/tool/axe/refinedcopper" },
-		"axe-refined-felling-tinbronze-*": { "base": "lathemod:item/tool/axe/refinedcopper" },
-		"axe-refined-felling-bismuthbronze-*": { "base": "lathemod:item/tool/axe/refinedcopper" },
-		"axe-refined-felling-blackbronze-*": { "base": "lathemod:item/tool/axe/refinedcopper" },
+		"axe-refined-felling-copper-*": { "base": "game:item/tool/axe/copper" },
+		"axe-refined-felling-tinbronze-*": { "base": "game:item/tool/axe/copper" },
+		"axe-refined-felling-bismuthbronze-*": { "base": "game:item/tool/axe/copper" },
+		"axe-refined-felling-blackbronze-*": { "base": "game:item/tool/axe/copper" },
 		"axe-refined-felling-gold-*": { "base": "game:item/tool/axe/iron" },
 		"axe-refined-felling-silver-*": { "base": "game:item/tool/axe/iron" },
 		"axe-refined-felling-iron-*": { "base": "game:item/tool/axe/iron" },
@@ -88,9 +80,7 @@
 		"axe-refined-felling-*": {
 			"material": { "base": "game:block/metal/ingot/{material}" },
 			"string": { "base": "game:item/tool/material/string" },
-			"handle": {
-				"base": "game:block/wood/debarked/{wood}"
-				//"rotation": 90
+			"handle": { "base": "game:block/wood/debarked/{wood}"
 			}
 		}
 	},

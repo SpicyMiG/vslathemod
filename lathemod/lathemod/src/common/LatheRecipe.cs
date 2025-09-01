@@ -22,7 +22,7 @@ namespace lathemod.src.common {
         ///		"name": "wood",
         ///		"allowedVariants": [ "oak", "maple", "larch" ]
         ///	},
-        ///	"name": "shaft",
+        ///	"name": "toolhandle",
         ///	"pattern": [
         ///		[
         ///			"____",
@@ -39,7 +39,7 @@ namespace lathemod.src.common {
         ///	],
         ///	"output": {
         ///		"type": "item",
-        ///		"code": "shaft-{wood}"
+        ///		"code": "toolhandle-{wood}"
         ///	}
         ///}
         /// </code></example>

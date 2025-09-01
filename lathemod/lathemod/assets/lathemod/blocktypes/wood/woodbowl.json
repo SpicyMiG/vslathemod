@@ -1,5 +1,6 @@
-{
-    "code": "bowl-wood-waxed-meal",
+﻿{
+    "code": "bowl-wood",
+    "class": "BlockLiquidContainerTopOpened",
     "behaviors": [
         {
             "name": "GroundStorable",
@@ -27,34 +28,57 @@
             "states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
         }
     ],
-    "class": "BlockMeal",
     "attributes": {
         "shelvable": true,
-        "eatenBlock": "lathemod:bowl-wood-waxed-{wood}",
-        "handleCookingContainerInteract": true
+        "onTongTransform": {
+            "translation": {
+                "x": -0.9,
+                "y": -1.4,
+                "z": -0.49
+            },
+            "rotation": {
+                "x": 45,
+                "y": 86,
+                "z": -67
+            },
+            "scale": 0.9
+        },
+        "liquidContainerProps": {
+            "capacityLitres": 1,
+            "transferSizeLitres": 0.1,
+            "emptyShapeLoc": "game:shapes/block/clay/bowl-empty-ground",
+            "opaqueContentShapeLoc": "game:shapes/block/clay/bowl-contents",
+            "liquidContentShapeLoc": "game:shapes/block/clay/bowl-liquidcontents",
+            "liquidMaxYTranslate": 0.05
+        },
+        "mealContainer": true,
+        "mealBlockCode": "lathemod:bowl-wood-meal-{wood}",
+        "servingCapacity": 1,
+        "bowlContents": null
     },
-
-    "entityClass": "Meal",
+    "shape": {
+        "base": "game:block/clay/bowl-empty-ground"
+    },
     "heldTpIdleAnimation": "holdbothhands",
-    "shape": { "base": "game:block/clay/bowl-empty-ground" },
     "doNotRenderAtLod2": true,
     "blockmaterial": "Wood",
     "creativeinventory": {
-        "general": [ "" ],
-        "decorative": [ "" ]
+        "general": [ "*" ],
+        "lathe": [ "*" ]
     },
     "replaceable": 300,
+    "liquidSelectable": 1,
     "resistance": 0.75,
-    "maxStackSize": 1,
+    "maxStackSize": 8,
     "lightAbsorption": 0,
+    "texture": {
+        "base": "game:block/wood/debarked/{wood}"
+    },
     "sounds": {
         "walk": "game:walk/wood",
         "break": "game:block/planks",
         "hit": "game:block/planks",
         "place": "game:block/planks"
-    },
-    "texture": {
-        "base": "game:block/wood/debarked/{wood}"
     },
     "sideopaque": {
         "all": false
@@ -94,29 +118,16 @@
     "groundTransform": {
         "scale": 3.5
     },
-    "fpHandTransform": {
-        "translation": {
-            "x": 0,
-            "y": 0.4,
-            "z": 0
-        },
-        "rotation": {
-            "x": 0,
-            "y": -14,
-            "z": 0
-        },
-        "scale": 2
-    },
     "tpHandTransform": {
         "translation": {
-            "x": -0.84,
-            "y": -0.2,
-            "z": -0.58
+            "x": -0.97,
+            "y": -0.14,
+            "z": -0.63
         },
         "rotation": {
-            "x": 90,
-            "y": 0,
-            "z": -60
+            "x": -50,
+            "y": 15,
+            "z": -104
         },
         "origin": {
             "x": 0.5,

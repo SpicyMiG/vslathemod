@@ -98,8 +98,8 @@
         "wood": { "base": "game:block/wood/debarked/{wood}" }
     },
     "damagedBy": [ "blockbreaking", "attacking" ],
-    "heldTpHitAnimation": "chiselhit",
-    "helpTpUseAnimation": "chiselhit",
+    "heldTpHitAnimation": "turnlathe",
+    "helpTpUseAnimation": "turnlathe",
     "tooltierbytype": {
         "*-copper-*": 2,
         "*-gold-*": 2,
@@ -318,14 +318,14 @@
     },
     "tpHandTransform": {
         "translation": {
-            "x": -0.5599,
-            "y": 0.04,
+            "x": -0.8,
+            "y": -0.07,
             "z": -0.65
         },
         "rotation": {
             "x": -3,
             "y": 0,
-            "z": -170
+            "z": -28
         },
         "origin": {
             "x": 0.5,

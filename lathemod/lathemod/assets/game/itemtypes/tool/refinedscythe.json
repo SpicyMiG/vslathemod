@@ -1,0 +1,214 @@
+{
+	code: "scythe-refined",
+	damagedby: ["blockbreaking"],
+	class: "ItemScythe",
+	tool: "Scythe",
+	variantgroups: [
+		{
+			code: "metal",
+			states: [
+				"copper",
+				"tinbronze",
+				"bismuthbronze",
+				"blackbronze",
+				"gold",
+				"silver",
+				"iron",
+				"meteoriciron",
+				"steel"
+			]
+		},
+		{
+			"code": "wood",
+			"states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
+		}
+	],
+	attributes: {
+		heldItemPitchFollow: 0.5,
+		codePrefixes: ["crop", "tallgrass", "frostedtallgrass", "tallplant-coopersreed-land-normal", "tallplant-papyrus-land-normal", "tallplant-tule-land-normal",
+									 "tallplant-coopersreed-water-normal", "tallplant-papyrus-water-normal", "tallplant-coopersreed-ice-normal", 
+									 "flower-horsetail"
+		],
+		disallowedSuffixes: ["snow2", "snow3"],
+		handbook: {
+			groupBy: ["scythe-*"]
+		},
+		toolrackTransform: {
+			rotation: { y: 3, z: -1 },
+			translation: { x: -0.35, y: 0.5 },
+			scale: 1,
+		},
+		groundStorageTransform: {
+			translation: { x: 0, y: 0.64, z: -0.35 },
+			rotation: { x: 37, y: 105, z: -100 },
+			scale: 0.85
+		},
+		rememberToolModeWhenBroken: true
+	},
+	behaviors: [{ 
+		name: "GroundStorable",
+		properties: {
+			layout: 'WallHalves',
+			wallOffY: 2,
+			ctrlKey: true,
+			selectionBox: { x1: 0, y1: 0, z1: 0, x2: 1, y2: 0.1, z2: 1 },
+			collisionBox: { x1: 0, y1: 0, z1: 0, x2: 0, y2: 0, z2: 0 },
+		}
+	}],
+	shape: { base: "game:item/tool/scythe" },
+	heldTpHitAnimation: "scythe",
+	heldTpIdleAnimation: "scytheIdle",
+	heldRightReadyAnimation: "scytheReady",
+	heldTpUseAnimation: "interactStaticLong",
+	texturesByType: {
+		"*": {
+			"metal": { base: "game:block/metal/ingot/{metal}" },
+            "handle": { base: "game:block/wood/debarked/{wood}" }
+		}
+	},
+	durabilitybytype: {
+		"scythe-refined-gold-oak": 30,
+		"scythe-refined-silver-oak": 250,
+		"scythe-refined-copper-oak": 600,
+		"scythe-refined-blackbronze-oak": 1200,
+		"scythe-refined-bismuthbronze-oak": 1000,
+		"scythe-refined-tinbronze-oak": 800,
+		"scythe-refined-iron-oak": 1800,
+		"scythe-refined-meteoriciron-oak": 2550,
+		"scythe-refined-steel-oak": 4500,
+
+		"scythe-refined-gold-maple": 30,
+		"scythe-refined-silver-maple": 250,
+		"scythe-refined-copper-maple": 600,
+		"scythe-refined-blackbronze-maple": 1200,
+		"scythe-refined-bismuthbronze-maple": 1000,
+		"scythe-refined-tinbronze-maple": 800,
+		"scythe-refined-iron-maple": 1800,
+		"scythe-refined-meteoriciron-maple": 2550,
+		"scythe-refined-steel-maple": 4500,
+
+		"scythe-refined-gold-purpleheart": 27,
+		"scythe-refined-silver-purpleheart": 240,
+		"scythe-refined-copper-purpleheart": 590,
+		"scythe-refined-blackbronze-purpleheart": 1100,
+		"scythe-refined-bismuthbronze-purpleheart": 970,
+		"scythe-refined-tinbronze-purpleheart": 780,
+		"scythe-refined-iron-purpleheart": 1730,
+		"scythe-refined-meteoriciron-purpleheart": 2320,
+		"scythe-refined-steel-purpleheart": 4430,
+
+		"scythe-refined-gold-walnut": 27,
+		"scythe-refined-silver-walnut": 240,
+		"scythe-refined-copper-walnut": 590,
+		"scythe-refined-blackbronze-walnut": 1100,
+		"scythe-refined-bismuthbronze-walnut": 950,
+		"scythe-refined-tinbronze-walnut": 770,
+		"scythe-refined-iron-walnut": 1700,
+		"scythe-refined-meteoriciron-walnut": 2300,
+		"scythe-refined-steel-walnut": 4400,
+
+		"scythe-refined-gold-pine": 23,
+		"scythe-refined-silver-pine": 200,
+		"scythe-refined-copper-pine": 500,
+		"scythe-refined-blackbronze-pine": 980,
+		"scythe-refined-bismuthbronze-pine": 810,
+		"scythe-refined-tinbronze-pine": 650,
+		"scythe-refined-iron-pine": 1450,
+		"scythe-refined-meteoriciron-pine": 1950,
+		"scythe-refined-steel-pine": 3700,
+
+		"scythe-refined-gold-larch": 23,
+		"scythe-refined-silver-larch": 200,
+		"scythe-refined-copper-larch": 500,
+		"scythe-refined-blackbronze-larch": 980,
+		"scythe-refined-bismuthbronze-larch": 810,
+		"scythe-refined-tinbronze-larch": 650,
+		"scythe-refined-iron-larch": 1450,
+		"scythe-refined-meteoriciron-larch": 1950,
+		"scythe-refined-steel-larch": 3700,
+
+		"scythe-refined-gold-birch": 24,
+		"scythe-refined-silver-birch": 210,
+		"scythe-refined-copper-birch": 510,
+		"scythe-refined-blackbronze-birch": 1050,
+		"scythe-refined-bismuthbronze-birch": 820,
+		"scythe-refined-tinbronze-birch": 670,
+		"scythe-refined-iron-birch": 1500,
+		"scythe-refined-meteoriciron-birch": 2050,
+		"scythe-refined-steel-birch": 3800,
+
+		"scythe-refined-gold-redwood": 23,
+		"scythe-refined-silver-redwood": 200,
+		"scythe-refined-copper-redwood": 500,
+		"scythe-refined-blackbronze-redwood": 980,
+		"scythe-refined-bismuthbronze-redwood": 810,
+		"scythe-refined-tinbronze-redwood": 650,
+		"scythe-refined-iron-redwood": 1450,
+		"scythe-refined-meteoriciron-redwood": 1950,
+		"scythe-refined-steel-redwood": 3700,
+
+		"scythe-refined-gold-acacia": 26,
+		"scythe-refined-silver-acacia": 235,
+		"scythe-refined-copper-acacia": 520,
+		"scythe-refined-blackbronze-acacia": 1080,
+		"scythe-refined-bismuthbronze-acacia": 845,
+		"scythe-refined-tinbronze-acacia": 720,
+		"scythe-refined-iron-acacia": 1680,
+		"scythe-refined-meteoriciron-acacia": 2140,
+		"scythe-refined-steel-acacia": 3950,
+
+		"scythe-refined-gold-ebony": 26,
+		"scythe-refined-silver-ebony": 235,
+		"scythe-refined-copper-ebony": 520,
+		"scythe-refined-blackbronze-ebony": 1080,
+		"scythe-refined-bismuthbronze-ebony": 845,
+		"scythe-refined-tinbronze-ebony": 720,
+		"scythe-refined-iron-ebony": 1680,
+		"scythe-refined-meteoriciron-ebony": 2140,
+		"scythe-refined-steel-ebony": 3950,
+
+		"scythe-refined-gold-baldcypress": 23,
+		"scythe-refined-silver-baldcypress": 200,
+		"scythe-refined-copper-baldcypress": 500,
+		"scythe-refined-blackbronze-baldcypress": 980,
+		"scythe-refined-bismuthbronze-baldcypress": 810,
+		"scythe-refined-tinbronze-baldcypress": 650,
+		"scythe-refined-iron-baldcypress": 1450,
+		"scythe-refined-meteoriciron-baldcypress": 1950,
+		"scythe-refined-steel-baldcypress": 3700,
+
+		"scythe-refined-gold-*": 25,
+		"scythe-refined-silver-*": 225,
+		"scythe-refined-copper-*": 550,
+		"scythe-refined-blackbronze-*": 1100,
+		"scythe-refined-bismuthbronze-*": 900,
+		"scythe-refined-tinbronze-*": 725,
+		"scythe-refined-iron-*": 1600,
+		"scythe-refined-meteoriciron-*": 2150,
+		"scythe-refined-steel-*": 4100
+	},
+	creativeinventory: { "general": ["*"], "items": ["*"], "tools": ["*"], "lathe": ["*"] },
+	guiTransform: {
+		translation: { x: 0, y: 0, z: 0 },
+		rotation: { x: -93, y: 30, z: 44 },
+		origin: { x: 0.5, y: 0, z: 0.05 },
+		scale: 0.82
+	},
+	fpHandTransform: {
+		translation: { x: -0.2, y: -0.2, z: 0 },
+		rotation: { x: 15, y: 15, z: 90 },
+		scale: 2.45
+	},
+	groundTransform: {
+		translation: { x: 0, y: 0, z: 0 },
+		rotation: { x: 0, y: 0, z: 0 },
+		origin: { x: 0.5, y: 0, z: 0.5 },
+		scale: 3.4
+	},
+	tpHandTransform: {
+		translation: { x: -1.54, y: -0.01, z: -0.66 },
+		rotation: { x: -10, y: 0, z: 0 },
+		origin: { x: 0.5, y: 0, z: 0.5 },
+		scale: 0.8
+	}
+}

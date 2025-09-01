@@ -1,0 +1,401 @@
+{
+	"code": "spear-refined",
+	"class": "ItemSpear",
+	"tags": [ "weapon", "weapon-melee" ],
+	"damagedby": [ "attacking" ],
+	"tool": "spear",
+	"behaviors": [
+		{
+			"name": "GroundStorable",
+			"properties": {
+				"layout": "WallHalves",
+				"wallOffY": 3,
+				"ctrlKey": true,
+				"selectionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 1,
+					"y2": 0.1,
+					"z2": 1
+				},
+				"collisionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 0,
+					"y2": 0,
+					"z2": 0
+				}
+			}
+		},
+		{ "name": "AnimationAuthoritative" }
+	],
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "generic" ]
+		},
+		{
+			"code": "material",
+			"states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze" ]
+		},
+		{
+			"code": "wood",
+			"states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
+		}
+	],
+	"skipVariants": [
+		"spear-refined-generic-ruined-*",
+		"spear-refined-generic-scrap-*"
+	],
+	"allowedVariants": [
+		"spear-refined-generic-*"
+	],
+	"shapeByType": {
+		"*": { "base": "game:item/tool/spear/ornatesilver" }
+	},
+	"heldTpIdleAnimation": "spearidle",
+	"heldRightReadyAnimation": "spearidle",
+	"heldTpHitAnimation": "spearhit",
+	"texturesByType": {
+		"@spear-refined-generic-(copper|tinbronze|bismuthbronze|blackbronze)-*": {
+			"iron4": { "base": "game:block/metal/ingot/{material}" },
+			"redwood": { "base": "game:block/wood/debarked/{wood}" }
+		},
+		"spear-refined-generic-ornate*": {},
+		"spear-refined-generic-*": {
+			"material": { "base": "game:item/tool/material/{material}" },
+			"redwood": { "base": "game:block/wood/debarked/{wood}" }
+		}
+	},
+	"attackRange": 3.5,
+	"attackpowerbytype": {
+		"spear-refined-generic-copper-*": 3.0,
+		"spear-refined-generic-bismuthbronze-*": 3.5,
+		"spear-refined-generic-tinbronze-*": 4.0,
+		"spear-refined-generic-blackbronze-*": 4.5,
+		"spear-refined-generic-ornategold-*": 4.75,
+		"spear-refined-generic-ornatesilver-*": 4.75
+	},
+	"attributes": {
+		"heldItemPitchFollow": 1,
+		"groundStorageTransformByType": {
+			"@spear-refined-generic-(copper|tinbronze|bismuthbronze|blackbronze)-*": {
+				"translation": {
+					"x": -0.39,
+					"y": 0.78,
+					"z": 0.235
+				},
+				"rotation": {
+					"x": 16,
+					"y": 1,
+					"z": 90
+				},
+				"scale": 0.85
+			},
+			"spear-refined-generic-ornate*": {
+				"translation": {
+					"x": -0.39,
+					"y": 0.72,
+					"z": 0.25
+				},
+				"rotation": {
+					"x": 16,
+					"y": 1,
+					"z": 90
+				},
+				"scale": 0.81
+			},
+			"*": {
+				"translation": {
+					"x": 0,
+					"y": 0.26,
+					"z": 0.596
+				},
+				"rotation": {
+					"x": 16,
+					"y": 90,
+					"z": 90
+				},
+				"scale": 0.85
+			}
+		},
+		// Thrown damage
+		"damageByType": {
+			"*-copper-*": 6.25,
+			"*-bismuthbronze-*": 7.25,
+			"*-tinbronze-*": 8.25,
+			"*-blackbronze-*": 8.75,
+			"*-ruined-*": 8.75,
+			"*-hacking-*": 7.75,
+			"*-ornategold-*": 9.0,
+			"*-ornatesilver-*": 9.0
+		},
+		"damageTierByType": {
+			"*-copper-*": 0,
+			"*-bismuthbronze-*": 0,
+			"*-tinbronze-*": 0,
+			"*-blackbronze-*": 0,
+			"*-ornategold-*": 0,
+			"*-ornatesilver-*": 0
+		},
+		"spearEntityCodeByType": {
+			"*": "lathemod:spear-refined-{type}-{material}-{wood}"
+		},
+		"handbook": {
+			"groupBy": [ "spear-*" ]
+		},
+		"toolrackTransformByType": {
+			"@spear-refined-generic-(copper|tinbronze|bismuthbronze|blackbronze|ornategold|hacking|ornatesilver)-*": {
+				"rotation": {
+					"x": 90,
+					"y": 1,
+					"z": -1
+				},
+				"translation": {
+					"x": 0.31,
+					"y": 0.04,
+					"z": 0.7
+				},
+				"scale": 1.36
+			},
+			"*": {
+				"rotation": {
+					"y": 1,
+					"z": -1
+				},
+				"translation": {
+					"x": -0.23,
+					"y": 0.66
+				},
+				"scale": 1.36
+			}
+		}
+	},
+	"durabilitybytype": {
+		"spear-refined-generic-copper-oak": 200,
+		"spear-refined-generic-tinbronze-oak": 300,
+		"spear-refined-generic-bismuthbronze-oak": 350,
+		"spear-refined-generic-blackbronze-oak": 425,
+		"spear-refined-generic-ornategold-oak": 450,
+		"spear-refined-generic-ornatesilver-oak": 450,
+
+		"spear-refined-generic-copper-maple": 200,
+		"spear-refined-generic-tinbronze-maple": 300,
+		"spear-refined-generic-bismuthbronze-maple": 350,
+		"spear-refined-generic-blackbronze-maple": 425,
+		"spear-refined-generic-ornategold-maple": 450,
+		"spear-refined-generic-ornatesilver-maple": 450,
+
+		"spear-refined-generic-copper-purpleheart": 190,
+		"spear-refined-generic-tinbronze-purpleheart": 300,
+		"spear-refined-generic-bismuthbronze-purpleheart": 345,
+		"spear-refined-generic-blackbronze-purpleheart": 410,
+		"spear-refined-generic-ornategold-purpleheart": 430,
+		"spear-refined-generic-ornatesilver-purpleheart": 430,
+
+		"spear-refined-generic-copper-walnut": 185,
+		"spear-refined-generic-tinbronze-walnut": 290,
+		"spear-refined-generic-bismuthbronze-walnut": 340,
+		"spear-refined-generic-blackbronze-walnut": 400,
+		"spear-refined-generic-ornategold-walnut": 425,
+		"spear-refined-generic-ornatesilver-walnut": 425,
+
+		"spear-refined-generic-copper-pine": 160,
+		"spear-refined-generic-tinbronze-pine": 250,
+		"spear-refined-generic-bismuthbronze-pine": 300,
+		"spear-refined-generic-blackbronze-pine": 350,
+		"spear-refined-generic-ornategold-pine": 360,
+		"spear-refined-generic-ornatesilver-pine": 360,
+
+		"spear-refined-generic-copper-larch": 160,
+		"spear-refined-generic-tinbronze-larch": 250,
+		"spear-refined-generic-bismuthbronze-larch": 300,
+		"spear-refined-generic-blackbronze-larch": 350,
+		"spear-refined-generic-ornategold-larch": 360,
+		"spear-refined-generic-ornatesilver-larch": 360,
+
+		"spear-refined-generic-copper-birch": 165,
+		"spear-refined-generic-tinbronze-birch": 260,
+		"spear-refined-generic-bismuthbronze-birch": 310,
+		"spear-refined-generic-blackbronze-birch": 365,
+		"spear-refined-generic-ornategold-birch": 380,
+		"spear-refined-generic-ornatesilver-birch": 380,
+
+		"spear-refined-generic-copper-redwood": 160,
+		"spear-refined-generic-tinbronze-redwood": 250,
+		"spear-refined-generic-bismuthbronze-redwood": 300,
+		"spear-refined-generic-blackbronze-redwood": 350,
+		"spear-refined-generic-ornategold-redwood": 360,
+		"spear-refined-generic-ornatesilver-redwood": 360,
+
+		"spear-refined-generic-copper-acacia": 185,
+		"spear-refined-generic-tinbronze-acacia": 290,
+		"spear-refined-generic-bismuthbronze-acacia": 335,
+		"spear-refined-generic-blackbronze-acacia": 380,
+		"spear-refined-generic-ornategold-acacia": 400,
+		"spear-refined-generic-ornatesilver-acacia": 400,
+
+		"spear-refined-generic-copper-ebony": 185,
+		"spear-refined-generic-tinbronze-ebony": 290,
+		"spear-refined-generic-bismuthbronze-ebony": 335,
+		"spear-refined-generic-blackbronze-ebony": 380,
+		"spear-refined-generic-ornategold-ebony": 400,
+		"spear-refined-generic-ornatesilver-ebony": 400,
+
+		"spear-refined-generic-copper-baldcypress": 160,
+		"spear-refined-generic-tinbronze-baldcypress": 250,
+		"spear-refined-generic-bismuthbronze-baldcypress": 300,
+		"spear-refined-generic-blackbronze-baldcypress": 350,
+		"spear-refined-generic-ornategold-baldcypress": 360,
+		"spear-refined-generic-ornatesilver-baldcypress": 360,
+
+		"spear-refined-generic-copper-*": 175,
+		"spear-refined-generic-tinbronze-*": 275,
+		"spear-refined-generic-bismuthbronze-*": 325,
+		"spear-refined-generic-blackbronze-*": 375,
+		"spear-refined-generic-ornategold-*": 400,
+		"spear-refined-generic-ornatesilver-*": 400
+	},
+	"creativeinventory": {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"tools": [ "*" ],
+		"lathe": [ "*" ]
+	},
+	"guiTransformByType": {
+		"@spear-refined-generic-(copper|tinbronze|bismuthbronze|blackbronze|ornate-gold|ornate-silver)-*": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": 33,
+				"y": 0,
+				"z": -127
+			},
+			"origin": {
+				"x": 1.29,
+				"y": 0.05,
+				"z": 0.52
+			},
+			"scale": 2.26
+		},
+		"*": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": -60,
+				"y": 124,
+				"z": 6
+			},
+			"origin": {
+				"x": 1.19,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 2.26
+		}
+	},
+	"fpHandTransformByType": {
+		"*": {
+			"translation": {
+				"x": 0.1,
+				"y": 0.4,
+				"z": 0.16
+			},
+			"rotation": {
+				"x": -82,
+				"y": 180,
+				"z": 96
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 2.45
+		}
+	},
+	"groundTransformByType": {
+		"*": {
+			"translation": {
+				"x": 0,
+				"y": 0.05,
+				"z": 0
+			},
+			"rotation": {
+				"x": 90,
+				"y": 0,
+				"z": 0
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 3.4
+		}
+	},
+	"tpHandTransformByType": {
+		"@spear-refined-generic-(copper|tinbronze|bismuthbronze|blackbronze|hacking)-*": {
+			"translation": {
+				"x": -1.29,
+				"y": 0.03,
+				"z": -0.57
+			},
+			"rotation": {
+				"x": -90,
+				"y": 0,
+				"z": 0
+			},
+			"origin": {
+				"x": 0.6,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 0.8
+		},
+		"@spear-refined-generic-(ornategold|ornatesilver)-*": {
+			"translation": {
+				"x": -1.04,
+				"y": 0.02,
+				"z": -0.57
+			},
+			"rotation": {
+				"x": -90,
+				"y": 0,
+				"z": 0
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 0.8
+		},
+		"*": {
+			"translation": {
+				"x": -1.29,
+				"y": 0.02,
+				"z": -0.57
+			},
+			"rotation": {
+				"x": -90,
+				"y": 0,
+				"z": 0
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 0.8
+		}
+	}
+}

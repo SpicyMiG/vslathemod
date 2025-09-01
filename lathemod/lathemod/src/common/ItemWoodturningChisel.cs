@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
@@ -92,6 +93,12 @@ namespace lathemod.src.common {
             handling = EnumHandHandling.PreventDefaultAction;
         }
 
+        public override string GetHeldTpHitAnimation(ItemSlot slot, Entity byEntity) {
+            if ((byEntity as EntityPlayer)?.EntitySelection != null) {
+                return "turnlathe";
+            }
+            return base.GetHeldTpHitAnimation(slot, byEntity);
+        }
 
         public override void OnHeldActionAnimStart(ItemSlot slot, EntityAgent byEntity, EnumHandInteract type) {
             var eplr = byEntity as EntityPlayer;

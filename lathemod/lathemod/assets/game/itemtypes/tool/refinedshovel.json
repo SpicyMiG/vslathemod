@@ -1,0 +1,301 @@
+{
+	code: "shovel-refined",
+	behaviors: [{ 
+		name: "GroundStorable",
+		properties: {
+			layout: 'WallHalves',
+			wallOffY: 2,
+			ctrlKey: true,
+			selectionBox: { x1: 0, y1: 0, z1: 0, x2: 1, y2: 0.1, z2: 1 },
+			collisionBox: { x1: 0, y1: 0, z1: 0, x2: 0, y2: 0, z2: 0 },
+		}
+	}],
+	attributes: {
+		groundStorageTransformByType: {
+			"@shovel-(copper|tinbronze|bismuthbronze|blackbronze|gold|silver|iron|meteoriciron|steel)-*": {
+				translation: { x: 0, y: 0.59, z: -0.15 },
+				rotation: { x: 13, y: 88, z: -87 },
+				scale: 0.88
+			},
+			"*": {
+				translation: { x: 0, y: 0.4, z: -0.155 },
+				rotation: { x: 13, y: 88, z: -87 },
+				scale: 0.88
+			}
+		},
+		handbook: {
+			groupBy: ["shovel-*"]
+		},
+		toolrackTransform: {
+			rotation: { y: 1, z: -1 },
+			translation: { x: -0.47, y: 0.6 },
+			scale: 1.25,
+		}
+	},
+	variantgroups: [
+		{
+			"code": "material",
+			"states": [
+				"copper",
+				"tinbronze",
+				"bismuthbronze",
+				"blackbronze",
+				"gold",
+				"silver",
+				"iron",
+				"meteoriciron",
+				"steel"
+			]
+		},
+		{
+			"code": "wood",
+			"states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
+		}
+	],
+	tool: "shovel",
+	damagedby: ["blockbreaking", "attacking"],
+	shapeByType: {
+		"shovel-refined-copper-*": { "base": "game:item/tool/shovel-copper" },
+		"shovel-refined-tinbronze-*": { "base": "game:item/tool/shovel-copper" },
+		"shovel-refined-bismuthbronze-*": { "base": "game:item/tool/shovel-copper" },
+		"shovel-refined-blackbronze-*": { "base": "game:item/tool/shovel-copper" },
+		"shovel-refined-gold-*": { "base": "game:item/tool/shovel-copper" },
+		"shovel-refined-silver-*": { "base": "game:item/tool/shovel-copper" },
+		"shovel-refined-iron-*": { "base": "game:item/tool/shovel-copper" },
+		"shovel-refined-meteoriciron-*": { "base": "game:item/tool/shovel-copper" },
+		"shovel-refined-steel-*": { "base": "game:item/tool/shovel-copper" }
+	},
+	heldTpIdleAnimation: "shovelidle",
+	heldRightReadyAnimation: "shovelready",
+	heldTpHitAnimation: "shoveldig",
+	heldTpUseAnimation: "interactStaticLong",
+	texturesByType: {
+		"*": {
+			"material": { "base": "game:block/metal/ingot/{material}" },
+			"handle": { "base": "game:block/wood/debarked/{wood}" }
+		},
+	},
+	miningspeedbytype: {
+		"shovel-refined-copper-*": {
+			"soil": 4,
+			"sand": 4,
+			"gravel": 2.6,
+			"snow": 2.6
+		},
+		"shovel-refined-bismuthbronze-*": {
+			"soil": 5,
+			"sand": 5,
+			"gravel": 3.2,
+			"snow": 3.2
+		},
+		"shovel-refined-tinbronze-*": {
+			"soil": 5.4,
+			"sand": 5.4,
+			"gravel": 3.6,
+			"snow": 3.6
+		},
+		"shovel-refined-gold-*": {
+			"soil": 5.4,
+			"sand": 5.4,
+			"gravel": 3.6,
+			"snow": 3.6
+		},
+		"shovel-refined-silver-*": {
+			"soil": 5.4,
+			"sand": 5.4,
+			"gravel": 3.6,
+			"snow": 3.6
+		},
+		"shovel-refined-blackbronze-*": {
+			"soil": 5.5,
+			"sand": 5.5,
+			"gravel": 3.7,
+			"snow": 3.7
+		},
+		"shovel-refined-iron-*": {
+			"soil": 6,
+			"sand": 6,
+			"gravel": 4,
+			"snow": 4
+		},
+		"shovel-refined-meteoriciron-*": {
+			"soil": 6.5,
+			"sand": 6.5,
+			"gravel": 4.2,
+			"snow": 4.2
+		},
+		"shovel-refined-steel-*": {
+			"soil": 7,
+			"sand": 7,
+			"gravel": 4.4,
+			"snow": 4.4
+		}
+	},
+	attackpowerbytype: {
+		"shovel-refined-copper-*": 1.25,
+		"shovel-refined-gold-*": 1.5,
+		"shovel-refined-silver-*": 1.5,
+		"shovel-refined-bismuthbronze-*": 1.5,
+		"shovel-refined-tinbronze-*": 1.75,
+		"shovel-refined-blackbronze-*": 2,
+		"shovel-refined-iron-*": 2.25,
+		"shovel-refined-meteoriciron-*": 2.35,
+		"shovel-refined-steel-*": 2.5
+	},
+	durabilitybytype: {
+		"shovel-refined-gold-oak": 275,
+		"shovel-refined-silver-oak": 275,
+		"shovel-refined-copper-oak": 550,
+		"shovel-refined-tinbronze-oak": 825,
+		"shovel-refined-bismuthbronze-oak": 875,
+		"shovel-refined-blackbronze-oak": 975,
+		"shovel-refined-iron-oak": 1650,
+		"shovel-refined-meteoriciron-oak": 1925,
+		"shovel-refined-steel-oak": 4100,
+
+		"shovel-refined-gold-maple": 275,
+		"shovel-refined-silver-maple": 275,
+		"shovel-refined-copper-maple": 550,
+		"shovel-refined-tinbronze-maple": 825,
+		"shovel-refined-bismuthbronze-maple": 875,
+		"shovel-refined-blackbronze-maple": 975,
+		"shovel-refined-iron-maple": 1650,
+		"shovel-refined-meteoriciron-maple": 1925,
+		"shovel-refined-steel-maple": 4100,
+
+		"shovel-refined-gold-purpleheart": 270,
+		"shovel-refined-silver-purpleheart": 270,
+		"shovel-refined-copper-purpleheart": 515,
+		"shovel-refined-tinbronze-purpleheart": 810,
+		"shovel-refined-bismuthbronze-purpleheart": 865,
+		"shovel-refined-blackbronze-purpleheart": 880,
+		"shovel-refined-iron-purpleheart": 1610,
+		"shovel-refined-meteoriciron-purpleheart": 1890,
+		"shovel-refined-steel-purpleheart": 3990,
+
+		"shovel-refined-gold-walnut": 265,
+		"shovel-refined-silver-walnut": 265,
+		"shovel-refined-copper-walnut": 530,
+		"shovel-refined-tinbronze-walnut": 795,
+		"shovel-refined-bismuthbronze-walnut": 845,
+		"shovel-refined-blackbronze-walnut": 900,
+		"shovel-refined-iron-walnut": 1590,
+		"shovel-refined-meteoriciron-walnut": 1860,
+		"shovel-refined-steel-walnut": 3935,
+
+		"shovel-refined-gold-pine": 225,
+		"shovel-refined-silver-pine": 225,
+		"shovel-refined-copper-pine": 450,
+		"shovel-refined-tinbronze-pine": 675,
+		"shovel-refined-bismuthbronze-pine": 725,
+		"shovel-refined-blackbronze-pine": 800,
+		"shovel-refined-iron-pine": 1350,
+		"shovel-refined-meteoriciron-pine": 1650,
+		"shovel-refined-steel-pine": 3375,
+
+		"shovel-refined-gold-larch": 225,
+		"shovel-refined-silver-larch": 225,
+		"shovel-refined-copper-larch": 450,
+		"shovel-refined-tinbronze-larch": 675,
+		"shovel-refined-bismuthbronze-larch": 725,
+		"shovel-refined-blackbronze-larch": 800,
+		"shovel-refined-iron-larch": 1350,
+		"shovel-refined-meteoriciron-larch": 1650,
+		"shovel-refined-steel-larch": 3375,
+
+		"shovel-refined-gold-birch": 235,
+		"shovel-refined-silver-birch": 235,
+		"shovel-refined-copper-birch": 465,
+		"shovel-refined-tinbronze-birch": 700,
+		"shovel-refined-bismuthbronze-birch": 755,
+		"shovel-refined-blackbronze-birch": 810,
+		"shovel-refined-iron-birch": 1395,
+		"shovel-refined-meteoriciron-birch": 1725,
+		"shovel-refined-steel-birch": 3600,
+
+		"shovel-refined-gold-redwood": 225,
+		"shovel-refined-silver-redwood": 225,
+		"shovel-refined-copper-redwood": 450,
+		"shovel-refined-tinbronze-redwood": 675,
+		"shovel-refined-bismuthbronze-redwood": 725,
+		"shovel-refined-blackbronze-redwood": 800,
+		"shovel-refined-iron-redwood": 1350,
+		"shovel-refined-meteoriciron-redwood": 1650,
+		"shovel-refined-steel-redwood": 3375,
+
+		"shovel-refined-gold-acacia": 260,
+		"shovel-refined-silver-acacia": 260,
+		"shovel-refined-copper-acacia": 525,
+		"shovel-refined-tinbronze-acacia": 790,
+		"shovel-refined-bismuthbronze-acacia": 840,
+		"shovel-refined-blackbronze-acacia": 900,
+		"shovel-refined-iron-acacia": 1575,
+		"shovel-refined-meteoriciron-acacia": 1850,
+		"shovel-refined-steel-acacia": 3700,
+
+		"shovel-refined-gold-ebony": 260,
+		"shovel-refined-silver-ebony": 260,
+		"shovel-refined-copper-ebony": 525,
+		"shovel-refined-tinbronze-ebony": 790,
+		"shovel-refined-bismuthbronze-ebony": 840,
+		"shovel-refined-blackbronze-ebony": 900,
+		"shovel-refined-iron-ebony": 1575,
+		"shovel-refined-meteoriciron-ebony": 1850,
+		"shovel-refined-steel-ebony": 3700,
+
+		"shovel-refined-gold-baldcypress": 225,
+		"shovel-refined-silver-baldcypress": 225,
+		"shovel-refined-copper-baldcypress": 450,
+		"shovel-refined-tinbronze-baldcypress": 675,
+		"shovel-refined-bismuthbronze-baldcypress": 725,
+		"shovel-refined-blackbronze-baldcypress": 800,
+		"shovel-refined-iron-baldcypress": 1350,
+		"shovel-refined-meteoriciron-baldcypress": 1650,
+		"shovel-refined-steel-baldcypress": 3375,
+
+		"shovel-refined-gold-*": 250,
+		"shovel-refined-silver-*": 250,
+		"shovel-refined-copper-*": 500,
+		"shovel-refined-tinbronze-*": 750,
+		"shovel-refined-bismuthbronze-*": 800,
+		"shovel-refined-blackbronz-*e": 900,
+		"shovel-refined-iron-*": 1500,
+		"shovel-refined-meteoriciron-*": 1750,
+		"shovel-refined-steel-*": 3750
+	},
+	creativeinventory: {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"tools": [ "*" ],
+		"lathe": [ "*" ]
+	},
+	fpHandTransform: {
+		translation: { x: 0.046875, y: -0.2, z: 0 },
+		rotation: { x: -15, y: 15, z: 100 },
+		scale: 2
+	},
+	guiTransformByType: {
+		"@shovel-(copper|tinbronze|bismuthbronze|blackbronze|gold|silver|iron|meteoriciron|steel)": {
+			translation: { x: 0, y: 0, z: 0 },
+			rotation: { x: -113, y: -147, z: 139 },
+			origin: { x: 0.2, y: 0.7, z: 0.8 }
+		},
+		"*": {
+		translation: { x: 7, y: 0, z: 1 },
+		rotation: { x: -112, y: -147, z: 139 },
+		origin: { x: 0.3, y: 0.7, z: 0.7 },
+		scale: 1.18
+		}
+	},
+	groundTransform: {
+		translation: { x: 0, y: 0, z: 0 },
+		rotation: { x: 0, y: 0, z: 0 },
+		origin: { x: 0.5, y: 0, z: 0.5 },
+		scale: 3.6
+	},
+	tpHandTransform: {
+		translation: { x: -1.69, y: -0.29, z: -0.6 },
+		rotation: { x: 0, y: 0, z: -10 },
+		scale: 0.8
+	}
+}

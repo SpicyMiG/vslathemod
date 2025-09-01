@@ -12,6 +12,6 @@
 		},
 		width: 1,
 		height: 2,
-		output: { type: "item", code: "lathemod:refinedaxe-felling-{material}-{wood}", quantity: 1  }
+		output: { type: "item", code: "game:axe-refined-felling-{material}-{wood}", quantity: 1  }
 	}
 ]

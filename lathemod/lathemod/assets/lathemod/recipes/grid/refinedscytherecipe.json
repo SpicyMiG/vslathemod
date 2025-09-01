@@ -6,5 +6,9 @@
 	},
 	width: 1,
 	height: 2,
-	output: { type: "item", code: "lathemod:refinedscythe-{metal}-{wood}", quantity: 1  }
+	output: {
+		"type": "item",
+		"code": "game:scythe-refined-{metal}-{wood}",
+		"quantity": 1
+	}
 }

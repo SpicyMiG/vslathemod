@@ -18,7 +18,7 @@
 		"height": 2,
 		"output": {
 			"type": "item",
-			"code": "refinedblade-falx-{metal}-{wood}",
+			"code": "game:blade-refined-falx-{metal}-{wood}",
 			"quantity": 1
 		}
 	},
@@ -44,7 +44,7 @@
 		"height": 2,
 		"output": {
 			"type": "item",
-			"code": "refinedblade-blackguard-iron-{wood}",
+			"code": "game:blade-refined-blackguard-iron-{wood}",
 			"quantity": 1
 		}
 	},
@@ -70,7 +70,7 @@
 		"height": 3,
 		"output": {
 			"type": "item",
-			"code": "refinedblade-falx-gold-{wood}",
+			"code": "game:blade-refined-falx-gold-{wood}",
 			"quantity": 1
 		}
 	},	
@@ -87,6 +87,10 @@
 		},
 		width: 1,
 		height: 3,
-		output: { type: "item", code: "refinedblade-falx-silver-{wood}", quantity: 1  }
+		output: {
+			"type": "item",
+			"code": "game:blade-refined-falx-silver-{wood}",
+			"quantity": 1
+		}
 	}
 ]

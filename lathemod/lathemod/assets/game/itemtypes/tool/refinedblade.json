@@ -1,0 +1,433 @@
+{
+	"code": "blade-refined",
+	"damagedby": [ "blockbreaking", "attacking" ],
+	"tool": "sword",
+	"attributes": {
+		"heldItemPitchFollow": 0.9,
+		"handbook": {
+			"groupBy": [ "blade-*" ]
+		},
+		"toolrackTransformByType": {
+			"blade-refined-blackguard-iron": {
+				"rotation": {
+					"y": 180,
+					"z": 1
+				},
+				"translation": {
+					"x": -0.1,
+					"y": 0.6
+				},
+				"scale": 1.25
+			},
+			"blade-refined-claymore-ruined": {
+				"translation": {
+					"x": 0.56,
+					"y": 0.6,
+					"z": -0.2
+				},
+				"rotation": {
+					"x": -16,
+					"y": 180,
+					"z": 1
+				},
+				"scale": 1.25
+			},
+			"*": {
+				"rotation": {
+					"y": 180,
+					"z": 1
+				},
+				"translation": {
+					"x": -0.1,
+					"y": 0.6
+				},
+				"scale": 1.25
+			}
+		},
+		"groundStorageTransformByType": {
+			"blade-refined-falx-*": {
+				"translation": {
+					"x": 0.24,
+					"y": 0.195,
+					"z": -0.06
+				},
+				"rotation": {
+					"x": 24,
+					"y": 61,
+					"z": -87
+				},
+				"scale": 0.88
+			},
+			"*": {
+				"translation": {
+					"x": 0.24,
+					"y": 0.195,
+					"z": -0.06
+				},
+				"rotation": {
+					"x": 24,
+					"y": 61,
+					"z": -87
+				},
+				"scale": 0.88
+			}
+		}
+	},
+	"behaviors": [
+		{
+			"name": "GroundStorable",
+			"properties": {
+				"layout": "WallHalves",
+				"wallOffYByType": {
+					"*": 1
+				},
+				"ctrlKey": true,
+				"selectionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 1,
+					"y2": 0.1,
+					"z2": 1
+				},
+				"collisionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 0,
+					"y2": 0,
+					"z2": 0
+				}
+			}
+		},
+		{ "name": "AnimationAuthoritative" }
+	],
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "falx", "blackguard" ]
+		},
+		{
+			"code": "metal",
+			"states": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "gold", "silver", "iron", "meteoriciron", "steel" ]
+		},
+		{
+			"code": "wood",
+			"states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
+		}
+	],
+	"allowedVariants": [
+		"blade-refined-falx-*",
+		"blade-refined-blackguard-iron-*"
+	],
+	"shapeByType": {
+		"blade-refined-falx-*": { "base": "game:item/tool/blade/falx/{metal}" },
+		"*": { "base": "game:item/tool/blade/{type}" }
+	},
+	"texturesByType": {
+		"*": {
+			"metal": { "base": "game:block/metal/ingot/{metal}" },
+			"handle": {
+				"base": "game:block/wood/debarked/{wood}"
+				//"rotation": 90
+			}
+		}
+	},
+	"heldTpHitAnimationByType": {
+		"blade-refined-blackguard-iron": "spearhit",
+		"*": "falx"
+	},
+	"attackRangebytype": {
+		"*": 2.5
+	},
+	"tooltierbytype": {
+		"*-copper-*": 2,
+		"*-ruined-*": 2,
+		"*-gold-*": 5,
+		"*-silver-*": 5,
+		"*-bismuthbronze-*": 3,
+		"*-tinbronze-*": 3,
+		"*-blackbronze-*": 3,
+		"*-iron-*": 4,
+		"*-meteoriciron-*": 4,
+		"*-steel-*": 5,
+		"*-blackguard-*": 4
+	},
+	"attackpowerbytype": {
+		"blade-refined-falx-copper-*": 4.25,
+		"blade-refined-falx-bismuthbronze-*": 4.5,
+		"blade-refined-falx-tinbronze-*": 4.75,
+		"blade-refined-falx-blackbronze-*": 5,
+		"blade-refined-falx-iron-*": 5.25,
+		"blade-refined-falx-meteoriciron-*": 5.5,
+		"blade-refined-falx-steel-*": 5.5,
+		"blade-refined-falx-gold-*": 5.5,
+		"blade-refined-falx-silver-*": 5.5,
+		"blade-refined-blackguard-iron-*": 5.5
+	},
+	"durabilitybytype": {
+		"blade-refined-falx-copper-oak": 385,
+		"blade-refined-falx-tinbronze-oak": 660,
+		"blade-refined-falx-bismuthbronze-oak": 770,
+		"blade-refined-falx-blackbronze-oak": 880,
+		"blade-refined-falx-iron-oak": 1210,
+		"blade-refined-falx-meteoriciron-oak": 1650,
+		"blade-refined-falx-steel-oak": 2975,
+		"blade-refined-falx-gold-oak": 2975,
+		"blade-refined-falx-silver-oak": 2975,
+		"blade-refined-blackguard-iron-oak": 1650,
+
+		"blade-refined-falx-copper-maple": 385,
+		"blade-refined-falx-tinbronze-maple": 660,
+		"blade-refined-falx-bismuthbronze-maple": 770,
+		"blade-refined-falx-blackbronze-maple": 880,
+		"blade-refined-falx-iron-maple": 1210,
+		"blade-refined-falx-meteoriciron-maple": 1650,
+		"blade-refined-falx-steel-maple": 2975,
+		"blade-refined-falx-gold-maple": 2975,
+		"blade-refined-falx-silver-maple": 2975,
+		"blade-refined-blackguard-iron-maple": 1650,
+
+		"blade-refined-falx-copper-purpleheart": 378,
+		"blade-refined-falx-tinbronze-purpleheart": 648,
+		"blade-refined-falx-bismuthbronze-purpleheart": 756,
+		"blade-refined-falx-blackbronze-purpleheart": 864,
+		"blade-refined-falx-iron-purpleheart": 1580,
+		"blade-refined-falx-meteoriciron-purpleheart": 1620,
+		"blade-refined-falx-steel-purpleheart": 2915,
+		"blade-refined-falx-gold-purpleheart": 2915,
+		"blade-refined-falx-silver-purpleheart": 2915,
+		"blade-refined-blackguard-iron-purpleheart": 1620,
+
+		"blade-refined-falx-copper-walnut": 371,
+		"blade-refined-falx-tinbronze-walnut": 636,
+		"blade-refined-falx-bismuthbronze-walnut": 742,
+		"blade-refined-falx-blackbronze-walnut": 848,
+		"blade-refined-falx-iron-walnut": 1165,
+		"blade-refined-falx-meteoriciron-walnut": 1590,
+		"blade-refined-falx-steel-walnut": 2865,
+		"blade-refined-falx-gold-walnut": 2865,
+		"blade-refined-falx-silver-walnut": 2865,
+		"blade-refined-blackguard-iron-walnut": 1590,
+
+		"blade-refined-falx-copper-pine": 385,
+		"blade-refined-falx-tinbronze-pine": 660,
+		"blade-refined-falx-bismuthbronze-pine": 770,
+		"blade-refined-falx-blackbronze-pine": 880,
+		"blade-refined-falx-iron-pine": 1210,
+		"blade-refined-falx-meteoriciron-pine": 1650,
+		"blade-refined-falx-steel-pine": 2975,
+		"blade-refined-falx-gold-pine": 2975,
+		"blade-refined-falx-silver-pine": 2975,
+		"blade-refined-blackguard-iron-pine": 1650,
+
+		"blade-refined-falx-copper-larch": 385,
+		"blade-refined-falx-tinbronze-larch": 660,
+		"blade-refined-falx-bismuthbronze-larch": 770,
+		"blade-refined-falx-blackbronze-larch": 880,
+		"blade-refined-falx-iron-larch": 1210,
+		"blade-refined-falx-meteoriciron-larch": 1650,
+		"blade-refined-falx-steel-larch": 2975,
+		"blade-refined-falx-gold-larch": 2975,
+		"blade-refined-falx-silver-larch": 2975,
+		"blade-refined-blackguard-iron-larch": 1650,
+
+		"blade-refined-falx-copper-birch": 375,
+		"blade-refined-falx-tinbronze-birch": 630,
+		"blade-refined-falx-bismuthbronze-birch": 735,
+		"blade-refined-falx-blackbronze-birch": 840,
+		"blade-refined-falx-iron-birch": 1245,
+		"blade-refined-falx-meteoriciron-birch": 1575,
+		"blade-refined-falx-steel-birch": 2790,
+		"blade-refined-falx-gold-birch": 2790,
+		"blade-refined-falx-silver-birch": 2790,
+		"blade-refined-blackguard-iron-birch": 1575,
+
+		"blade-refined-falx-copper-redwood": 385,
+		"blade-refined-falx-tinbronze-redwood": 660,
+		"blade-refined-falx-bismuthbronze-redwood": 770,
+		"blade-refined-falx-blackbronze-redwood": 880,
+		"blade-refined-falx-iron-redwood": 1210,
+		"blade-refined-falx-meteoriciron-redwood": 1650,
+		"blade-refined-falx-steel-redwood": 2975,
+		"blade-refined-falx-gold-redwood": 2975,
+		"blade-refined-falx-silver-redwood": 2975,
+		"blade-refined-blackguard-iron-redwood": 1650,
+
+		"blade-refined-falx-copper-acacia": 368,
+		"blade-refined-falx-tinbronze-acacia": 630,
+		"blade-refined-falx-bismuthbronze-acacia": 735,
+		"blade-refined-falx-blackbronze-acacia": 840,
+		"blade-refined-falx-iron-acacia": 1155,
+		"blade-refined-falx-meteoriciron-acacia": 1575,
+		"blade-refined-falx-steel-acacia": 2835,
+		"blade-refined-falx-gold-acacia": 2835,
+		"blade-refined-falx-silver-acacia": 2835,
+		"blade-refined-blackguard-iron-acacia": 1575,
+
+		"blade-refined-falx-copper-ebony": 368,
+		"blade-refined-falx-tinbronze-ebony": 630,
+		"blade-refined-falx-bismuthbronze-ebony": 735,
+		"blade-refined-falx-blackbronze-ebony": 840,
+		"blade-refined-falx-iron-ebony": 1155,
+		"blade-refined-falx-meteoriciron-ebony": 1575,
+		"blade-refined-falx-steel-ebony": 2835,
+		"blade-refined-falx-gold-ebony": 2835,
+		"blade-refined-falx-silver-ebony": 2835,
+		"blade-refined-blackguard-iron-ebony": 1575,
+
+		"blade-refined-falx-copper-baldcypress": 385,
+		"blade-refined-falx-tinbronze-baldcypress": 660,
+		"blade-refined-falx-bismuthbronze-baldcypress": 770,
+		"blade-refined-falx-blackbronze-baldcypress": 880,
+		"blade-refined-falx-iron-baldcypress": 1210,
+		"blade-refined-falx-meteoriciron-baldcypress": 1650,
+		"blade-refined-falx-steel-baldcypress": 2975,
+		"blade-refined-falx-gold-baldcypress": 2975,
+		"blade-refined-falx-silver-baldcypress": 2975,
+		"blade-refined-blackguard-iron-baldcypress": 1650,
+
+		"blade-refined-falx-copper-*": 350,
+		"blade-refined-falx-tinbronze-*": 600,
+		"blade-refined-falx-bismuthbronze-*": 700,
+		"blade-refined-falx-blackbronze-*": 800,
+		"blade-refined-falx-iron-*": 1100,
+		"blade-refined-falx-meteoriciron-*": 1500,
+		"blade-refined-falx-steel-*": 2700,
+		"blade-refined-falx-gold-*": 2700,
+		"blade-refined-falx-silver-*": 2700,
+		"blade-refined-blackguard-iron-*": 1500
+	},
+	"creativeinventoryByType": {
+		"*": {
+			"general": [ "*" ],
+			"items": [ "*" ],
+			"tools": [ "*" ],
+			"lathe": [ "*" ]
+		}
+	},
+	"guiTransformByType": {
+		"blade-refined-blackguard-iron": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": -89,
+				"y": 47,
+				"z": -13
+			},
+			"origin": {
+				"x": 0.6,
+				"y": -0.1,
+				"z": 0.44
+			},
+			"scale": 1.65
+		},
+		"*": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": -53,
+				"y": 118,
+				"z": -5
+			},
+			"origin": {
+				"x": 0.65,
+				"y": 0.1,
+				"z": 0.37
+			},
+			"scale": 1.65
+		}
+	},
+	"fpHandTransformByType": {
+		"blade-refined-blackguard-iron": {
+			"translation": {
+				"x": -0.2,
+				"y": -0.2,
+				"z": 0
+			},
+			"rotation": {
+				"x": -21,
+				"y": 15,
+				"z": 90
+			},
+			"scale": 3.18
+		},
+		"*": {
+			"translation": {
+				"x": -0.2,
+				"y": -0.2,
+				"z": 0
+			},
+			"rotation": {
+				"x": -3,
+				"y": 15,
+				"z": 90
+			},
+			"scale": 3.18
+		}
+	},
+	"groundTransformByType": {
+		"*": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 3.4
+		}
+	},
+	"tpHandTransformByType": {
+		"blade-refined-blackguard-iron": {
+			"translation": {
+				"x": -1.03,
+				"y": -0.01,
+				"z": -0.56
+			},
+			"rotation": {
+				"x": -90,
+				"y": 0,
+				"z": 0
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 0.8
+		},
+		"*": {
+			"translation": {
+				"x": -1.03,
+				"y": -0.005,
+				"z": -0.66
+			},
+			"rotation": {
+				"x": 85,
+				"y": 0,
+				"z": 2
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 0.8
+		}
+	}
+}

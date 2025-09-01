@@ -6,5 +6,9 @@
 	},
 	width: 1,
 	height: 2,
-	output: { type: "item", code: "lathemod:refinedspear-generic-{metal}-{wood}", quantity: 1  }
+	output: {
+		"type": "item",
+		"code": "game:spear-refined-generic-{metal}-{wood}",
+		"quantity": 1
+	}
 }

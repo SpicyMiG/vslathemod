@@ -21,11 +21,13 @@ namespace lathemod
         public override void Start(ICoreAPI api)
         {
             api.RegisterBlockClass(Mod.Info.ModID + ".lathe", typeof(LatheBlock));
+            api.RegisterBlockClass(Mod.Info.ModID + ".candleholder", typeof(BlockCandleHolder));
 
             api.RegisterEntity(Mod.Info.ModID + ".entityprojectilelathe", typeof(EntityProjectileLathe));
 
             api.RegisterBlockEntityClass("TEST", typeof(BlockEntityLathe));
             api.RegisterBlockEntityClass(Mod.Info.ModID + ".belatheentityredirect", typeof(BELatheEntityRedirect));
+            api.RegisterBlockEntityClass(Mod.Info.ModID + ".candleholder", typeof(BlockEntityCandleHolder));
 
             api.RegisterItemClass(Mod.Info.ModID + ".latheblank", typeof(ItemLatheBlank));
             api.RegisterItemClass(Mod.Info.ModID + ".itemlatheworkitem", typeof(ItemLatheWorkItem));

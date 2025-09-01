@@ -15,5 +15,9 @@
 	},
 	width: 1,
 	height: 2,
-	output: { type: "item", code: "lathemod:refinedshovel-{metal}-{wood}", quantity: 1  }
+	output: {
+		"type": "item",
+		"code": "game:shovel-refined-{metal}-{wood}",
+		"quantity": 1
+	}
 }

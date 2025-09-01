@@ -20,7 +20,7 @@
     "height": 3,
     "output": {
         "type": "item",
-        "code": "lathemod:arrow-refined-{metal}-{wood}",
+        "code": "game:arrow-refined-{metal}-{wood}",
         "quantity": 1
     }
 }

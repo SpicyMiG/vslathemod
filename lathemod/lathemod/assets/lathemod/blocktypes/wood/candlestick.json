@@ -1,0 +1,219 @@
+{
+    "code": "candlestick",
+    "class": "lathemod.candleholder",
+    "entityClass": "lathemod.candleholder",
+    "behaviors": [
+        {
+            "name": "GroundStorable",
+            "properties": {
+                "layout": "Quadrants",
+                "collisionBox": {
+                    "x1": 0,
+                    "y1": 0,
+                    "z1": 0,
+                    "x2": 1,
+                    "y2": 0.4375,
+                    "z2": 1
+                }
+            }
+        },
+        {
+            "name": "Unplaceable"
+        },
+        { "name": "RightClickPickup" }
+    ],
+    "variantgroups": [
+        {
+            "code": "wood",
+            "states": [ "oak", "maple", "acacia", "baldcypress", "ebony", "walnut", "purpleheart", "pine", "larch", "birch", "redwood" ]
+        },
+        {
+            "code": "state",
+            "states": [ "empty", "filled" ]
+        }
+    ],
+    "shapebytype": {
+        "*": {
+            "base": "lathemod:block/wood/candlestick/{state}"
+        }
+    },
+    "textures": {
+        "wood": { "base": "game:block/wood/debarked/{wood}" }
+    },
+    "attributes": {
+        "reinforcable": true
+    },
+    "doNotRenderAtLod2": true,
+    "sidesolid": {
+        "all": false
+    },
+    "sideopaque": {
+        "all": false
+    },
+    "creativeinventory": {
+        "general": [ "*-empty" ],
+        "decorative": [ "*-empty" ],
+        "lathe": [ "*-empty" ]
+    },
+    "replaceable": 5001,
+    "resistance": 0.5,
+    "maxStackSize": 8,
+    "lightAbsorption": 0,
+    "lightHsvByType": { "*-filled": [ 7, 7, 7 ] },
+    "dropsByType": {
+        "*-empty": [ { "code": "candlestick-{wood}-empty" } ],
+        "*-filled": [
+            { "code": "candlestick-{wood}-empty" },
+            {
+                "type": "item",
+                "code": "game:candle"
+            }
+        ]
+    },
+    "particlePropertiesByType": {
+        "*-filled": [
+            {
+                // Smoke quads
+                "hsvaColor": [
+                    {
+                        "avg": 0,
+                        "var": 0
+                    },
+                    {
+                        "avg": 0,
+                        "var": 0
+                    },
+                    {
+                        "avg": 40,
+                        "var": 30
+                    },
+                    {
+                        "avg": 220,
+                        "var": 50
+                    }
+                ],
+                "opacityEvolve": {
+                    "transform": "quadratic",
+                    "factor": -16
+                },
+                "gravityEffect": {
+                    "avg": 0,
+                    "var": 0
+                },
+                "posOffset": [
+                    {
+                        "avg": 0,
+                        "var": 0.1
+                    },
+                    {
+                        "avg": 0,
+                        "var": 0
+                    },
+                    {
+                        "avg": 0,
+                        "var": 0.1
+                    }
+                ],
+                "velocity": [
+                    {
+                        "avg": 0,
+                        "var": 0.025
+                    },
+                    {
+                        "avg": 0.15,
+                        "var": 0.1
+                    },
+                    {
+                        "avg": 0,
+                        "var": 0.025
+                    }
+                ],
+                "quantity": { "avg": 0.4 },
+                "size": {
+                    "avg": 0.05,
+                    "var": 0.02
+                },
+                "sizeEvolve": {
+                    "transform": "linear",
+                    "factor": 0.5
+                },
+                "particleModel": "Quad",
+                "windAffectednes": 0.7
+            }
+        ]
+    },
+    "collisionbox": null,
+    "selectionboxByType": {
+        "*-empty": {
+            "x1": 0.375,
+            "y1": 0,
+            "z1": 0.375,
+            "x2": 0.625,
+            "y2": 0.375,
+            "z2": 0.625
+        },
+        "*-filled": {
+            "x1": 0.375,
+            "y1": 0,
+            "z1": 0.375,
+            "x2": 0.625,
+            "y2": 0.5,
+            "z2": 0.625
+        }
+    },
+    "blockmaterial": "wood",
+    "guiTransform": {
+        "origin": {
+            "x": 0.5,
+            "y": 0.2,
+            "z": 0.5
+        },
+        "scale": 2.48
+    },
+    "fpHandTransform": {
+        "translation": {
+            "x": 0.29,
+            "y": -0.1,
+            "z": 0
+        },
+        "rotation": {
+            "x": 0,
+            "y": -130,
+            "z": 2
+        },
+        "scale": 2.5
+    },
+    "groundTransform": {
+        "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 90
+        },
+        "origin": {
+            "x": 0.39,
+            "y": 0.6,
+            "z": 0.1
+        },
+        "scale": 4.5
+    },
+    "tpHandTransform": {
+        "translation": {
+            "x": -6.2,
+            "y": -1.85,
+            "z": 2
+        },
+        "rotation": {
+            "x": 85,
+            "y": 180,
+            "z": 96
+        },
+        "origin": {
+            "x": 2.9,
+            "y": 1.6,
+            "z": 0.1
+        },
+        "scale": 0.66
+    },
+    "rainPermeable": true,
+    "materialDensity": 600
+}

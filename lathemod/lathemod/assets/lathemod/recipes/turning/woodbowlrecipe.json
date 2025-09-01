@@ -43,7 +43,7 @@
         "name": "bowl",
         "output": {
             "type": "block",
-            "code": "bowl-wood-raw-{wood}",
+            "code": "bowl-wood-{wood}",
             "quantity": 1
         }
     },
@@ -91,7 +91,7 @@
         "name": "bowl",
         "output": {
             "type": "block",
-            "code": "bowl-wood-raw-{wood}",
+            "code": "bowl-wood-{wood}",
             "quantity": 1
         }
     }

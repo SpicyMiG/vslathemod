@@ -1,0 +1,95 @@
+﻿[
+    {
+        "file": "game:entities/humanoid/player.json",
+        "op": "addmerge",
+        "path": "/client/animations/-",
+        "value": {
+            "code": "turnlathe",
+            "animation": "turnlathe",
+            "blendMode": "Add",
+            "animationSpeed": 0.5
+        },
+        "elementWeight": {
+            "UpperTorso": 100,
+            "LowerTorso": 100,
+            "ItemAnchor": 100,
+            "UpperArmR": 100,
+            "LowerArmR": 100,
+            "UpperArmL": 100,
+            "LowerArmL": 100
+        },
+        "elementBlendMode": {
+            "UpperTorso": "Add",
+            "LowerTorso": "Add",
+            "ItemAnchor": "Add",
+            "UpperArmR": "Add",
+            "LowerArmR": "Add",
+            "UpperArmL": "Add",
+            "LowerArmL": "Add"
+        }
+    },
+    {
+        "file": "game:shapes/entity/humanoid/seraph-faceless.json", //tried seraph
+        "op": "addmerge",
+        "path": "/animations/-",
+        "value": {
+            "name": "Woodturning-Use",
+            "code": "turnlathe",
+            "quantityframes": 15,
+            "onActivityStopped": "Rewind",
+            "onAnimationEnd": "Repeat",
+            "keyframes": [
+                {
+                    "frame": 0,
+                    "elements": {
+                        "UpperArmR": {
+                            "rotationX": -3.0,
+                            "rotationY": 3.0,
+                            "rotationZ": -39.0
+                        },
+                        "UpperArmL": {
+                            "rotationX": -3.0,
+                            "rotationY": -30.0,
+                            "rotationZ": -47.0
+                        },
+                        "LowerArmR": {
+                            "rotationX": 0.0,
+                            "rotationY": 0.0,
+                            "rotationZ": -11.0
+                        },
+                        "UpperTorso": {
+                            "rotationX": 0.0,
+                            "rotationY": 0.0,
+                            "rotationZ": 0.0
+                        },
+                        "Head": {
+                            "rotationX": 0.0,
+                            "rotationY": 0.0,
+                            "rotationZ": 0.0
+                        },
+                        "ItemAnchor": {
+                            "rotationX": 0.0,
+                            "rotationY": 0.0,
+                            "rotationZ": 20.0
+                        },
+                        "LowerArmL": {
+                            "rotationX": 19.0,
+                            "rotationY": -11.0,
+                            "rotationZ": -14.0
+                        }
+                    }
+                },
+                {
+                    "frame": 14,
+                    "elements": {
+                        "ItemAnchor": {
+                            "rotationX": 0.0,
+                            "rotationY": 0.0,
+                            "rotationZ": 20.0
+                        }
+                    }
+                }
+            ]
+        }
+    }
+]

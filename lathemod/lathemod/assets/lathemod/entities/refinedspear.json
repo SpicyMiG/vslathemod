@@ -1,5 +1,5 @@
 {
-	code: "refinedspear",
+	code: "spear-refined",
 	class: "EntityProjectile",
 	tags: ["inanimate", "projectile"],
 	hitboxSize: { x: 0.125, y: 0.125 },
@@ -15,11 +15,11 @@
 		}
 	],
 	skipVariants: [
-		"refinedspear-generic-ruined-*",
-		"refinedspear-generic-scrap-*"
+		"spear-refined-generic-ruined-*",
+		"spear-refined-generic-scrap-*"
 	],
 	allowedVariants: [
-		"refinedspear-generic-*"
+		"spear-refined-generic-*"
 	],
 	attributes: {
 		isProjectile: true
@@ -27,27 +27,27 @@
 	client: {
 		renderer: "Shape",
 		shapeByType: {
-			"refinedspear-generic-copper-*": {
+			"spear-refined-generic-copper-*": {
 				"base": "game:item/tool/spear/ornatesilver",
 				"offsetX": -0.8125
 			},
-			"refinedspear-generic-tinbronze-*": {
+			"spear-refined-generic-tinbronze-*": {
 				"base": "game:item/tool/spear/ornatesilver",
 				"offsetX": -0.8125
 			},
-			"refinedspear-generic-bismuthbronze-*": {
+			"spear-refined-generic-bismuthbronze-*": {
 				"base": "game:item/tool/spear/ornatesilver",
 				"offsetX": -0.8125
 			},
-			"refinedspear-generic-blackbronze-*": {
+			"spear-refined-generic-blackbronze-*": {
 				"base": "game:item/tool/spear/ornatesilver",
 				"offsetX": -0.8125
 			},
-			"refinedspear-generic-ornategold-*": {
+			"spear-refined-generic-ornategold-*": {
 				"base": "game:item/tool/spear/ornategold",
 				"offsetX": -0.8125
 			},
-			"refinedspear-generic-ornatesilver-*": {
+			"spear-refined-generic-ornatesilver-*": {
 				"base": "game:item/tool/spear/ornatesilver",
 				"offsetX": -0.8125
 			},

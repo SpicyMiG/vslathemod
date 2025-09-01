@@ -15,7 +15,7 @@
         "pine": { "base": "game:block/wood/debarked/pine" },
         "larch": { "base": "game:block/wood/debarked/larch" },
         "birch": { "base": "game:block/wood/debarked/birch" },
-        "redwood": { "base": "game:block/wood/debarked/redwood" },
+        "redwood": { "base": "game:block/wood/debarked/redwood" }
     },
     "sidesolid": { "all": false },
     "sideopaque": { "all": false },

@@ -74,6 +74,7 @@
             "loadFromProperties": "abstract/horizontalorientation"
         }
     ],
+    "heldTpIdleAnimation": "holdunderarm",
     "shapeByType": {
         "*-north": {
             "base": "lathemod:block/metal/lathe/base",
@@ -204,5 +205,18 @@
             "y": -45.3,
             "z": 0
         }
+    },
+    "tpHandTransform": {
+        "translation": {
+            "x": -1.1,
+            "y": -0.5,
+            "z": -0.9
+        },
+        "rotation": {
+            "x": 12,
+            "y": -83,
+            "z": 2
+        },
+        "scale": 0.58
     }
 }

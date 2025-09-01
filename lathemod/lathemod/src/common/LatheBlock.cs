@@ -16,18 +16,13 @@ namespace lathemod.src.common {
         WorldInteraction[] interactions;
 
         public override bool TryPlaceBlock(IWorldAccessor world, IPlayer byPlayer, ItemStack itemstack, BlockSelection blockSel, ref string failureCode) {
-            //bool ok = base.TryPlaceBlock(world, byPlayer, itemstack, blockSel, ref failureCode);
-
-            if (!CanPlaceBlock(world, byPlayer, blockSel, ref failureCode)) {
-                return false;
-            }
 
             //no mech power cons
             if (base.TryPlaceBlock(world, byPlayer, itemstack, blockSel, ref failureCode)) {
                 WasPlaced(world, blockSel.Position, null);
 
                 string facing = this.GetBlockEntity<BlockEntityLathe>(blockSel.Position).facing.ToString();
-                api.Logger.Event(facing);
+                //api.Logger.Event(facing);
                 //string facing = b.Variant["side"];
 
                 switch (facing) {
@@ -45,7 +40,6 @@ namespace lathemod.src.common {
                         break;
                 }
 
-                //fake blocks?
                 //PlaceFakeBlocks(world, blockSel.Position, facing);
 
                 return true;
@@ -54,6 +48,7 @@ namespace lathemod.src.common {
             return false;
         }
 
+        //deprecated
         /*private void PlaceFakeBlocks(IWorldAccessor world, BlockPos pos, string facing) {
             Block toPlaceBlock = world.GetBlock(new AssetLocation("lathemod:fakeblock"));
             BlockPos newPos = new BlockPos();

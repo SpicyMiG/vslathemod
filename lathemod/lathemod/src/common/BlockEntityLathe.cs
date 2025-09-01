@@ -801,33 +801,40 @@ namespace lathemod.src.common {
                     if((y == 1 || y == 2) && (z == 7 || z == 8)) {
                         if(x != 0 && x != 15) {
                             if (Voxels[x + 1, y, z] == (int)EnumVoxelMaterial.Metal && Voxels[x - 1, y, z] == (int)EnumVoxelMaterial.Metal) {
-                                Api.Logger.Event("Can't split work item");
+                                //Api.Logger.Event("Can't split work item");
                                 return; 
                             }
                         }
                     }
 
-                    //play sound
+                    if ((z == 6 || z == 9) && (y == 1 || y == 2)) {
+                        if (CheckCornersIntactWE(x)) {
+                            return;
+                        }
+                    } else if ((z == 7 || z == 8) && (y == 3 || y == 0)) {
+                        if (CheckCornersIntactWE(x)) {
+                            return;
+                        }
+                    }
 
-                    /*Api.Logger.Event("\nONE\n" + x + ", " + y + ", " + z +
-                                     "\n" + x + ", " + y + ", " + (15 - z) +
-                                     "\n" + x + ", " + (3 - y) + ", " + z +
-                                     "\n" + x + ", " + (3 - y) + ", " + (15 - z));*/
+                    Voxels[x, y, z] = 0; //hit center
+                    Voxels[x, y, 15 - z] = 0; //opposite side
+                    Voxels[x, 3 - y, z] = 0; //opposite vertical
+                    Voxels[x, 3 - y, 15 - z] = 0; //opposite vertical and side
 
-                    Voxels[x, y, z] = 0;
-                    Voxels[x, y, 15 - z] = 0;
-                    Voxels[x, 3 - y, z] = 0;
-                    Voxels[x, 3 - y, 15 - z] = 0;
+                    Voxels[x, z - zo, y + zo] = 0; //rotate 90 degrees clockwise
+                    Voxels[x, z - zo, 15 - y - zo] = 0; //rotate 90 degrees clockwise and opposite vertical
+                    Voxels[x, 3 - z + zo, y + zo] = 0; //rotate 90 degrees clockwise and opposite horizontal
+                    Voxels[x, 3 - z + zo, 15 - y - zo] = 0; //rotate 90 degrees clockwise and opposite horizontal and vertical
 
-                    /*Api.Logger.Event("\nTWO\n" + x + ", " + (z - zo) + ", " + (y + zo) +
-                                     "\n" + x + ", " + (z - zo) + ", " + (15 - y - zo) +
-                                     "\n" + x + ", " + (3 - z + zo) + ", " + (y + zo) +
-                                     "\n" + x + ", " + (3 - z + zo) + ", " + (15 - y - zo));*/
+                    //Voxels[x, 15 - z + zo, 3 - y - zo] = 0; // rotate -90 degrees clockwise //womp womp
+                    //Voxels[x, 15 - z + zo, y + zo] = 0;     // rotate -90 degrees clockwise and opposite vertical
+                    //Voxels[x, z - zo, 3 - y - zo] = 0;      // rotate -90 degrees clockwise and opposite horizontal
+                    //Voxels[x, z - zo, y + zo] = 0;          // rotate -90 degrees clockwise and opposite horizontal and vertical
 
-                    Voxels[x, z - zo, y + zo] = 0;
-                    Voxels[x, z - zo, 15 - y - zo] = 0;
-                    Voxels[x, 3 - z + zo, y + zo] = 0;
-                    Voxels[x, 3 - z + zo, 15 - y - zo] = 0;
+                    //Api.Logger.Event("Split at " + voxelPos.ToString());
+                    //Api.Logger.Event("x-base");
+
                 } catch (IndexOutOfRangeException ie) {
                     Api.Logger.Error("Voxel out of range!");
                 }
@@ -839,6 +846,8 @@ namespace lathemod.src.common {
                 int z = voxelPos.Z;
 
                 try {
+                    Api.Logger.Event("Split at " + voxelPos.ToString());
+
                     if (Voxels[x + 1, y, z] == (int)EnumVoxelMaterial.Metal && Voxels[x - 1, y, z] == (int)EnumVoxelMaterial.Metal ||
                     Voxels[x, y + 1, z] == (int)EnumVoxelMaterial.Metal && Voxels[x, y - 1, z] == (int)EnumVoxelMaterial.Metal) {
                         if (x != 15 && x != 0 && z != 15 && z != 0) {
@@ -851,33 +860,43 @@ namespace lathemod.src.common {
                     if ((y == 1 || y == 2) && (x == 7 || x == 8)) {
                         if (z != 0 && z != 15) {
                             if (Voxels[x, y, z + 1] == (int)EnumVoxelMaterial.Metal && Voxels[x, y, z - 1] == (int)EnumVoxelMaterial.Metal) {
-                                Api.Logger.Event("Can't split work item");
+                                //Api.Logger.Event("Can't split work item");
                                 return;
                             }
                         }
+
                     }
 
-                    //play sound
-
-                    /*Api.Logger.Event("\nONE\n" + (x) + ", " + (y) + ", " + z +
-                                     "\n" + (15 - x) + ", " + y + ", " + z +
-                                     "\n" + (x) + ", " + (3 - y) + ", " + z +
-                                     "\n" + (15 - x) + ", " + (3 - y) + ", " + z);*/
+                    if((x == 6 || x == 9) && (y == 1 || y == 2)) {
+                        if(CheckCornersIntactNS(z)) {
+                            return;
+                        }
+                    }else if ((x == 7 || x == 8) && (y == 3 || y == 0)) {
+                        if (CheckCornersIntactNS(z)) {
+                            return;
+                        }
+                    }
 
                     Voxels[x, y, z] = 0;
                     Voxels[15 - x, y, z] = 0;
                     Voxels[x, 3 - y, z] = 0;
                     Voxels[15 - x, 3 - y, z] = 0;
 
-                    /*Api.Logger.Event("\nTWO\n" + (y + xo) + ", " + (x - xo) + ", " + z +
-                                     "\n" + (15 - y - xo) + ", " + (x - xo) + ", " + z +
-                                     "\n" + (y + xo) + ", " + (3 - x + xo) + ", " + z +
-                                     "\n" + (15 - y - xo) + ", " + (3 - x + xo) + ", " + z);*/
-
                     Voxels[y + xo, x - xo, z] = 0;
                     Voxels[15 - y - xo, x - xo, z] = 0;
                     Voxels[y + xo, 3 - x + xo, z] = 0;
                     Voxels[15 - y - xo, 3 - x + xo, z] = 0;
+
+                    //Api.Logger.Event("z-base");
+                    //Voxels[15 + y - xo, x + xo, z] = 0;
+                    //Voxels[y + xo, x + xo, z] = 0;
+                    //Voxels[15 + y - xo, 3 - x - xo, z] = 0; failures
+                    //Voxels[y + xo, 3 - x - xo, z] = 0;
+
+                    //Voxels[15 - y + xo, x - xo, z] = 0;
+                    //Voxels[y + xo, x - xo, z] = 0;
+                    //Voxels[15 - y + xo, 3 - x + xo, z] = 0;
+                    //Voxels[y + xo, 3 - x + xo, z] = 0;
                 } catch (IndexOutOfRangeException ie) {
                     Api.Logger.Error("Voxel out of range!");
                 }
@@ -887,6 +906,33 @@ namespace lathemod.src.common {
             Api.Logger.Event(voxelPos.ToString());
             //for debug : )
 
+        }
+
+        public bool CheckCornersIntactNS(int z) {
+            if (Voxels[6, 0, z] == 1 || Voxels[9, 3, z] == 1) {
+                Api.Logger.Event("No floating corners");
+                return true;
+            }
+
+            if (Voxels[6, 0, z] == 1 || Voxels[9, 0, z] == 1) {
+                Api.Logger.Event("No floating corners");
+                return true;
+            }
+
+            return false;
+        }
+        public bool CheckCornersIntactWE(int x) {
+            if (Voxels[x, 0, 9] == 1 || Voxels[x, 3, 6] == 1) {
+                Api.Logger.Event("No floating corners");
+                return true;
+            }
+
+            if (Voxels[x, 0, 6] == 1 || Voxels[x, 3, 9] == 1) {
+                Api.Logger.Event("No floating corners");
+                return true;
+            }
+
+            return false;
         }
 
         private bool RotateWorkItem(bool ccw) {

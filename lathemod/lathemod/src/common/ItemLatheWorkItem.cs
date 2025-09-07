@@ -120,7 +120,7 @@ namespace lathemod.src.common {
             MeshData slagVoxOffset = slagVoxelMesh.Clone();
 
             for (int x = 0; x < 32; x++) {
-                for (int y = 0; y < 12; y++) {
+                for (int y = 0; y < 11; y++) {
                     for (int z = 0; z < 32; z++) {
                         EnumVoxelMaterial mat = (EnumVoxelMaterial)voxels[x, y, z];
                         if (mat == EnumVoxelMaterial.Empty) continue;

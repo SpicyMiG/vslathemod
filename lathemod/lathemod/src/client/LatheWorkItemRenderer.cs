@@ -171,7 +171,7 @@ namespace lathemod.src.client {
             //api.Logger.Event("\nX: " + recipeToOutlineVoxels.GetLength(0) + "\nY: " + recipeToOutlineVoxels.GetLength(1) + "\nZ: " + recipeToOutlineVoxels.GetLength(2));
 
             for (int x = 0; x < 32; x++) {
-                for (int y = 0; y < 12; y++) {
+                for (int y = 0; y < 11; y++) {
                     for (int z = 0; z < 32; z++) {
                         bool requireMetalHere = y >= yMax ? false : recipeToOutlineVoxels[x, y, z];
 

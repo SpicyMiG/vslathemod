@@ -71,6 +71,8 @@
 
 	"game:tabname-lathe": "Lathe",
 	"lathemod:enable-tools": "Enable Tools?",
+	"lathemod:enable-spear": "Enable Spear?",
+	"lathemod:enable-blades": "Enable Blades?",
 
 	// Refined Pickaxes
 	"game:item-pickaxe-refined-copper-oak": "Refined copper pickaxe (oak)",

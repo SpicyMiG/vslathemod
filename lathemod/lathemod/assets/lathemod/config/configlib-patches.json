@@ -1,5 +1,5 @@
 {
-    "version": 5,
+    "version": 6,
     "patches": {
         "boolean": {
             "game:itemtypes/tool/refinedaxe-metal.json": {
@@ -9,13 +9,13 @@
                 "enabled": "ENABLE_TOOLS"
             },
             "game:itemtypes/tool/refinedblade.json": {
-                "enabled": "ENABLE_TOOLS"
+                "enabled": "ENABLE_BLADES"
             },
             "game:itemtypes/tool/refinedpickaxe.json": {
                 "enabled": "ENABLE_TOOLS"
             },
             "game:itemtypes/tool/refinedspear.json": {
-                "enabled": "ENABLE_TOOLS"
+                "enabled": "ENABLE_SPEAR"
             },
             "game:itemtypes/tool/refinedscythe.json": {
                 "enabled": "ENABLE_TOOLS"
@@ -24,7 +24,7 @@
                 "0/enabled": "ENABLE_TOOLS"
             },
             "lathemod:recipes/grid/refinedblade.json": {
-                "0-4/enabled": "ENABLE_TOOLS"
+                "0-4/enabled": "ENABLE_BLADES"
             },
             "lathemod:recipes/grid/refinedshovelrecipe.json": {
                 "enabled": "ENABLE_TOOLS"
@@ -36,7 +36,7 @@
                 "enabled": "ENABLE_TOOLS"
             },
             "lathemod:recipes/grid/refinedspearrecipe.json": {
-                "enabled": "ENABLE_TOOLS"
+                "enabled": "ENABLE_SPEAR"
             }
         }
     },
@@ -46,8 +46,22 @@
                 "name": "enable-tools",
                 "ingui": "lathemod:enable-tools",
                 "comment": "Disable the added tools if you don't want them.",
+                "weight": 0.3,
+                "default": true
+            },
+            "ENABLE_BLADES": {
+                "name": "enable-blades",
+                "ingui": "lathemod:enable-blades",
+                "comment": "Disable the added blades if you don't want them.",
+                "weight": 0.4,
+                "default": true
+            },
+            "ENABLE_SPEAR": {
+                "name": "enable-spear",
+                "ingui": "lathemod:enable-spear",
+                "comment": "Disable the added spears if you don't want them.",
                 "weight": 0.5,
-                "default": false
+                "default": true
             }
         }
     }

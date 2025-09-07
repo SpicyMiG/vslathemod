@@ -3,14 +3,14 @@
     "ingredients": {
         "W": {
             "type": "item",
-            "code": "woodturningchisel-*",
+            "code": "lathemod:woodturningchisel-*",
             "isTool": true,
             "toolDurabilityCost": 1
         },
         "P": {
             "type": "item",
             "code": "game:plank-*",
-            "allowedVariants": [ "plank-oak", "plank-maple", "plank-acacia", "plank-baldcypress", "plank-ebony", "plank-walnut", "plank-purpleheart", "plank-pine", "plank-birch", "plank-larch", "plank-redwood" ],
+            "allowedVariants": [ "oak", "maple", "acacia", "plank-baldcypress", "ebony", "walnut", "purpleheart", "pine", "birch", "larch", "redwood" ],
             "name": "wood",
             "quantity": "1"
         }

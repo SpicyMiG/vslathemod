@@ -42,9 +42,9 @@ namespace lathemod.src.common {
         public int selectedRecipeId = -1;
 
         public BlockFacing facing;
-        public byte[,,] Voxels = new byte[16, 6, 16];
+        public byte[,,] Voxels = new byte[32, 12, 32];
         public byte[,,] OrigVoxels = null;
-        float voxYOff = 10 / 16f;
+        float voxYOff = 19 / 32f;
         Cuboidf[] selectionBoxes = new Cuboidf[1];
         public float MeshAngle;
         MeshData currentMesh;
@@ -428,7 +428,7 @@ namespace lathemod.src.common {
             if (SelectedRecipe == null) return;
 
             if (MatchesRecipe() && Api.World is IServerWorldAccessor) {
-                Voxels = new Byte[16, 6, 16];
+                Voxels = new Byte[32, 12, 32];
                 ItemStack outstack = SelectedRecipe.Output.ResolvedItemstack.Clone();
                 workItemStack = null;
 
@@ -482,7 +482,7 @@ namespace lathemod.src.common {
 
         protected void clearWorkSpace() {
             workItemStack = null;
-            Voxels = new byte[16, 6, 16];
+            Voxels = new byte[32, 12, 32];
             RegenMeshAndSelectionBoxes();
             MarkDirty();
             rotation = 0;
@@ -502,7 +502,7 @@ namespace lathemod.src.common {
                     for (int x = 0; x < origVoxels.GetLength(0); x++) {
                         for (int y = 0; y < origVoxels.GetLength(1); y++) {
                             for (int z = 0; z < origVoxels.GetLength(2); z++) {
-                                rotVoxels[z, y, x] = origVoxels[16 - x - 1, y, z];
+                                rotVoxels[z, y, x] = origVoxels[32 - x - 1, y, z];
                             }
                         }
                     }
@@ -515,15 +515,15 @@ namespace lathemod.src.common {
         }
 
         public static byte[,,] deserializeVoxels(byte[] data) {
-            byte[,,] voxels = new byte[16, 6, 16];
+            byte[,,] voxels = new byte[32, 12, 32];
 
-            if (data == null || data.Length < 16 * 6 * 16 / partsPerByte) return voxels;
+            if (data == null || data.Length < 32 * 12 * 32 / partsPerByte) return voxels;
 
             int pos = 0;
 
-            for (int x = 0; x < 16; x++) {
-                for (int y = 0; y < 6; y++) {
-                    for (int z = 0; z < 16; z++) {
+            for (int x = 0; x < 32; x++) {
+                for (int y = 0; y < 12; y++) {
+                    for (int z = 0; z < 32; z++) {
                         int bitpos = bitsPerByte * (pos % partsPerByte);
                         voxels[x, y, z] = (byte)((data[pos / partsPerByte] >> bitpos) & 0x3);
 
@@ -542,13 +542,13 @@ namespace lathemod.src.common {
         private bool MatchesRecipe() {
             if (SelectedRecipe == null) return false;
 
-            int ymax = Math.Min(6, SelectedRecipe.QuantityLayers);
+            int ymax = Math.Min(12, SelectedRecipe.QuantityLayers);
 
             bool[,,] recipeVoxels = this.recipeVoxels; // Otherwise we cause lag spikes
 
-            for (int x = 0; x < 16; x++) {
+            for (int x = 0; x < 32; x++) {
                 for (int y = 0; y < ymax; y++) {
-                    for (int z = 0; z < 16; z++) {
+                    for (int z = 0; z < 32; z++) {
                         byte desiredMat = (byte)(recipeVoxels[x, y, z] ? EnumVoxelMaterial.Metal : EnumVoxelMaterial.Empty);
 
                         if (Voxels[x, y, z] != desiredMat) {
@@ -565,12 +565,12 @@ namespace lathemod.src.common {
         static int partsPerByte = 8 / bitsPerByte;
 
         public static byte[] serializeVoxels(byte[,,] voxels) {
-            byte[] data = new byte[16 * 6 * 16 / partsPerByte];
+            byte[] data = new byte[32 * 12 * 32 / partsPerByte];
             int pos = 0;
 
-            for (int x = 0; x < 16; x++) {
-                for (int y = 0; y < 6; y++) {
-                    for (int z = 0; z < 16; z++) {
+            for (int x = 0; x < 32; x++) {
+                for (int y = 0; y < 12; y++) {
+                    for (int z = 0; z < 32; z++) {
                         int bitpos = bitsPerByte * (pos % partsPerByte);
                         data[pos / partsPerByte] |= (byte)((voxels[x, y, z] & 0x3) << bitpos);
                         pos++;
@@ -691,8 +691,11 @@ namespace lathemod.src.common {
             }
 
             Cuboidf box = selectionBoxes[selectionBoxIndex];
-
-            Vec3i voxelPos = new Vec3i((int)(16 * box.X1), (int)(16 * box.Y1) - 10, (int)(16 * box.Z1));
+            //Api.Logger.Event("selectionBoxIndex: " + selectionBoxIndex);
+            Vec3i voxelPos = new Vec3i(
+                (int)(32 * box.X1),
+                (int)(32 * box.Y1) - 20,
+                (int)(32 * box.Z1));
 
             OnUseOver(byPlayer, voxelPos, new BlockSelection() { Position = Pos, SelectionBoxIndex = selectionBoxIndex });
         }
@@ -760,16 +763,16 @@ namespace lathemod.src.common {
         private void spawnParticles(Vec3i voxelPos, EnumVoxelMaterial voxelMat, IPlayer byPlayer) {
             if (voxelMat == EnumVoxelMaterial.Metal) {
 
-                bigWoodchips.MinPos = Pos.ToVec3d().AddCopy(voxelPos.X / 16f, voxYOff + voxelPos.Y / 16f + 0.0625f, voxelPos.Z / 16f);
-                bigWoodchips.AddPos.Set(1 / 16f, 0, 1 / 16f);
+                bigWoodchips.MinPos = Pos.ToVec3d().AddCopy(voxelPos.X / 32f, voxYOff + voxelPos.Y / 32f + 0.0625f, voxelPos.Z / 32f);
+                bigWoodchips.AddPos.Set(1 / 32f, 0, 1 / 32f);
                 bigWoodchips.VertexFlags = (byte)GameMath.Clamp((int)(80 - 550) / 2, 32, 128);
 
                 Api.World.SpawnParticles(bigWoodchips, byPlayer);
 
 
-                smallWoodchips.MinPos = Pos.ToVec3d().AddCopy(voxelPos.X / 16f, voxYOff + voxelPos.Y / 16f + 0.0625f, voxelPos.Z / 16f);
+                smallWoodchips.MinPos = Pos.ToVec3d().AddCopy(voxelPos.X / 32f, voxYOff + voxelPos.Y / 32f + 0.0625f, voxelPos.Z / 32f);
                 smallWoodchips.VertexFlags = (byte)GameMath.Clamp((int)(80 - 550) / 3, 32, 128);
-                smallWoodchips.AddPos.Set(1 / 16f, 0, 1 / 16f);
+                smallWoodchips.AddPos.Set(1 / 32f, 0, 1 / 32f);
 
                 Api.World.SpawnParticles(smallWoodchips, byPlayer);
             }
@@ -936,15 +939,15 @@ namespace lathemod.src.common {
         }
 
         private bool RotateWorkItem(bool ccw) {
-            byte[,,] rotVoxels = new byte[16, 6, 16];
+            byte[,,] rotVoxels = new byte[32, 12, 32];
 
-            for (int x = 0; x < 16; x++) {
-                for (int y = 0; y < 6; y++) {
-                    for (int z = 0; z < 16; z++) {
+            for (int x = 0; x < 32; x++) {
+                for (int y = 0; y < 12; y++) {
+                    for (int z = 0; z < 32; z++) {
                         if (ccw) {
-                            rotVoxels[z, y, x] = Voxels[x, y, 16 - z - 1];
+                            rotVoxels[z, y, x] = Voxels[x, y, 32 - z - 1];
                         } else {
-                            rotVoxels[z, y, x] = Voxels[16 - x - 1, y, z];
+                            rotVoxels[z, y, x] = Voxels[32 - x - 1, y, z];
                         }
 
                     }
@@ -960,9 +963,9 @@ namespace lathemod.src.common {
             return true;
         }
         bool HasAnyMetalVoxel() {
-            for (int x = 0; x < 16; x++) {
-                for (int y = 0; y < 6; y++) {
-                    for (int z = 0; z < 16; z++) {
+            for (int x = 0; x < 32; x++) {
+                for (int y = 0; y < 12; y++) {
+                    for (int z = 0; z < 32; z++) {
                         if (Voxels[x, y, z] == (byte)EnumVoxelMaterial.Metal) return true;
                     }
                 }
@@ -996,18 +999,25 @@ namespace lathemod.src.common {
             List<Cuboidf> boxes = new List<Cuboidf>();
             boxes.Add(null);
 
-            for (int x = 0; x < 16; x++) {
-                for (int y = 0; y < 6; y++) {
-                    for (int z = 0; z < 16; z++) {
+            for (int x = 0; x < 32; x++) {
+                for (int y = 0; y < 12; y++) {
+                    for (int z = 0; z < 32; z++) {
                         if (Voxels[x, y, z] != (byte)EnumVoxelMaterial.Empty) {
-                            float py = y + 10;
-                            boxes.Add(new Cuboidf(x / 16f, py / 16f, z / 16f, x / 16f + 1 / 16f, py / 16f + 1 / 16f, z / 16f + 1 / 16f));
+                            float py = y + 20;
+                            boxes.Add(new Cuboidf(
+                                x / 32f,
+                                py / 32f,
+                                z / 32f,
+                                x / 32f + 1 / 32f,
+                                py / 32f + 1 / 32f,
+                                z / 32f + 1 / 32f));
                         }
                     }
                 }
             }
 
             selectionBoxes = boxes.ToArray();
+            //Api.Logger.Debug("RegenMeshAndSelectionBoxes: " + selectionBoxes.Length + " boxes of " + counter);
             //throw new NotImplementedException();
         }
 

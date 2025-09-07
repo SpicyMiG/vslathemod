@@ -44,11 +44,15 @@ namespace lathemod.src.common {
         ///}
         /// </code></example>
         [DocumentAsJson]
-        public override int QuantityLayers => 6;
+        public override int QuantityLayers => 12;
         protected override bool RotateRecipe => false;
         //public bool[,,] LatheVoxels = new bool[16, 6, 16];
 
         public override string RecipeCategoryCode => "turning";
+
+        public LatheRecipe() {
+            Voxels = new bool[32, QuantityLayers, 32];
+        }
 
         public override LatheRecipe Clone() {
             LatheRecipe recipe = new LatheRecipe();
@@ -87,8 +91,8 @@ namespace lathemod.src.common {
             int length = Pattern[0][0].Length;
             int num = Pattern[0].Length;
             int num2 = Pattern.Length;
-            if (num > 16 || num2 > QuantityLayers || length > 16) {
-                throw new Exception(string.Format("Invalid {1} recipe {0}! Either Width or length is beyond 16 voxels or height is beyond {2} voxels", base.Name, RecipeCategoryCode, QuantityLayers));
+            if (num > 32 || num2 > QuantityLayers || length > 32) {
+                throw new Exception(string.Format("Invalid {1} recipe {0}! Either Width or length is beyond 32 voxels or height is beyond {2} voxels", base.Name, RecipeCategoryCode, QuantityLayers));
             }
 
             for (int i = 0; i < Pattern.Length; i++) {
@@ -104,11 +108,11 @@ namespace lathemod.src.common {
             }
             int kOffset = 0;
 
-            int num3 = (16 - num) / 2;
-            int num4 = (16 - length) / 2;
-            for (int k = 0; k < Math.Min(num, 16); k++) {
+            int num3 = (32 - num) / 2;
+            int num4 = (32 - length) / 2;
+            for (int k = 0; k < Math.Min(num, 32); k++) {
                 for (int l = 0; l < Math.Min(num2, QuantityLayers); l++) {
-                    for (int m = 0; m < Math.Min(length, 16); m++) {
+                    for (int m = 0; m < Math.Min(length, 32); m++) {
                         if (RotateRecipe) {
                             Voxels[m + num4, l, k + num3 + kOffset] = Pattern[l][k][m] != '_' && Pattern[l][k][m] != ' ';
                         } else {

@@ -13,7 +13,7 @@
         }
     ],
     "attributes": {
-        "blanklength": 5
+        "blanklength": 10
     },
     "texture": {
         "base": "game:block/wood/debarked/{wood}",

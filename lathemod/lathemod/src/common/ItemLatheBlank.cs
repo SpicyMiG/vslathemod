@@ -42,7 +42,7 @@ namespace lathemod.src.common {
                 //api.Logger.Event("blanklength: " + length);
             } else {
                 api.Logger.Error("no blankLength attribute found!");
-                length = 10;
+                length = 20;
             }
 
             if (be.WorkItemStack == null) {
@@ -62,34 +62,33 @@ namespace lathemod.src.common {
             return workItemStack;
         }
 
-        public static void CreateVoxelsFromBlank(ICoreAPI api, ref byte[,,] voxels, int length = 10) {
-            voxels = new byte[16, 6, 16];
-            int startX = 9 - (length - 1);
+        public static void CreateVoxelsFromBlank(ICoreAPI api, ref byte[,,] voxels, int length = 20) {
+            voxels = new byte[32, 12, 32];
+            int startX = 19 - (length - 1);
 
-            for (int x = 0; x < length; x++) {
-                for (int y = 0; y < 4; y++) {
-                    for (int z = 0; z < 4; z++) {
-                        voxels[startX + x, y, 6 + z] = (byte)EnumVoxelMaterial.Metal;
+            for (int x = 0; x < length - 1; x++) {
+                for (int y = 0; y < 9; y++) {
+                    for (int z = 0; z < 9; z++) {
+                        voxels[startX + x, y, 11 + z] = (byte)EnumVoxelMaterial.Metal;
                     }
                 }
             }
-            //TODO: wide blanks (6x6 ideally to fit flowerpot)
 
-            voxels[10, 1, 7] = (byte)EnumVoxelMaterial.Metal;
-            voxels[10, 1, 8] = (byte)EnumVoxelMaterial.Metal;
-            voxels[10, 2, 7] = (byte)EnumVoxelMaterial.Metal;
-            voxels[10, 2, 8] = (byte)EnumVoxelMaterial.Metal;
+            voxels[20, 1, 15] = (byte)EnumVoxelMaterial.Metal;
+            voxels[20, 1, 16] = (byte)EnumVoxelMaterial.Metal;
+            voxels[20, 2, 15] = (byte)EnumVoxelMaterial.Metal;
+            voxels[20, 2, 16] = (byte)EnumVoxelMaterial.Metal;
         }
 
         public static int AddVoxelsFromBlank(ref byte[,,] voxels, int length) {
             int totalAdded = 0;
-            for (int x = 0; x < length; x++) {
-                for (int z = 0; z < 3; z++) {
+            for (int x = 0; x < length - 1; x++) {
+                for (int z = 0; z < 12; z++) {
                     int y = 0;
                     int added = 0;
                     while (y < 6 && added < 2) {
-                        if (voxels[4 + x, y, 6 + z] == (byte)EnumVoxelMaterial.Empty) {
-                            voxels[4 + x, y, 6 + z] = (byte)EnumVoxelMaterial.Metal;
+                        if (voxels[9 + x, y, 12 + z] == (byte)EnumVoxelMaterial.Empty) {
+                            voxels[9 + x, y, 12 + z] = (byte)EnumVoxelMaterial.Metal;
                             added++;
                             totalAdded++;
                         }

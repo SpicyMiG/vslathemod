@@ -19,8 +19,8 @@ namespace lathemod.src.common {
             if (!itemstack.Attributes.HasAttribute("voxels")) {
                 CachedMeshRef ccmr = ObjectCacheUtil.GetOrCreate(capi, "clearLatheWorkItem" + Variant["wood"], () => {
                     int textureid;
-                    byte[,,] voxels = new byte[16, 6, 16];
-                    int length = 10;
+                    byte[,,] voxels = new byte[32, 12, 32];
+                    int length = 20;
 
                     if (itemstack.Attributes.HasAttribute("blanklength")) length = itemstack.Attributes.GetAsInt("blankLength");
                     //api.Logger.Event("LatheWorkItem: " + length);
@@ -68,7 +68,7 @@ namespace lathemod.src.common {
             textureId = 0;
             if (workitemStack == null) return null;
 
-            MeshData workItemMesh = new MeshData(24, 36, false, true);
+            MeshData workItemMesh = new MeshData(96, 144, false, true);
             workItemMesh.CustomBytes = new CustomMeshDataPartByte() {
                 Conversion = DataConversion.NormalizedFloat,
                 Count = workItemMesh.VerticesCount,
@@ -84,7 +84,10 @@ namespace lathemod.src.common {
             tposWood = capi.BlockTextureAtlas.GetPosition(capi.World.GetBlock(new AssetLocation("lathemod:woodtex")), workitemStack.Collectible.Variant["wood"]);
             tposSlag = tposWood;
 
-            MeshData woodVoxelMesh = CubeMeshUtil.GetCubeOnlyScaleXyz(1 / 32f, 1 / 32f, new Vec3f(1 / 32f, 1 / 32f, 1 / 32f));
+            MeshData woodVoxelMesh = CubeMeshUtil.GetCubeOnlyScaleXyz(
+                1 / 32f,
+                1 / 32f,
+                new Vec3f(1 / 32f, 1 / 32f, 1 / 32f));
             CubeMeshUtil.SetXyzFacesAndPacketNormals(woodVoxelMesh);
             woodVoxelMesh.CustomBytes = new CustomMeshDataPartByte() {
                 Conversion = DataConversion.NormalizedFloat,
@@ -116,15 +119,15 @@ namespace lathemod.src.common {
             MeshData metVoxOffset = woodVoxelMesh.Clone();
             MeshData slagVoxOffset = slagVoxelMesh.Clone();
 
-            for (int x = 0; x < 16; x++) {
-                for (int y = 0; y < 6; y++) {
-                    for (int z = 0; z < 16; z++) {
+            for (int x = 0; x < 32; x++) {
+                for (int y = 0; y < 12; y++) {
+                    for (int z = 0; z < 32; z++) {
                         EnumVoxelMaterial mat = (EnumVoxelMaterial)voxels[x, y, z];
                         if (mat == EnumVoxelMaterial.Empty) continue;
 
-                        float px = x / 16f;
-                        float py = 10 / 16f + y / 16f;
-                        float pz = z / 16f;
+                        float px = x / 32f;
+                        float py = 19 / 32f + y / 32f;
+                        float pz = z / 32f;
 
                         MeshData mesh = mat == EnumVoxelMaterial.Metal ? woodVoxelMesh : slagVoxelMesh;
                         MeshData meshVoxOffset = mat == EnumVoxelMaterial.Metal ? metVoxOffset : slagVoxOffset;

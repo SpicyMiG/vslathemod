@@ -6,7 +6,7 @@
         "SpicyMiG"
     ],
     "description": "Adds a lathe and various recipes for it. ",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "dependencies": {
         "game": ""
     }

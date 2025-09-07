@@ -23,10 +23,10 @@ namespace lathemod.src.common {
 
             if (api is ICoreClientAPI capi) {
                 toolModes = ObjectCacheUtil.GetOrCreate(api, "woodturningChiselModes", () => {
-                    SkillItem[] modes = new SkillItem[1];
+                    SkillItem[] modes = new SkillItem[2];
 
                     modes[0] = new SkillItem() { Code = new AssetLocation("flat"), Name = Lang.Get("Single") }.WithIcon(capi, DrawHit);
-                    //modes[1] = new SkillItem() { Code = new AssetLocation("debugmode"), Name = Lang.Get("Debug Mode") }.WithIcon(capi, DrawHit);
+                    modes[1] = new SkillItem() { Code = new AssetLocation("debugmode"), Name = Lang.Get("Debug Mode") }.WithIcon(capi, DrawHit);
                     //modes[2] = new SkillItem() { Code = new AssetLocation("gouge"), Name = Lang.Get("Gouging") }.WithIcon(capi, DrawHit);
 
                     return modes;

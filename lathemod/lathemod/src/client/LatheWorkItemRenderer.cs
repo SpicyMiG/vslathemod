@@ -102,71 +102,6 @@ namespace lathemod.src.client {
 
             prog.UniformMatrix("modelMatrix", rpi.CurrentModelviewMatrix);
             prog.Stop();
-            
-
-            /*IStandardShaderProgram prog = rpi.PreparedStandardShader(pos.X, pos.Y, pos.Z);
-            prog.Tex2D = api.BlockTextureAtlas.AtlasTextures[0].TextureId;
-            switch (beLathe.degRot) {
-                case 0: //north
-                    prog.ModelMatrix = ModelMat
-                        .Identity()
-                        .Translate(pos.X - camPos.X, pos.Y - camPos.Y, pos.Z - camPos.Z)
-                        .Translate(0.5f, 12f / 16f, 12 / 16f)
-                        .RotateZ(-AngleRad)
-                        .Translate(-2 / 16f, -2 / 16f, -0.5f)
-                        .Values;
-                    break;
-                case 270: //east
-                    prog.ModelMatrix = ModelMat
-                        .Identity()
-                        .Translate(pos.X - camPos.X, pos.Y - camPos.Y, pos.Z - camPos.Z)
-                        .Translate(0.5f, 12f / 16f, 8 / 16f)
-                        .RotateX(-AngleRad)
-                        .RotateY((float)Math.PI * 2)
-                        .Translate(-12 / 16f, -2 / 16f, -2 / 16f)
-                        .Values;
-                    break;
-
-                case 180: //south
-                    prog.ModelMatrix = ModelMat
-                        .Identity()
-                        .Translate(pos.X - camPos.X, pos.Y - camPos.Y, pos.Z - camPos.Z)
-                        .Translate(8 / 16f, 12f / 16f, 4 / 16f)
-                        .RotateZ(-AngleRad)
-                        .Translate(-14 / 16f, -2 / 16f, -0.5f)
-                        .Values;
-                    break;
-
-                case 90: //west
-                    prog.ModelMatrix = ModelMat
-                        .Identity()
-                        .Translate(pos.X - camPos.X, pos.Y - camPos.Y, pos.Z - camPos.Z)
-                        .Translate(12 / 16f, 12f / 16f, 8 / 16f)
-                        .RotateY(-(float)Math.PI / 2)
-                        .RotateZ(AngleRad)
-                        .Translate(-14 / 16f, -2 / 16f, -0.5f)
-                        .Values;
-                    break;
-
-                default:
-                    prog.ModelMatrix = ModelMat
-                        .Identity()
-                        .Translate(pos.X - camPos.X, pos.Y - camPos.Y, pos.Z - camPos.Z)
-                        .Translate(0.5f, 12f / 16f, 12 / 16f)
-                        .RotateZ(AngleRad)
-                        .Translate(-2 / 16f, -2 / 16f, -0.5f)
-                        .Values;
-                    break;
-            }
-
-            prog.ViewMatrix = rpi.CameraMatrixOriginf;
-            prog.ProjectionMatrix = rpi.CurrentProjectionMatrix;
-            rpi.RenderMesh(workItemMeshRef);
-            prog.Stop();
-
-            if (ShouldRotateAutomated) {
-                AngleRad = mechPowerPart.AngleRad;
-            }*/
         }
 
         private void RenderRecipeOutLine() {
@@ -235,9 +170,9 @@ namespace lathemod.src.client {
             int yMax = recipeToOutlineVoxels.GetLength(1);
             //api.Logger.Event("\nX: " + recipeToOutlineVoxels.GetLength(0) + "\nY: " + recipeToOutlineVoxels.GetLength(1) + "\nZ: " + recipeToOutlineVoxels.GetLength(2));
 
-            for (int x = 0; x < 16; x++) {
-                for (int y = 0; y < 6; y++) {
-                    for (int z = 0; z < 16; z++) {
+            for (int x = 0; x < 32; x++) {
+                for (int y = 0; y < 12; y++) {
+                    for (int z = 0; z < 32; z++) {
                         bool requireMetalHere = y >= yMax ? false : recipeToOutlineVoxels[x, y, z];
 
                         EnumVoxelMaterial mat = (EnumVoxelMaterial)voxels[x, y, z];
@@ -245,9 +180,9 @@ namespace lathemod.src.client {
                         if (requireMetalHere && mat == EnumVoxelMaterial.Metal) continue;
                         if (!requireMetalHere && mat == EnumVoxelMaterial.Empty) continue;
 
-                        float px = x / 16f;
-                        float py = 10 / 16f + y / 16f;
-                        float pz = z / 16f;
+                        float px = x / 32f;
+                        float py = 19 / 32f + y / 32f;
+                        float pz = z / 32f;
 
                         for (int i = 0; i < greenVoxelMesh.xyz.Length; i += 3) {
                             voxelMeshOffset.xyz[i] = px + greenVoxelMesh.xyz[i];

@@ -12,7 +12,7 @@ using Vintagestory.GameContent;
 namespace lathemod.src.common {
     public class LatheRecipe : LayeredVoxelRecipe<LatheRecipe>, IByteSerializable {
         /// <summary>
-        /// Defines a turning recipe, to be created on a lathe. Uses a total of 6 layers, and gets its properties from <see cref="LayeredVoxelRecipe{T}"/>.
+        /// Defines a turning recipe, to be created on a lathe. Uses a total of 12 layers, and gets its properties from <see cref="LayeredVoxelRecipe{T}"/>.
         /// </summary>
         /// <example><code language="json">
         ///{

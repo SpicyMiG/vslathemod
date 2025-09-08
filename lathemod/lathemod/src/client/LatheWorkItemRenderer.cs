@@ -171,7 +171,7 @@ namespace lathemod.src.client {
             //api.Logger.Event("\nX: " + recipeToOutlineVoxels.GetLength(0) + "\nY: " + recipeToOutlineVoxels.GetLength(1) + "\nZ: " + recipeToOutlineVoxels.GetLength(2));
 
             for (int x = 0; x < 32; x++) {
-                for (int y = 0; y < 11; y++) {
+                for (int y = 0; y < yMax; y++) {
                     for (int z = 0; z < 32; z++) {
                         bool requireMetalHere = y >= yMax ? false : recipeToOutlineVoxels[x, y, z];
 
@@ -181,7 +181,7 @@ namespace lathemod.src.client {
                         if (!requireMetalHere && mat == EnumVoxelMaterial.Empty) continue;
 
                         float px = x / 32f;
-                        float py = 19 / 32f + y / 32f;
+                        float py = 20 / 32f + y / 32f;
                         float pz = z / 32f;
 
                         for (int i = 0; i < greenVoxelMesh.xyz.Length; i += 3) {

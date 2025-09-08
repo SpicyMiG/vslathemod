@@ -44,7 +44,7 @@ namespace lathemod.src.common {
         public BlockFacing facing;
         public byte[,,] Voxels = new byte[32, 12, 32];
         public byte[,,] OrigVoxels = null;
-        float voxYOff = 19 / 32f;
+        float voxYOff = 20 / 32f;
         Cuboidf[] selectionBoxes = new Cuboidf[1];
         public float MeshAngle;
         MeshData currentMesh;
@@ -522,7 +522,7 @@ namespace lathemod.src.common {
             int pos = 0;
 
             for (int x = 0; x < 32; x++) {
-                for (int y = 0; y < 11; y++) {
+                for (int y = 0; y < 12; y++) {
                     for (int z = 0; z < 32; z++) {
                         int bitpos = bitsPerByte * (pos % partsPerByte);
                         voxels[x, y, z] = (byte)((data[pos / partsPerByte] >> bitpos) & 0x3);
@@ -569,7 +569,7 @@ namespace lathemod.src.common {
             int pos = 0;
 
             for (int x = 0; x < 32; x++) {
-                for (int y = 0; y < 11; y++) {
+                for (int y = 0; y < 12; y++) {
                     for (int z = 0; z < 32; z++) {
                         int bitpos = bitsPerByte * (pos % partsPerByte);
                         data[pos / partsPerByte] |= (byte)((voxels[x, y, z] & 0x3) << bitpos);
@@ -685,16 +685,16 @@ namespace lathemod.src.common {
 
         internal void OnUseOver(IPlayer byPlayer, int selectionBoxIndex) {
             // box index 0 is the lathe itself
-            if (selectionBoxIndex <= 0 || selectionBoxIndex >= selectionBoxes.Length) {
+            /*if (selectionBoxIndex <= 0 || selectionBoxIndex >= selectionBoxes.Length) {
                 //Api.Logger.Event("selectionBoxIndex <= 0 || selectionBoxIndex >= selectionBoxes.Length");
                 return;
-            }
+            }*/
 
             Cuboidf box = selectionBoxes[selectionBoxIndex];
             //Api.Logger.Event("selectionBoxIndex: " + selectionBoxIndex);
             Vec3i voxelPos = new Vec3i(
                 (int)(32 * box.X1),
-                (int)(32 * box.Y1) - 20,
+                (int)(32 * box.Y1) - 19,
                 (int)(32 * box.Z1));
 
             OnUseOver(byPlayer, voxelPos, new BlockSelection() { Position = Pos, SelectionBoxIndex = selectionBoxIndex });
@@ -942,7 +942,7 @@ namespace lathemod.src.common {
             byte[,,] rotVoxels = new byte[32, 12, 32];
 
             for (int x = 0; x < 32; x++) {
-                for (int y = 0; y < 11; y++) {
+                for (int y = 0; y < 12; y++) {
                     for (int z = 0; z < 32; z++) {
                         if (ccw) {
                             rotVoxels[z, y, x] = Voxels[x, y, 32 - z - 1];
@@ -964,7 +964,7 @@ namespace lathemod.src.common {
         }
         bool HasAnyMetalVoxel() {
             for (int x = 0; x < 32; x++) {
-                for (int y = 0; y < 11; y++) {
+                for (int y = 0; y < 12; y++) {
                     for (int z = 0; z < 32; z++) {
                         if (Voxels[x, y, z] == (byte)EnumVoxelMaterial.Metal) return true;
                     }
@@ -1000,7 +1000,7 @@ namespace lathemod.src.common {
             boxes.Add(null);
 
             for (int x = 0; x < 32; x++) {
-                for (int y = 0; y < 11; y++) {
+                for (int y = 0; y < 12; y++) {
                     for (int z = 0; z < 32; z++) {
                         if (Voxels[x, y, z] != (byte)EnumVoxelMaterial.Empty) {
                             float py = y + 20;

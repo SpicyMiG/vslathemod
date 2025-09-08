@@ -68,7 +68,7 @@ namespace lathemod.src.common {
             textureId = 0;
             if (workitemStack == null) return null;
 
-            MeshData workItemMesh = new MeshData(96, 144, false, true);
+            MeshData workItemMesh = new MeshData(24, 36, false, true);
             workItemMesh.CustomBytes = new CustomMeshDataPartByte() {
                 Conversion = DataConversion.NormalizedFloat,
                 Count = workItemMesh.VerticesCount,
@@ -85,9 +85,9 @@ namespace lathemod.src.common {
             tposSlag = tposWood;
 
             MeshData woodVoxelMesh = CubeMeshUtil.GetCubeOnlyScaleXyz(
-                1 / 32f,
-                1 / 32f,
-                new Vec3f(1 / 32f, 1 / 32f, 1 / 32f));
+                1 / 64f,
+                1 / 64f,
+                new Vec3f(1 / 64f, 1 / 64f, 1 / 64f));
             CubeMeshUtil.SetXyzFacesAndPacketNormals(woodVoxelMesh);
             woodVoxelMesh.CustomBytes = new CustomMeshDataPartByte() {
                 Conversion = DataConversion.NormalizedFloat,
@@ -120,13 +120,13 @@ namespace lathemod.src.common {
             MeshData slagVoxOffset = slagVoxelMesh.Clone();
 
             for (int x = 0; x < 32; x++) {
-                for (int y = 0; y < 11; y++) {
+                for (int y = 0; y < 12; y++) {
                     for (int z = 0; z < 32; z++) {
                         EnumVoxelMaterial mat = (EnumVoxelMaterial)voxels[x, y, z];
                         if (mat == EnumVoxelMaterial.Empty) continue;
 
                         float px = x / 32f;
-                        float py = 19 / 32f + y / 32f;
+                        float py = 20 / 32f + y / 32f; // py = 19
                         float pz = z / 32f;
 
                         MeshData mesh = mat == EnumVoxelMaterial.Metal ? woodVoxelMesh : slagVoxelMesh;
@@ -150,7 +150,7 @@ namespace lathemod.src.common {
                         }
 
                         for (int i = 0; i < meshVoxOffset.CustomBytes.Values.Length; i++) {
-                            byte glowSub = (byte)GameMath.Clamp(10 * (Math.Abs(x - 8) + Math.Abs(z - 8) + Math.Abs(y - 2)), 100, 250);
+                            byte glowSub = (byte)GameMath.Clamp(10 * (Math.Abs(x - 16) + Math.Abs(z - 16) + Math.Abs(y - 4)), 100, 250);
                             meshVoxOffset.CustomBytes.Values[i] = (mat == EnumVoxelMaterial.Metal) ? (byte)0 : glowSub;
                         }
 

@@ -64,20 +64,20 @@ namespace lathemod.src.common {
 
         public static void CreateVoxelsFromBlank(ICoreAPI api, ref byte[,,] voxels, int length = 20) {
             voxels = new byte[32, 12, 32];
-            int startX = 19 - (length - 1);
+            int startX = 20 - (length - 1);
 
             for (int x = 0; x < length - 1; x++) {
-                for (int y = 0; y < 9; y++) {
-                    for (int z = 0; z < 9; z++) {
+                for (int y = 0; y < 10; y++) {
+                    for (int z = 0; z < 10; z++) {
                         voxels[startX + x, y, 11 + z] = (byte)EnumVoxelMaterial.Metal;
                     }
                 }
             }
 
-            voxels[20, 1, 15] = (byte)EnumVoxelMaterial.Metal;
-            voxels[20, 1, 16] = (byte)EnumVoxelMaterial.Metal;
-            voxels[20, 2, 15] = (byte)EnumVoxelMaterial.Metal;
-            voxels[20, 2, 16] = (byte)EnumVoxelMaterial.Metal;
+            //voxels[20, 1, 15] = (byte)EnumVoxelMaterial.Metal;
+            //voxels[20, 1, 16] = (byte)EnumVoxelMaterial.Metal;
+            //voxels[20, 2, 15] = (byte)EnumVoxelMaterial.Metal;
+            //voxels[20, 2, 16] = (byte)EnumVoxelMaterial.Metal;
         }
 
         public static int AddVoxelsFromBlank(ref byte[,,] voxels, int length) {
